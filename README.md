@@ -31,6 +31,10 @@ B8X is built for the **Smart Money Era: Build the Era** hackathon.
 
 Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
 
+Submissions close on **9 September 2026 at UTC+0**.
+
+The official page lists a **$30,000 main-track prize**, independent partner bounties, **1,000 CAKE from PancakeSwap**, and official adoption for the winning BNB Agent Studio marketplace.
+
 The main track asks for an agent marketplace where users can find agents, understand what they do and activate them with minimal friction. B8X focuses on that complete flow:
 
 1. Land on the marketplace.
@@ -48,15 +52,17 @@ The interface treats all four required categories as first-class:
 
 The partner tracks are also reflected in the product:
 
-- **TermiX:** the page includes an Agent Advantage Report with time, cost and output quality comparisons.
-- **Altana:** the control panel shows the scoped-session model: allowlist, spend cap, expiry, session state and revocation.
+- **TermiX:** the page includes an Agent Advantage Report with time, cost and output quality comparisons. The TermiX track awards $6,000 / $3,000 / $1,000 and requires this report.
+- **Altana:** the control panel shows the scoped-session model: allowlist, spend cap, expiry, session state and revocation. Do not claim Altana eligibility until live explorer transactions are attached.
 - **PancakeSwap:** grid trading and rebalancing records are framed around PancakeSwap-style trading and liquidity workflows.
 
 More detail is in:
 
+- [`docs/HACKATHON_SUBMISSION.md`](docs/HACKATHON_SUBMISSION.md)
 - [`docs/JUDGING_ALIGNMENT.md`](docs/JUDGING_ALIGNMENT.md)
 - [`docs/AGENT_ADVANTAGE_REPORT.md`](docs/AGENT_ADVANTAGE_REPORT.md)
 - [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md)
+- [`docs/SOURCES.md`](docs/SOURCES.md)
 
 ## Current Build
 
@@ -78,13 +84,15 @@ vercel --prod
 
 The current register uses verifier-shaped demo records in `const AGENTS` inside `index.html`.
 
-Before final judging, replace those records with live verifier output from BSC. Keep the same fields:
+Before final submission, replace those records with live verifier output from BSC. The official eligibility rules say agents surfaced on the marketplace must be live on BSC. Keep the same fields:
 
 ```txt
 name, cat, live, pnl, pnlN, win, dd, ddN, risk, fills, window, venue, curve, detail
 ```
 
 Do not hide weak or invalid records. B8X is more credible when the register shows what was filtered and why.
+
+The current build does not claim a live x402/B402 implementation. Add those claims only after wiring the SDK or payment rail and attaching explorer evidence.
 
 ## Final Submission Notes
 
@@ -96,5 +104,6 @@ For the hackathon submission form, attach:
 - Transaction links for any claimed live agent activity
 - Agent Advantage Report evidence
 - Short demo video or screenshots of the user flow
+- Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
 
 If `b8xmarket.xyz` is connected before submission, update GitHub homepage and keep the existing canonical/OG metadata pointed at that domain.

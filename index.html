@@ -163,7 +163,7 @@ const PAYLOADS = {
   discover:'GET /registry/agents?verified=true&category=grid\n\n{\n  "source": "ERC-8004 registry · BSC",\n  "returned": 2,\n  "fields": ["pnl","max_dd","win_rate","risk","fills"],\n  "self_reported": false\n}',
   assay:'GET /agents/grid-01/record?window=30d\n\n{\n  "realized_pnl": "+1240.00 USDT",\n  "max_drawdown": "-310.00 USDT",\n  "win_rate": 0.64,\n  "risk_ratio": 0.20,\n  "fills": 88,\n  "reconstructed_from": "swap events"\n}',
   hire:'POST /hire   (ERC-8183)\n\n{\n  "agent": "grid-01",\n  "session": {\n    "spend_cap": "2500 USDT",\n    "expires_in": "24h",\n    "calls": ["swap","approve","quote"]\n  },\n  "registered_in": "keystore",\n  "revocable": "anytime, one tx"\n}',
-  settle:'POST /settle   (x402)\n\n{\n  "period": "2026-08-01 to 2026-08-31",\n  "realized_pnl": "+612.40 USDT",\n  "performance_fee": "122.48 USDT (20%)",\n  "charged_on": "realized pnl only",\n  "paid": "per period, automatic"\n}'
+  settle:'POST /settle\n\n{\n  "period": "2026-08-01 to 2026-08-31",\n  "realized_pnl": "+612.40 USDT",\n  "performance_fee": "122.48 USDT (20%)",\n  "charged_on": "realized pnl only",\n  "paid": "per period, automatic"\n}'
 };
 
 </script>
@@ -364,7 +364,7 @@ const PAYLOADS = {
     const steps=[["discover",1],["assay",2],["hire",3],["settle",4]].map(([id,n])=>{const on=S.step===id;return `<button data-step="${id}" style="text-align:left;padding:15px;cursor:pointer;background:${on?'#F0B90B':'#14171C'};border:1px solid ${on?'#F0B90B':'#23262D'};color:${on?'#0B0E11':'#9CA0A9'};transition:background .18s ease"><div class="mono" style="font-size:10px;letter-spacing:.16em;opacity:.7">STEP ${n}</div><div class="mono" style="font-size:15px;margin-top:6px">${id}</div></button>`;}).join("");
     const log=ss.revoked?"keystore · authority removed at block "+S.block.toLocaleString("en-US")+" · one transaction, effective immediately":"keystore · session key registered on-chain · spend cap and expiry enforced by the wallet, not by us";
     return `<section id="control" tabindex="-1" aria-labelledby="control-title" style="background:#0B0E11;color:#F8F8F6;padding:64px 44px" class="pad">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:8px"><h2 id="control-title" style="font-weight:700;font-size:40px;letter-spacing:-.035em;margin:0">Hired, not handed the keys</h2><span class="mono reg-hide" style="font-size:11px;letter-spacing:.14em;color:#8B8F98">SCOPED SESSION · ERC-8183 · x402</span></div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:8px"><h2 id="control-title" style="font-weight:700;font-size:40px;letter-spacing:-.035em;margin:0">Hired, not handed the keys</h2><span class="mono reg-hide" style="font-size:11px;letter-spacing:.14em;color:#8B8F98">SCOPED SESSION · ERC-8183 · BSC</span></div>
       <p style="color:#9CA0A9;font-size:17px;max-width:66ch;margin:0 0 32px">Every hire opens a session with a call allowlist, a spend cap and an expiry, registered on-chain. The agent holds its own wallet; you hold the grant, and revocation is one transaction.</p>
       <div class="two" style="display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:start">
         <div style="border:1px solid #23262D;background:#14171C;padding:24px">
@@ -395,7 +395,7 @@ const PAYLOADS = {
       .map(([k,v])=>`<div style="display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(11,14,17,.2)"><span class="mono" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase">${k}</span><span class="mono" style="font-size:18px">${v}</span></div>`).join("");
     return `<section aria-labelledby="fee-title" style="background:#F8F8F6;color:#0B0E11;padding:64px 44px" class="pad">
       <h2 id="fee-title" style="font-weight:700;font-size:40px;letter-spacing:-.035em;margin:0 0 8px">Size the fee before you hire</h2>
-      <p style="color:#5B6068;font-size:17px;max-width:60ch;margin:0 0 30px">Drag to your capital. Settlement runs over x402 and the performance fee is charged on realized PnL only, never on the balance.</p>
+      <p style="color:#5B6068;font-size:17px;max-width:60ch;margin:0 0 30px">Drag to your capital. The performance fee is charged on realized PnL only, never on the balance.</p>
       <div class="two" style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center">
         <div>
           <div class="mono" style="display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;color:#8B8F98;margin-bottom:12px"><span>CAPITAL DEPLOYED</span><span style="color:#0B0E11;font-size:16px">${money(S.cap)}</span></div>
@@ -417,7 +417,7 @@ const PAYLOADS = {
     <footer role="contentinfo" class="pad" style="background:#0B0E11;color:#5B5F67;border-top:1px solid #23262D;padding:26px 44px 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;${MONO};font-size:11.5px;letter-spacing:.1em">
       <span style="color:#F0B90B">b8xmarket.xyz</span>
       <span style="display:flex;align-items:center;gap:14px" class="reg-hide">BUILT FOR THE SMART MONEY ERA · 5 AUG - 9 SEP 2026 <img src="${IMG_LOGO_WHITE}" alt="BNB Chain" style="height:15px;opacity:.75"></span>
-      <span>ERC-8004 · ERC-8183 · x402</span>
+      <span>ERC-8004 · ERC-8183 · BSC</span>
     </footer>`;
   }
 

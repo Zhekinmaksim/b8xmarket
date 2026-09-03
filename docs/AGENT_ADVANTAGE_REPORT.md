@@ -4,6 +4,8 @@ TermiX asks for a simple proof: does hiring an agent beat doing the task manuall
 
 B8X includes this report in the product because it should not live in a separate slide deck. A user should see the advantage before hiring.
 
+Current status: the numbers below are the demo report format. Treat them as placeholders until each row is backed by raw agent output, manual baseline notes and transaction evidence.
+
 ## Summary
 
 The report compares three tasks run two ways:
@@ -36,7 +38,7 @@ Manual path:
 - User places and adjusts orders by hand.
 - User reconstructs fills after execution.
 
-Reported comparison in the demo:
+Demo comparison:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
@@ -69,7 +71,7 @@ Manual path:
 - User calculates whether the rebalance is worth gas and fees.
 - User executes trades manually.
 
-Reported comparison in the demo:
+Demo comparison:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
@@ -102,7 +104,7 @@ Manual path:
 - User decides whether to add collateral or reduce debt.
 - User acts under time pressure when the position moves.
 
-Reported comparison in the demo:
+Demo comparison:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
@@ -130,6 +132,8 @@ For final submission, use the same scoring rubric for all three tasks:
 - 15 points: output is easy for a user to verify
 
 Do not score a task from vibes. Attach the output and show why the score is deserved.
+
+If a number cannot be traced to raw output, remove it from the final submission or mark it as demo data.
 
 ## Final Evidence Checklist
 

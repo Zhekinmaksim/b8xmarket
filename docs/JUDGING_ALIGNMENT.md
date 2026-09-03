@@ -4,11 +4,15 @@ This document maps B8X to the Smart Money Era hackathon criteria.
 
 Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
 
+Submission deadline: **9 September 2026, UTC+0**.
+
 ## Main Track
 
 The main track asks for the BNB Agent Studio marketplace: a place where users can find agents, understand what they do and activate them in a few clicks.
 
-B8X is built around that flow.
+The official page lists the main-track reward as **$30,000 equivalent plus official adoption as the BNB Agent Studio marketplace**.
+
+B8X is built around that flow, but final eligibility still depends on replacing demo data with live BSC agents.
 
 ## Functionality
 
@@ -40,7 +44,7 @@ Each live listing is shaped around fields a user can act on:
 
 The register also shows filtered agents. If an agent has an empty registration or a dead endpoint, it stays visible as filtered. That keeps the marketplace honest and makes the quality bar visible.
 
-Current status: the deployed demo uses verifier-shaped records. For final judging, these should be replaced with live BSC verifier output and transaction links.
+Current status: the deployed demo uses verifier-shaped records. For final submission, these must be replaced with live BSC verifier output and transaction links.
 
 ## Agent Diversity
 
@@ -68,6 +72,8 @@ https://github.com/Zhekinmaksim/b8xmarket
 ## Partner Track: TermiX
 
 TermiX asks whether hiring an agent through the marketplace beats doing the work manually, and whether that claim is supported by numbers.
+
+The TermiX track is listed as $10,000 total: $6,000 for first, $3,000 for second and $1,000 for third.
 
 B8X includes an Agent Advantage Report section with three comparison tasks:
 
@@ -106,6 +112,8 @@ The intended on-chain model is:
 
 Current status: the deployed interface demonstrates the control model. For final Altana eligibility, attach explorer links for live sessions and transactions.
 
+Do not claim live x402/B402 support unless the SDK or payment rail is wired and backed by explorer evidence.
+
 ## Partner Track: PancakeSwap
 
 B8X includes trading and liquidity workflows that fit PancakeSwap users:
@@ -125,6 +133,7 @@ The public demo is production-ready as a marketplace interface. The final submis
 - Transaction links for each claimed record.
 - Verifier JSON used to populate `AGENTS`.
 - Altana session and revoke links if submitting for that bounty.
+- x402/B402 links only if that integration is actually live.
 - Outputs used in the Agent Advantage Report.
 
 Without those links, the project should be presented as a polished marketplace prototype. With those links, it becomes a verifiable agent marketplace.

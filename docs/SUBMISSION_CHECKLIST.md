@@ -6,11 +6,22 @@ Use this before sending the project to the hackathon form.
 
 - Live site: https://b8xmarket-repo.vercel.app
 - Repository: https://github.com/Zhekinmaksim/b8xmarket
+- Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
+- Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
 - Demo video: add link
 - Team wallet: add address
 - Agent wallets: add addresses
 
 If `b8xmarket.xyz` is connected before submission, use that as the live site.
+
+Deadline: **9 September 2026 at UTC+0**.
+
+Prizes listed on the official pages:
+
+- Main track: $30,000 equivalent plus official adoption as the BNB Agent Studio marketplace.
+- TermiX: $10,000 total, split $6,000 / $3,000 / $1,000.
+- PancakeSwap: 1,000 CAKE.
+- Altana: 50,000 Altana XP.
 
 ## Main Track Requirements
 
@@ -19,6 +30,7 @@ If `b8xmarket.xyz` is connected before submission, use that as the live site.
 - The user can understand what each agent does.
 - The user can open a record and compare agents.
 - The user can see an activation or hire flow.
+- Agents surfaced on the marketplace are live on BSC.
 - All four required categories are represented:
   - rebalancing
   - grid trading
@@ -40,6 +52,8 @@ Attach:
 - explanation of filtered agents
 
 Do not claim live BSC records without links.
+
+The current deployment still uses demo records. Replace them before submission.
 
 ## TermiX Evidence
 
@@ -70,6 +84,8 @@ If submitting for the Altana bounty, attach:
 - one live transaction through a session key
 
 The UI already shows the user-facing control model. The submission still needs explorer links.
+
+Only mention x402/B402 if the SDK or payment rail is actually connected and the transaction evidence is included.
 
 ## PancakeSwap Evidence
 
