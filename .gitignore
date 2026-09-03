@@ -3,3 +3,13 @@
 .playwright-cli
 node_modules
 npm-debug.log*
+
+# Local secrets and generated wallet material
+.env
+.env.*
+!.env.example
+.studio/
+**/.studio/
+**/wallets/
+**/*keystore*.json
+**/*wallet*.json

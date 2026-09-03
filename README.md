@@ -59,6 +59,7 @@ The partner tracks are also reflected in the product:
 More detail is in:
 
 - [`docs/HACKATHON_SUBMISSION.md`](docs/HACKATHON_SUBMISSION.md)
+- [`docs/LIVE_AGENTS_RUNBOOK.md`](docs/LIVE_AGENTS_RUNBOOK.md)
 - [`docs/JUDGING_ALIGNMENT.md`](docs/JUDGING_ALIGNMENT.md)
 - [`docs/AGENT_ADVANTAGE_REPORT.md`](docs/AGENT_ADVANTAGE_REPORT.md)
 - [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md)
@@ -69,6 +70,8 @@ More detail is in:
 This repository ships a framework-free static site.
 
 - `index.html` contains the full app, styles, renderer and demo data.
+- `agents/` contains four BNB Agent Studio seller-agent workspaces: grid, rebalancing, yield and health-factor monitoring.
+- `scripts/` contains local scripts for wallet import, agent build, diagnostics, deploy and evidence collection.
 - `og.png` is the 1200x630 social card.
 - `vercel.json` contains Vercel security and cache headers.
 - `_headers` mirrors those headers for Netlify and Cloudflare Pages.
@@ -93,6 +96,32 @@ name, cat, live, pnl, pnlN, win, dd, ddN, risk, fills, window, venue, curve, det
 Do not hide weak or invalid records. B8X is more credible when the register shows what was filtered and why.
 
 The current build does not claim a live x402/B402 implementation. Add those claims only after wiring the SDK or payment rail and attaching explorer evidence.
+
+## Live Agent Path
+
+The BNB Agent Studio projects are prepared in `agents/`:
+
+- `agents/b8xgrid`
+- `agents/b8xrebal`
+- `agents/b8xyield`
+- `agents/b8xhealth`
+
+Use burner wallets only. Create `.env.local` from `.env.example`, fill it locally, then run:
+
+```bash
+./scripts/import-agent-wallets.sh
+./scripts/build-agents.sh
+./scripts/doctor-agents.sh
+```
+
+After funding the burner wallets and logging in with `bag platform login`, deploy with:
+
+```bash
+./scripts/deploy-agents-bnb.sh
+./scripts/collect-agent-evidence.sh
+```
+
+The BNB managed platform is a 48-hour testnet trial, so start final deploys close to submission time.
 
 ## Final Submission Notes
 

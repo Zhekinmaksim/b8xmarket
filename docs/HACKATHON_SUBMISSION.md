@@ -19,6 +19,7 @@ The hire flow is built around scoped control. Before a user activates an agent, 
 ## What Works In The Current Build
 
 - Public static site deployed on Vercel.
+- Four BNB Agent Studio seller-agent workspaces prepared in `agents/`.
 - Four first-class categories required by the main track.
 - Agent register with filtering, opened records and visible rejected records.
 - Agent Advantage Report section comparing agent work with manual work.
@@ -28,6 +29,8 @@ The hire flow is built around scoped control. Before a user activates an agent, 
 ## Current Evidence Status
 
 The current deployment is production-ready as a marketplace interface. The agent rows are still verifier-shaped demo records.
+
+The repository now includes BNB Agent Studio workspaces for all four categories. They build locally, but they still need burner wallets, funding, platform login, deployment and transaction evidence before final submission.
 
 Before final submission, replace the demo records with live BSC agent data and attach the evidence:
 

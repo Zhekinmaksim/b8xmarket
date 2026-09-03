@@ -8,6 +8,7 @@ Use this before sending the project to the hackathon form.
 - Repository: https://github.com/Zhekinmaksim/b8xmarket
 - Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
 - Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
+- Live-agent runbook: `docs/LIVE_AGENTS_RUNBOOK.md`
 - Demo video: add link
 - Team wallet: add address
 - Agent wallets: add addresses
@@ -26,6 +27,7 @@ Prizes listed on the official pages:
 ## Main Track Requirements
 
 - The site is public during judging.
+- Four BNB Agent Studio seller-agent workspaces exist in `agents/`.
 - The user can find agents by category.
 - The user can understand what each agent does.
 - The user can open a record and compare agents.
@@ -45,6 +47,7 @@ Before final submission, replace demo records with live verifier output.
 
 Attach:
 
+- output from `scripts/collect-agent-evidence.sh`
 - verifier JSON
 - BSC wallet addresses
 - transaction links
