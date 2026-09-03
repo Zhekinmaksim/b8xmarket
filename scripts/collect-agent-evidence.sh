@@ -18,7 +18,7 @@ AGENTS=(b8xrebal b8xgrid b8xyield b8xhealth)
     echo '```txt'
     (
       cd "$ROOT/agents/$agent/app/agent"
-      bag wallet show || true
+      bag wallet show | sed -n 's/^address:[[:space:]]*/address: /p' || true
       bag wallet balance || true
       bag erc8004 show || true
     )

@@ -26,6 +26,7 @@ import_wallet() {
   local agent="$1"
   local var_name="$2"
   local private_key="${!var_name:-}"
+  local agent_env="$ROOT/agents/$agent/.studio/.env.local"
 
   if [[ -z "$private_key" ]]; then
     echo "skip $agent: $var_name is empty"
@@ -36,6 +37,19 @@ import_wallet() {
     echo "invalid key format for $agent ($var_name)" >&2
     exit 1
   fi
+
+  mkdir -p "$(dirname "$agent_env")"
+  chmod 700 "$(dirname "$agent_env")" 2>/dev/null || true
+  if [[ -f "$agent_env" ]]; then
+    local tmp
+    tmp="$(mktemp)"
+    grep -v '^WALLET_PASSWORD=' "$agent_env" > "$tmp" || true
+    printf 'WALLET_PASSWORD=%q\n' "$WALLET_PASSWORD" >> "$tmp"
+    mv "$tmp" "$agent_env"
+  else
+    printf 'WALLET_PASSWORD=%q\n' "$WALLET_PASSWORD" > "$agent_env"
+  fi
+  chmod 600 "$agent_env"
 
   echo "importing burner wallet for $agent"
   printf '%s' "$private_key" | (

@@ -37,6 +37,7 @@ kind = "evm-local"
 signer = "local"
 keystore_dir = "../../.studio/wallets"
 # address = "0x..."   # filled by `bag wallet new`
+address = "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499"
 
 [llm]
 provider = "pieverse-llm"
