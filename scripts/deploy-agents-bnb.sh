@@ -13,7 +13,7 @@ fi
 
 for agent in "${AGENTS[@]}"; do
   echo "== $agent: deploy to BNB managed platform =="
-  (cd "$ROOT/agents/$agent" && bag deploy --provider bnb)
+  (cd "$ROOT/agents/$agent" && bag deploy --provider bnb --backend aws --yes --accept-risk)
   echo "== $agent: verify deployment =="
   (cd "$ROOT/agents/$agent" && bag deploy verify --provider bnb)
   echo "== $agent: ERC-8004 record =="
