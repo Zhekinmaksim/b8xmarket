@@ -145,4 +145,4 @@ For the hackathon submission form, attach:
 - Short demo video or screenshots of the user flow
 - Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
 
-If `b8xmarket.xyz` is connected before submission, update GitHub homepage and keep the existing canonical/OG metadata pointed at that domain.
+If `b8xmarket.xyz` is connected before submission, update GitHub homepage plus canonical, Open Graph, Twitter image, sitemap and robots metadata to that domain.

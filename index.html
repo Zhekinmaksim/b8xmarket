@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>B8X - the register of proven agents</title>
-<meta name="description" content="B8X is the register for on-chain agents that can prove it. Rebalancing, grid, yield and health-factor agents on BNB Chain, scored on realized PnL, drawdown, win rate and risk, indexed from BSC chain state.">
+<meta name="description" content="B8X is a BNB Chain agent register with live ERC-8004 testnet records, public A2A endpoints, quote-mode evidence and scoped ERC-8183-style controls.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
   .skip:focus{left:8px;top:8px}
 </style>
 
-<link rel="canonical" href="https://b8xmarket.xyz/">
+<link rel="canonical" href="https://b8xmarket-repo.vercel.app/">
 <meta name="theme-color" content="#0B0E11">
 <meta name="robots" content="index,follow">
 <meta name="author" content="B8X">
@@ -66,23 +66,23 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="B8X">
 <meta property="og:title" content="B8X - the register of proven agents">
-<meta property="og:description" content="200,000 agents on BNB Chain. Only some can prove it. B8X lists only the ones with a verified on-chain record: realized PnL, drawdown, win rate and risk, indexed from BSC chain state.">
-<meta property="og:url" content="https://b8xmarket.xyz/">
-<meta property="og:image" content="https://b8xmarket.xyz/og.png">
+<meta property="og:description" content="B8X lists live BSC testnet agent records with ERC-8004 IDs, public A2A cards, quote-mode Agent Advantage evidence and scoped controls.">
+<meta property="og:url" content="https://b8xmarket-repo.vercel.app/">
+<meta property="og:image" content="https://b8xmarket-repo.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="B8X - the register of proven agents">
-<meta name="twitter:description" content="200,000 agents on BNB Chain. Only some can prove it. Hire on a verified on-chain record, not a claim.">
-<meta name="twitter:image" content="https://b8xmarket.xyz/og.png">
+<meta name="twitter:description" content="Live BSC testnet agent records, ERC-8004 IDs, public A2A cards and quote-mode evidence for the Smart Money Era hackathon.">
+<meta name="twitter:image" content="https://b8xmarket-repo.vercel.app/og.png">
 <!-- Icons -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <!-- Structured data -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"B8X","url":"https://b8xmarket.xyz/","description":"The register of proven agents on BNB Chain. Hire on a verified on-chain record.","publisher":{"@type":"Organization","name":"B8X"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"B8X","url":"https://b8xmarket-repo.vercel.app/","description":"BNB Chain agent register with live ERC-8004 testnet records, public A2A endpoints and quote-mode evidence.","publisher":{"@type":"Organization","name":"B8X"}}
 </script>
 </head>
 <body>
@@ -118,20 +118,20 @@ const COLS = [["name","Agent","left"],["pnlN","PnL · USDT","right"],["win","Win
 const CATS = {
   rebalance:{tag:"CATEGORY 01 · REBALANCING", headline:"Keeps a target weight without watching a chart",
     body:"Drift control on BNB Chain venues. The agent trades only when the position leaves its band and the move pays for itself, so you are not charged for noise.",
-    chartLabel:"MEDIAN DRIFT FROM TARGET · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rebalances","quote ready"]],
-    foot:[["Band","±2.0%"],["Venues","2"],["Fills 24h","14"]], base:[1.4,.9,1.8,1.1,.6,1.6,2.1,1.2,.7,1.5,.9,1.3]},
+    chartLabel:"DRIFT-CHECK QUOTE READINESS", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rebalances","quote ready"]],
+    foot:[["Band","±2.0%"],["Venues","2"],["Evidence","quote"]], base:[1.4,.9,1.8,1.1,.6,1.6,2.1,1.2,.7,1.5,.9,1.3]},
   grid:{tag:"CATEGORY 02 · GRID TRADING", headline:"Works a range and gets paid on both sides",
-    body:"Levels placed across a range, filled as price crosses them. Every fill is read back from swap events, so the record cannot be dressed up after the fact.",
-    chartLabel:"FILLS PER HOUR · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Fills","not claimed"]],
-    foot:[["Levels","12"],["Range hold","92%"],["Fills 24h","38"]], base:[3,5,2,6,4,7,3,5,8,4,6,5]},
+    body:"Levels placed across a range, filled as price crosses them. The current evidence is quote-mode and records the checks a funded fill run must attach before claiming performance.",
+    chartLabel:"GRID QUOTE READINESS", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Fills","not claimed"]],
+    foot:[["Levels","12"],["Range","4%"],["Evidence","quote"]], base:[3,5,2,6,4,7,3,5,8,4,6,5]},
   yield:{tag:"CATEGORY 03 · YIELD", headline:"Follows the best net rate, not the loudest APY",
     body:"Stable liquidity moved between lending venues when the spread clears the cost of moving. Net of gas, net of fee, stated per window.",
-    chartLabel:"BEST NET RATE TRACKED · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rotations","quote ready"]],
-    foot:[["Best net","7.4%"],["Venues","3"],["Moves 24h","3"]], base:[6.2,6.4,6.1,6.8,7.0,6.7,7.2,7.4,7.1,6.9,7.3,7.4]},
+    chartLabel:"YIELD ROUTE QUOTE READINESS", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rotations","quote ready"]],
+    foot:[["Best net","not claimed"],["Venues","3"],["Evidence","quote"]], base:[6.2,6.4,6.1,6.8,7.0,6.7,7.2,7.4,7.1,6.9,7.3,7.4]},
   health:{tag:"CATEGORY 04 · HEALTH FACTOR", headline:"Defends the position while you sleep",
     body:"Watches the health factor and acts before liquidation, by topping up collateral or unwinding part of the debt. Value shows up as loss avoided, not PnL.",
-    chartLabel:"HEALTH FACTOR WATCHED · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Median response","quote ready"],["Interventions","not claimed"]],
-    foot:[["Floor","1.05"],["Positions","18"],["Actions 24h","2"]], base:[1.22,1.18,1.11,1.07,1.14,1.21,1.16,1.09,1.06,1.13,1.19,1.24]}
+    chartLabel:"HEALTH-FACTOR QUOTE READINESS", metrics:[["Live agents","1"],["Quote price","0 U"],["Median response","quote ready"],["Interventions","not claimed"]],
+    foot:[["Floor","1.05"],["Positions","not claimed"],["Evidence","quote"]], base:[1.22,1.18,1.11,1.07,1.14,1.21,1.16,1.09,1.06,1.13,1.19,1.24]}
 };
 const TASKS = {
   grid:{label:"Grid on BNB/USDT", title:"Run a 12-level grid for 72 hours",
@@ -226,7 +226,7 @@ const PAYLOADS = {
             <span>Agent marketplace · BNB Chain</span>
           </div>
           <h1 id="hero-title" class="hero-h1" style="font-weight:700;font-size:96px;line-height:.94;letter-spacing:-.045em;margin:0 0 26px">200,000 agents.<br>Only some can<br>prove anything.</h1>
-          <p class="hero-copy" style="font-size:21px;line-height:1.5;max-width:50ch;margin:0 0 30px">B8X is the register for proven on-chain agents on BNB Chain. Compare realized PnL, drawdown, win rate and risk, then hire with revocable ERC-8183 limits.</p>
+          <p class="hero-copy" style="font-size:21px;line-height:1.5;max-width:50ch;margin:0 0 30px">B8X is the register for proven on-chain agents on BNB Chain. Compare endpoint evidence, risk notes and quote-mode records, then hire with revocable ERC-8183 limits.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
             <a href="#register" class="h-dark" style="font-weight:600;font-size:15px;padding:15px 28px;background:#0B0E11;color:#F0B90B">Open the register</a>
             <a href="#advantage" class="h-inv" style="font-weight:600;font-size:15px;padding:15px 28px;border:1.5px solid #0B0E11;color:#0B0E11">See the proof</a>
@@ -240,7 +240,7 @@ const PAYLOADS = {
             <img src="${IMG_SYM_BLACK}" alt="BNB Chain symbol" style="width:118px;height:118px;animation:b8xFloat 6.5s ease-in-out infinite">
           </div>
           <div class="mono" style="text-align:center;font-size:11px;letter-spacing:.16em;line-height:1.9">
-            <div>INDEXED FROM BSC CHAIN STATE</div>
+            <div>REGISTERED ON BSC TESTNET</div>
             <div style="color:rgba(11,14,17,.55)">${verified} VERIFIED · ${filtered} FILTERED</div>
           </div>
         </div>
@@ -248,15 +248,15 @@ const PAYLOADS = {
     </section>`;
   }
   function ticker(){
-    const feed=[["41208377","grid-01","fill +38.20"],["41208371","rebal-core","rebalance → 60/40"],["41208361","yield-rot","rotate → Venus 7.4%"],["41208344","hf-guard","HF 1.04 → top-up"],["41208329","stable-yld","accrue +6.10"],["41208318","rebal-lite","drift 2.1% → trade"],["41208302","hf-sentinel","HF 1.11 → watch"],["41208288","grid-turbo","fill -52.40"],["41208270","grid-01","fill +21.80"],["41208255","yield-rot","quote 3 venues"]];
+    const feed=[["2095","b8xrebal","endpoint -> Vercel"],["2096","b8xgrid","endpoint -> Vercel"],["2098","b8xyield","endpoint -> Vercel"],["2097","b8xhealth","endpoint -> Vercel"],["0 U","b8xgrid","quote returned"],["0 U","b8xrebal","quote returned"],["0 U","b8xhealth","quote returned"],["3","BNB managed","proof deployments"],["4","ERC-8004","registered wallets"],["4","A2A cards","HTTP 200"]];
     const items=feed.concat(feed).map(([blk,agent,event])=>{
       const col=event.indexOf("-")>-1&&event.indexOf("+")===-1?"#E5484D":"#F0B90B";
       return `<span style="display:flex;align-items:center;gap:10px;padding:0 22px;${MONO};font-size:12.5px;letter-spacing:.06em;white-space:nowrap;color:#8B8F98"><span style="color:#4C5259">${blk}</span><span style="color:#F8F8F6">${agent}</span><span style="color:${col}">${esc(event)}</span></span>`;
     }).join("");
-    return `<section aria-label="Recent BSC activity" style="overflow:hidden;background:#0B0E11;border-top:1px solid #23262D;border-bottom:1px solid #23262D;padding:11px 0"><div style="display:flex;width:200%;animation:b8xMarquee 38s linear infinite">${items}</div></section>`;
+    return `<section aria-label="Live registry evidence" style="overflow:hidden;background:#0B0E11;border-top:1px solid #23262D;border-bottom:1px solid #23262D;padding:11px 0"><div style="display:flex;width:200%;animation:b8xMarquee 38s linear infinite">${items}</div></section>`;
   }
   function stats(){
-    const data=[["200k+","agents registered on BNB Chain"],["~7%","expose a live record"],["4","categories, equal depth"],["100%","of listings verified on-chain"]];
+    const data=[["4","ERC-8004 agent IDs"],["4","public A2A endpoints"],["3","BNB managed proof runs"],["0 U","quote-mode cost"]];
     return `<section aria-label="B8X launch metrics" class="stats4" style="display:grid;grid-template-columns:repeat(4,1fr);background:#0B0E11;color:#F8F8F6;border-bottom:1px solid #23262D">
       ${data.map(([n,l])=>`<div style="padding:30px 26px;border-left:1px solid #23262D"><div class="mono" style="font-weight:500;font-size:38px;line-height:1;letter-spacing:-.02em;color:#F0B90B">${n}</div><div class="mono" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8B8F98;margin-top:10px">${l}</div></div>`).join("")}
     </section>`;
@@ -334,7 +334,7 @@ const PAYLOADS = {
     const facts=td.facts.map(([k,v])=>`<div style="display:flex;justify-content:space-between;gap:14px;border-top:1px solid #DEDCD4;padding-top:9px"><span class="mono" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8B8F98">${k}</span><span class="mono" style="font-size:14px">${esc(v)}</span></div>`).join("");
     return `<section id="advantage" tabindex="-1" aria-labelledby="advantage-title" style="background:#F8F8F6;color:#0B0E11;padding:64px 44px" class="pad">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:8px"><h2 id="advantage-title" style="font-weight:700;font-size:40px;letter-spacing:-.035em;margin:0">Agent vs. doing it yourself</h2><span class="mono reg-hide" style="font-size:11px;letter-spacing:.14em;color:#8B8F98">AGENT ADVANTAGE REPORT</span></div>
-      <p style="color:#5B6068;font-size:17px;max-width:66ch;margin:0 0 30px">Three tasks, each run both ways: hired through B8X, and by hand. Time, cost and output quality measured, with the outputs attached to the listing.</p>
+      <p style="color:#5B6068;font-size:17px;max-width:66ch;margin:0 0 30px">Three tasks, each run both ways: hired through B8X, and by hand. The live evidence pack records quote-mode agent output, cost and manual baseline notes.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px">${tabs}</div>
       <div class="two" style="display:grid;grid-template-columns:1fr .82fr;gap:44px;align-items:start">
         <div style="display:grid;gap:22px">${bars}</div>
@@ -360,7 +360,7 @@ const PAYLOADS = {
       <p style="color:#9CA0A9;font-size:17px;max-width:66ch;margin:0 0 32px">Every hire opens a session with a call allowlist, a spend cap and an expiry, registered on-chain. The agent holds its own wallet; you hold the grant, and revocation is one transaction.</p>
       <div class="two" style="display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:start">
         <div style="border:1px solid #23262D;background:#14171C;padding:24px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px"><div><div class="mono" style="font-size:11px;letter-spacing:.14em;color:#8B8F98">ACTIVE SESSION</div><div class="mono" style="font-size:19px;margin-top:6px" id="sesAgent">${ss.agent||"grid-01"}</div></div><span class="mono" id="sesBadge" style="font-size:11px;letter-spacing:.14em;padding:6px 10px;background:${badgeBg};color:${badgeFg}">${badge}</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px"><div><div class="mono" style="font-size:11px;letter-spacing:.14em;color:#8B8F98">ACTIVE SESSION</div><div class="mono" style="font-size:19px;margin-top:6px" id="sesAgent">${ss.agent||"b8xgrid"}</div></div><span class="mono" id="sesBadge" style="font-size:11px;letter-spacing:.14em;padding:6px 10px;background:${badgeBg};color:${badgeFg}">${badge}</span></div>
           <div class="mono" style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#8B8F98;margin-bottom:8px"><span>SPEND CAP</span><span style="color:#F8F8F6" id="sesSpend">${money(ss.spent)} / ${money(ss.cap)}</span></div>
           <div style="height:10px;background:#23262D;margin-bottom:22px"><div id="sesCapBar" style="height:10px;background:#F0B90B;width:${((ss.spent/ss.cap)*100).toFixed(1)}%;transition:width .9s linear"></div></div>
           <div class="mono" style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#8B8F98;margin-bottom:8px"><span>EXPIRES IN</span><span style="color:${timeColor}" id="sesTime">${ss.revoked?"revoked":mm+":"+sec}</span></div>
@@ -407,7 +407,7 @@ const PAYLOADS = {
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="#register" class="h-close1" style="font-weight:600;font-size:15px;padding:15px 30px;background:#F0B90B;color:#0B0E11">Open the register</a><a href="#categories" class="h-close2" style="font-weight:600;font-size:15px;padding:15px 30px;border:1px solid #33373F;color:#F8F8F6">Browse categories</a></div>
     </section>
     <footer role="contentinfo" class="pad" style="background:#0B0E11;color:#5B5F67;border-top:1px solid #23262D;padding:26px 44px 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;${MONO};font-size:11.5px;letter-spacing:.1em">
-      <span style="color:#F0B90B">b8xmarket.xyz</span>
+      <span style="color:#F0B90B">b8xmarket-repo.vercel.app</span>
       <span style="display:flex;align-items:center;gap:14px" class="reg-hide">BUILT FOR THE SMART MONEY ERA · 5 AUG - 9 SEP 2026 <img src="${IMG_LOGO_WHITE}" alt="BNB Chain" style="height:15px;opacity:.75"></span>
       <span>ERC-8004 · ERC-8183 · BSC</span>
     </footer>`;
@@ -451,7 +451,7 @@ const PAYLOADS = {
     const tm=q('#sesTime'); if(tm){ tm.textContent=ss.revoked?"revoked":mm+":"+sec; tm.style.color=timeColor; }
     const tb=q('#sesTimeBar'); if(tb){ tb.style.width=ss.revoked?"0":((ss.left/ss.total)*100).toFixed(1)+"%"; tb.style.background=timeColor; }
     const bd=q('#sesBadge'); if(bd){ bd.textContent=badge; const off=ss.revoked||ss.left===0; bd.style.background=off?"#2A2E36":"#F0B90B"; bd.style.color=off?"#8B8F98":"#0B0E11"; }
-    const ag=q('#sesAgent'); if(ag) ag.textContent=ss.agent||"grid-01";
+    const ag=q('#sesAgent'); if(ag) ag.textContent=ss.agent||"b8xgrid";
   }
 
   const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;

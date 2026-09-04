@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://b8xmarket.xyz/sitemap.xml
+Sitemap: https://b8xmarket-repo.vercel.app/sitemap.xml
