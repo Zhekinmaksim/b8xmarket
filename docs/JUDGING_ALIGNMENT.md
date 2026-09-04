@@ -127,7 +127,7 @@ The product benefit is not another trading dashboard. It is a way to compare age
 
 ## What Still Needs Live Evidence
 
-The public demo is production-ready as a marketplace interface. The register now points at the current live endpoints: three BNB managed trial runtimes and one Vercel fallback endpoint for the health-factor category.
+The public demo is production-ready as a marketplace interface. The register now points at the current live endpoints: three BNB managed trial runtimes and one Vercel fallback endpoint for the health-factor category. All four surfaced wallets are registered in ERC-8004.
 
 The final submission should attach live evidence:
 
@@ -138,4 +138,4 @@ The final submission should attach live evidence:
 - x402/B402 links only if that integration is actually live.
 - Outputs used in the Agent Advantage Report.
 
-Known blocker: `bag deploy verify --provider bnb` currently fails during ERC-8004 reconciliation with `8004scan API request failed: 500`. Until that scanner path recovers, present B8X as a production marketplace interface with live trial runtimes, not as a fully reconciled ERC-8004 marketplace.
+Known limitation: the BNB managed trial account is capped at three active runtimes, so the health-factor agent is a Vercel fallback endpoint. For a permanent seller-grade deployment, move it to owned AWS/Azure infrastructure or request a higher managed-platform quota.

@@ -108,9 +108,9 @@ The BNB Agent Studio projects are prepared in `agents/`:
 
 Current production state:
 
-- `b8xrebal`, `b8xgrid` and `b8xyield` are deployed on the BNB Agent Studio managed testnet trial and verify as `running (ready)` with `bag deploy verify --skip-register`.
-- `b8xhealth` is exposed through a public Vercel A2A-compatible fallback endpoint because the managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
-- ERC-8004 reconciliation is pending a working `8004scan` response; the CLI currently returns `8004scan API request failed: 500` before it can complete managed-platform registration.
+- `b8xrebal`, `b8xgrid` and `b8xyield` are deployed on the BNB Agent Studio managed testnet trial and registered in ERC-8004.
+- `b8xhealth` is exposed through a public Vercel A2A-compatible fallback endpoint and registered in ERC-8004 because the managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
+- Public evidence, wallet addresses, endpoints and agent IDs are recorded in `docs/LIVE_AGENT_EVIDENCE.md`.
 
 Use burner wallets only. Create `.env.local` from `.env.example`, fill it locally, then run:
 

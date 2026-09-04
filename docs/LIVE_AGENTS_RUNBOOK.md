@@ -69,7 +69,7 @@ Current trial constraint: this account accepted three active BNB managed runtime
 
 Do not put the health-factor burner private key into Vercel unless the team explicitly decides to make Vercel a signer host. The current Vercel fallback intentionally has no private key and does not claim to produce wallet-signed seller quotes.
 
-`bag deploy verify --provider bnb` is the required command for ERC-8004 reconciliation on managed-platform projects. If it fails with `8004scan API request failed: 500`, retry later; direct `bag erc8004 register --no-paymaster` is blocked by the CLI for `destination = "platform"` projects.
+`bag deploy verify --provider bnb` is the required command for ERC-8004 reconciliation on managed-platform projects. Direct `bag erc8004 register --no-paymaster` is blocked by the CLI for `destination = "platform"` projects. For the Vercel fallback, set `deploy.destination = "self"` and register the exact public card URL.
 
 ## 6. Collect Evidence
 

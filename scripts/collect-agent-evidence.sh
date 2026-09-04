@@ -10,7 +10,7 @@ endpoint_for() {
     b8xrebal) echo "https://bnbagent-api.bnbchain.world/v1/rt/01M1NAJVWYHJ8KK6XR11GA3F8P/.well-known/agent-card.json" ;;
     b8xgrid) echo "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json" ;;
     b8xyield) echo "https://bnbagent-api.bnbchain.world/v1/rt/01M1NAT4RE4N6ZJK862PJ0GJTM/.well-known/agent-card.json" ;;
-    b8xhealth) echo "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth" ;;
+    b8xhealth) echo "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json" ;;
   esac
 }
 
@@ -69,11 +69,10 @@ category_for() {
     echo '```'
     echo
   done
-  echo "## Known Current Blockers"
+  echo "## Known Current Limitation"
   echo
   echo "- BNB managed trial rejected the fourth active runtime with \`Agent quota reached (max 3)\`; \`b8xhealth\` uses the Vercel fallback endpoint."
-  echo "- Managed-project ERC-8004 reconciliation must run through \`bag deploy verify --provider bnb\`; direct self-paid \`bag erc8004 register\` is blocked by the CLI for \`destination = \"platform\"\` projects."
-  echo "- The latest full verify attempt failed at the external scanner step: \`8004scan API request failed: 500\`."
+  echo "- The health-factor fallback is public and ERC-8004 registered, but it is not a BNB managed runtime and does not store a private signer in Vercel."
 } > "$OUT"
 
 echo "Wrote $OUT"

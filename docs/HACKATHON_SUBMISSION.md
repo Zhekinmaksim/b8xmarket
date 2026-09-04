@@ -38,9 +38,9 @@ The repository includes BNB Agent Studio workspaces for all four categories. The
 
 The fourth category, `b8xhealth`, is exposed as a public Vercel A2A-compatible fallback endpoint because the BNB managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
 
-ERC-8004 reconciliation is still pending because `bag deploy verify --provider bnb` currently fails at the 8004scan API step with `8004scan API request failed: 500`. The managed runtimes themselves verify as `running (ready)` when registration is skipped.
+All four surfaced wallets are registered in ERC-8004. The three managed runtimes were reconciled with `bag deploy verify --provider bnb`; the health-factor fallback was registered self-paid after switching its local Agent Studio config to `deploy.destination = "self"`.
 
-Before final submission, retry ERC-8004 verification and attach:
+Before final submission, attach:
 
 - BSC wallet addresses for surfaced agents.
 - Transaction links for every live activity claim.

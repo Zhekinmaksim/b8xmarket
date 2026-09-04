@@ -85,3 +85,8 @@ auto_settle = false                            # opt-in: detect dispute-window-e
 # STORAGE_API_URL and the write key/JWT is STORAGE_API_KEY, both in
 # .studio/.env.local.
 kind = "ipfs"
+
+[identity]
+endpoint = "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json"
+registered_at = "2026-09-04T04:49:41.207Z"
+agent_id = 2097

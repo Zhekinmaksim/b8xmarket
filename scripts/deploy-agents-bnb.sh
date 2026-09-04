@@ -24,7 +24,7 @@ cat <<'MSG'
 == b8xhealth ==
 The BNB managed trial account currently accepts only three active agents.
 b8xhealth is served by the Vercel fallback endpoint:
-https://b8xmarket-repo.vercel.app/api/agents/b8xhealth
+https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json
 
 Retry full ERC-8004 reconciliation later with:
   bag deploy verify --provider bnb

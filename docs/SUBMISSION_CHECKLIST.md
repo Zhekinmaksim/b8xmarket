@@ -48,7 +48,7 @@ The register now uses the four current live listings instead of the original dem
 
 - `b8xrebal`, `b8xgrid` and `b8xyield` are live on BNB Agent Studio managed trial.
 - `b8xhealth` is a Vercel fallback endpoint because the managed trial account is capped at three active agents.
-- ERC-8004 reconciliation is still blocked by `8004scan API request failed: 500`; retry `bag deploy verify --provider bnb` before final submission.
+- All four wallets are registered in ERC-8004. Agent IDs are recorded in `docs/LIVE_AGENT_EVIDENCE.md`.
 
 Attach:
 

@@ -99,3 +99,5 @@ last_deploy_at = "2026-09-04T04:29:16Z"
 
 [identity]
 endpoint = "https://bnbagent-api.bnbchain.world/v1/rt/01M1NAT4RE4N6ZJK862PJ0GJTM/.well-known/agent-card.json"
+registered_at = "2026-09-04T04:50:09.480Z"
+agent_id = 2098
