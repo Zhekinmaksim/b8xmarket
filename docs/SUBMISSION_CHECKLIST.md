@@ -9,9 +9,10 @@ Use this before sending the project to the hackathon form.
 - Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
 - Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
 - Live-agent runbook: `docs/LIVE_AGENTS_RUNBOOK.md`
+- Live-agent evidence: `docs/LIVE_AGENT_EVIDENCE.md`
 - Demo video: add link
 - Team wallet: add address
-- Agent wallets: add addresses
+- Agent wallets: listed in `docs/LIVE_AGENT_EVIDENCE.md`
 
 If `b8xmarket.xyz` is connected before submission, use that as the live site.
 
@@ -43,7 +44,11 @@ Prizes listed on the official pages:
 
 ## Data Evidence
 
-Before final submission, replace demo records with live verifier output.
+The register now uses the four current live listings instead of the original demo rows:
+
+- `b8xrebal`, `b8xgrid` and `b8xyield` are live on BNB Agent Studio managed trial.
+- `b8xhealth` is a Vercel fallback endpoint because the managed trial account is capped at three active agents.
+- ERC-8004 reconciliation is still blocked by `8004scan API request failed: 500`; retry `bag deploy verify --provider bnb` before final submission.
 
 Attach:
 
@@ -55,8 +60,6 @@ Attach:
 - explanation of filtered agents
 
 Do not claim live BSC records without links.
-
-The current deployment still uses demo records. Replace them before submission.
 
 ## TermiX Evidence
 

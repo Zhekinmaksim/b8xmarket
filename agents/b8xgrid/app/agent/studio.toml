@@ -28,6 +28,7 @@ destination = "platform"
 # Artifact channel: 'zip' (evm-local default — managed runtime, no Docker)
 # or 'container' (local Docker build → brokered ECR; forced for twak).
 platform_artifact = "zip"
+packaging = "zip"
 
 [wallet]
 # Local keystore signer. The Agent is the SOLE key-holder/signer.
@@ -38,6 +39,7 @@ signer = "local"
 keystore_dir = "../../.studio/wallets"
 # address = "0x..."   # filled by `bag wallet new`
 address = "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89"
+platform_exposed_addresses = ["0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89"]
 
 [llm]
 provider = "pieverse-llm"
@@ -85,3 +87,17 @@ auto_settle = false                            # opt-in: detect dispute-window-e
 # STORAGE_API_URL and the write key/JWT is STORAGE_API_KEY, both in
 # .studio/.env.local.
 kind = "ipfs"
+
+[deploy.platform]
+terms_accepted_at = "2026-09-04T04:27:39Z"
+slug = "b8xgrid"
+deployment_id = "01M1NARJST50CV1G2YW8BYY81P"
+backend = "aws"
+agent_id = "01M1NARJST7D5E5H3DS5N41RRT"
+invoke_url = "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json"
+last_deploy_at = "2026-09-04T04:28:18Z"
+
+[identity]
+endpoint = "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json"
+registered_at = "2026-09-04T04:44:08.064Z"
+agent_id = 2096

@@ -62,6 +62,15 @@ Complete the device-code flow in your browser.
 
 The BNB managed platform is a 48-hour testnet trial. Start it only when the submission evidence work is ready.
 
+Current trial constraint: this account accepted three active BNB managed runtimes and rejected the fourth with `Agent quota reached (max 3)`. The current deployment path is:
+
+- `b8xrebal`, `b8xgrid`, `b8xyield`: BNB Agent Studio managed trial
+- `b8xhealth`: public Vercel API fallback until the BNB quota is raised or the agent is moved to owned AWS/Azure infrastructure
+
+Do not put the health-factor burner private key into Vercel unless the team explicitly decides to make Vercel a signer host. The current Vercel fallback intentionally has no private key and does not claim to produce wallet-signed seller quotes.
+
+`bag deploy verify --provider bnb` is the required command for ERC-8004 reconciliation on managed-platform projects. If it fails with `8004scan API request failed: 500`, retry later; direct `bag erc8004 register --no-paymaster` is blocked by the CLI for `destination = "platform"` projects.
+
 ## 6. Collect Evidence
 
 ```bash

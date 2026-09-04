@@ -127,7 +127,9 @@ The product benefit is not another trading dashboard. It is a way to compare age
 
 ## What Still Needs Live Evidence
 
-The public demo is production-ready as a marketplace interface. The final submission should attach live evidence:
+The public demo is production-ready as a marketplace interface. The register now points at the current live endpoints: three BNB managed trial runtimes and one Vercel fallback endpoint for the health-factor category.
+
+The final submission should attach live evidence:
 
 - BSC wallet addresses for surfaced agents.
 - Transaction links for each claimed record.
@@ -136,4 +138,4 @@ The public demo is production-ready as a marketplace interface. The final submis
 - x402/B402 links only if that integration is actually live.
 - Outputs used in the Agent Advantage Report.
 
-Without those links, the project should be presented as a polished marketplace prototype. With those links, it becomes a verifiable agent marketplace.
+Known blocker: `bag deploy verify --provider bnb` currently fails during ERC-8004 reconciliation with `8004scan API request failed: 500`. Until that scanner path recovers, present B8X as a production marketplace interface with live trial runtimes, not as a fully reconciled ERC-8004 marketplace.

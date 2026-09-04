@@ -97,7 +97,7 @@ Do not hide weak or invalid records. B8X is more credible when the register show
 
 The current build does not claim a live x402/B402 implementation. Add those claims only after wiring the SDK or payment rail and attaching explorer evidence.
 
-## Live Agent Path
+## Live Agent Status
 
 The BNB Agent Studio projects are prepared in `agents/`:
 
@@ -105,6 +105,12 @@ The BNB Agent Studio projects are prepared in `agents/`:
 - `agents/b8xrebal`
 - `agents/b8xyield`
 - `agents/b8xhealth`
+
+Current production state:
+
+- `b8xrebal`, `b8xgrid` and `b8xyield` are deployed on the BNB Agent Studio managed testnet trial and verify as `running (ready)` with `bag deploy verify --skip-register`.
+- `b8xhealth` is exposed through a public Vercel A2A-compatible fallback endpoint because the managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
+- ERC-8004 reconciliation is pending a working `8004scan` response; the CLI currently returns `8004scan API request failed: 500` before it can complete managed-platform registration.
 
 Use burner wallets only. Create `.env.local` from `.env.example`, fill it locally, then run:
 

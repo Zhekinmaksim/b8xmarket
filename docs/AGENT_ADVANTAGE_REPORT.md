@@ -4,7 +4,7 @@ TermiX asks for a simple proof: does hiring an agent beat doing the task manuall
 
 B8X includes this report in the product because it should not live in a separate slide deck. A user should see the advantage before hiring.
 
-Current status: the numbers below are the demo report format. Treat them as placeholders until each row is backed by raw agent output, manual baseline notes and transaction evidence.
+Current status: the live endpoints are ready for the report workflow, but the final measured task outputs are still pending. Do not submit the old demo numbers as measured results; fill the tables only after each row is backed by raw agent output, manual baseline notes and transaction evidence.
 
 ## Summary
 
@@ -27,9 +27,9 @@ Goal: run a 12-level grid for 72 hours.
 
 Agent path:
 
-- Agent: `grid-01`
+- Agent: `b8xgrid`
 - Category: grid trading
-- Output: 88 fills with block references
+- Output: pending funded run
 - User control: spend cap and session expiry
 
 Manual path:
@@ -38,13 +38,13 @@ Manual path:
 - User places and adjusts orders by hand.
 - User reconstructs fills after execution.
 
-Demo comparison:
+Live comparison to fill after the funded run:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
-| Time to result | 4 min | 6 h 10 m |
-| Cost | $18 | $104 |
-| Output quality | 96 / 100 | 71 / 100 |
+| Time to result | pending | pending |
+| Cost | pending | pending |
+| Output quality | pending | pending |
 
 Evidence to attach before final submission:
 
@@ -60,9 +60,9 @@ Goal: hold a 60/40 book inside a 2% band for one week.
 
 Agent path:
 
-- Agent: `rebal-core`
+- Agent: `b8xrebal`
 - Category: rebalancing
-- Output: 23 rebalances and drift log
+- Output: pending funded run
 - Rule: rebalance only when drift exceeds cost
 
 Manual path:
@@ -71,13 +71,13 @@ Manual path:
 - User calculates whether the rebalance is worth gas and fees.
 - User executes trades manually.
 
-Demo comparison:
+Live comparison to fill after the funded run:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
-| Time to result | 2 min | 3 h 40 m |
-| Cost | $11 | $68 |
-| Output quality | 92 / 100 | 78 / 100 |
+| Time to result | pending | pending |
+| Cost | pending | pending |
+| Output quality | pending | pending |
 
 Evidence to attach before final submission:
 
@@ -93,9 +93,9 @@ Goal: monitor a leveraged position for 30 days and act before liquidation.
 
 Agent path:
 
-- Agent: `hf-guard`
+- Agent: `b8xhealth`
 - Category: health factor monitoring
-- Output: 7 interventions
+- Output: pending signed run
 - Rule: act before health factor crosses the configured floor
 
 Manual path:
@@ -104,13 +104,13 @@ Manual path:
 - User decides whether to add collateral or reduce debt.
 - User acts under time pressure when the position moves.
 
-Demo comparison:
+Live comparison to fill after the signed run:
 
 | Metric | Agent | Manual |
 | --- | ---: | ---: |
-| Attention needed | 0.7 h | 46 h |
-| Cost | $9 | $0 plus risk |
-| Output quality | 98 / 100 | 44 / 100 |
+| Attention needed | pending | pending |
+| Cost | pending | pending |
+| Output quality | pending | pending |
 
 Evidence to attach before final submission:
 
@@ -122,7 +122,7 @@ Evidence to attach before final submission:
 
 ## Quality Score Method
 
-The demo uses a 100-point output quality score so tasks with different shapes can be compared on one page.
+Use a 100-point output quality score so tasks with different shapes can be compared on one page.
 
 For final submission, use the same scoring rubric for all three tasks:
 

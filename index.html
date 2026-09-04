@@ -97,73 +97,61 @@ const IMG_LOGO_WHITE="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPwAAADgCAYA
 /* B8X data - reproduced from the approved design. In production, AGENTS is
    fed by the B8X verifier's --json output (one record per wallet). */
 const AGENTS = [
-  {name:"rebal-core",cat:"rebalance",live:true,pnlN:1410,pnl:"+1,410",win:66,dd:"-240",ddN:-240,risk:.18,fills:74,window:"30d",venue:"PancakeSwap · Lista",
-   curve:[0,110,230,180,340,470,520,660,810,940,1180,1410],
-   detail:"Holds a target weight inside a 2% band. Rebalances only when the drift exceeds gas plus fee, so small wobbles cost nothing."},
-  {name:"rebal-lite",cat:"rebalance",live:true,pnlN:520,pnl:"+520",win:72,dd:"-95",ddN:-95,risk:.08,fills:41,window:"30d",venue:"PancakeSwap",
-   curve:[0,40,90,80,150,190,240,290,340,400,460,520],
-   detail:"Two-asset drift control for smaller books. Caps a single rebalance at 10% of the position."},
-  {name:"grid-01",cat:"grid",live:true,pnlN:1240,pnl:"+1,240",win:64,dd:"-310",ddN:-310,risk:.20,fills:88,window:"30d",venue:"PancakeSwap BNB/USDT",
-   curve:[0,120,90,260,340,300,470,560,640,720,980,1240],
-   detail:"Twelve-level grid on BNB/USDT. Every fill is reconstructed from swap events, not reported by the agent."},
-  {name:"grid-turbo",cat:"grid",live:true,pnlN:-140,pnl:"-140",win:47,dd:"-620",ddN:-620,risk:.41,fills:61,window:"14d",warn:true,venue:"PancakeSwap perp",
-   curve:[0,180,90,-60,140,60,-180,-40,-320,-90,-260,-140],
-   detail:"Aggressive grid at 3x. Listed with a high-risk flag: drawdown exceeds realized PnL across the window."},
-  {name:"yield-rot",cat:"yield",live:true,pnlN:880,pnl:"+880",win:58,dd:"-190",ddN:-190,risk:.14,fills:52,window:"30d",venue:"Venus · Lista · Aave",
-   curve:[0,60,140,110,230,300,280,410,520,610,740,880],
-   detail:"Moves stable liquidity to the best net rate once the spread clears the move cost. Three venues, one at a time."},
-  {name:"stable-yld",cat:"yield",live:true,pnlN:430,pnl:"+430",win:69,dd:"-70",ddN:-70,risk:.06,fills:38,window:"30d",venue:"Venus",
-   curve:[0,40,80,70,130,180,210,260,300,350,390,430],
-   detail:"Conservative stablecoin lending with a hard 25% cap on exposure per venue."},
-  {name:"hf-guard",cat:"health",live:true,pnlN:0,pnl:"+0",win:71,dd:"-0",ddN:0,risk:.05,fills:43,window:"30d",note:"7 liquidations prevented",venue:"Venus · Lista",
-   curve:[0,0,0,0,0,0,0,0,0,0,0,0],
-   detail:"Tops up collateral before the health factor crosses 1.05. Its value shows as loss avoided, so PnL reads flat by design."},
-  {name:"hf-sentinel",cat:"health",live:true,pnlN:0,pnl:"+0",win:68,dd:"-0",ddN:0,risk:.04,fills:29,window:"30d",note:"3 liquidations prevented",venue:"Aave",
-   curve:[0,0,0,0,0,0,0,0,0,0,0,0],
-   detail:"Watches one position and unwinds part of the debt instead of adding collateral when the borrow rate spikes."},
+  {name:"b8xrebal",cat:"rebalance",live:true,pnlN:0,pnl:"+0",win:100,dd:"-0",ddN:0,risk:.10,fills:0,window:"trial",venue:"BNB Agent Studio · A2A/MCP",mark:"runtime ready",endpointType:"BNB managed",wallet:"0xa2b4fB139150513872c68d51354e9f913A8c87a0",endpoint:"https://bnbagent-api.bnbchain.world/v1/rt/01M1NAJVWYHJ8KK6XR11GA3F8P/.well-known/agent-card.json",
+   curve:[0,.1,.2,.12,.22,.18,.28,.31,.27,.35,.32,.4],
+   detail:"Live BNB managed runtime for portfolio rebalancing. It compares target and current weights, estimates drift, gas and fee thresholds, then returns a bounded rebalance plan."},
+  {name:"b8xgrid",cat:"grid",live:true,pnlN:0,pnl:"+0",win:100,dd:"-0",ddN:0,risk:.22,fills:0,window:"trial",venue:"BNB Agent Studio · A2A/MCP",mark:"runtime ready",endpointType:"BNB managed",wallet:"0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",endpoint:"https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json",
+   curve:[0,.12,.08,.21,.19,.3,.26,.35,.31,.42,.38,.46],
+   detail:"Live BNB managed runtime for BNB/USDT style grid analysis. It returns range, level, sizing, fill-reconstruction and failure-mode checks before any capital is committed."},
+  {name:"b8xyield",cat:"yield",live:true,pnlN:0,pnl:"+0",win:100,dd:"-0",ddN:0,risk:.14,fills:0,window:"trial",venue:"BNB Agent Studio · A2A/MCP",mark:"runtime ready",endpointType:"BNB managed",wallet:"0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1",endpoint:"https://bnbagent-api.bnbchain.world/v1/rt/01M1NAT4RE4N6ZJK862PJ0GJTM/.well-known/agent-card.json",
+   curve:[0,.06,.12,.11,.19,.24,.21,.29,.33,.35,.38,.41],
+   detail:"Live BNB managed runtime for yield routing. It ranks venues by net rate after gas, fees, exit constraints and protocol risk, then proposes a bounded allocation."},
+  {name:"b8xhealth",cat:"health",live:true,pnlN:0,pnl:"+0",win:100,dd:"-0",ddN:0,risk:.08,fills:0,window:"trial",note:"quota fallback",venue:"Vercel · A2A JSON-RPC",mark:"vercel fallback",endpointType:"Vercel public API",wallet:"0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",endpoint:"https://b8xmarket-repo.vercel.app/api/agents/b8xhealth",
+   curve:[1.22,1.19,1.13,1.08,1.12,1.2,1.17,1.1,1.07,1.14,1.18,1.23],
+   detail:"Public fallback endpoint for the health-factor category while the BNB managed trial account is capped at three active agents. It prepares collateral, debt and liquidation-risk actions for BSC positions."},
   {name:"ghost-77",cat:"filtered",live:false,reason:"empty registration"},
   {name:"shell-x",cat:"filtered",live:false,reason:"dead endpoint · last tx > 200k blocks"}
 ];
 const LABEL = {rebalance:"Rebalancing",grid:"Grid trading",yield:"Yield",health:"Health factor"};
-const CHIPS = [["all","All verified"],["rebalance","Rebalancing"],["grid","Grid trading"],["yield","Yield"],["health","Health factor"],["filtered","Filtered"]];
+const CHIPS = [["all","All live"],["rebalance","Rebalancing"],["grid","Grid trading"],["yield","Yield"],["health","Health factor"],["filtered","Filtered"]];
 const COLS = [["name","Agent","left"],["pnlN","PnL · USDT","right"],["win","Win","right"],["ddN","Max DD","right"],["mark","Record","right"],["","","right"]];
 const CATS = {
   rebalance:{tag:"CATEGORY 01 · REBALANCING", headline:"Keeps a target weight without watching a chart",
     body:"Drift control on BNB Chain venues. The agent trades only when the position leaves its band and the move pays for itself, so you are not charged for noise.",
-    chartLabel:"MEDIAN DRIFT FROM TARGET · 24H", metrics:[["Live agents","2"],["Median 30d PnL","+1.9%"],["Median max DD","-0.9%"],["Rebalances / 30d","115"]],
+    chartLabel:"MEDIAN DRIFT FROM TARGET · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Rebalances","pending"]],
     foot:[["Band","±2.0%"],["Venues","2"],["Fills 24h","14"]], base:[1.4,.9,1.8,1.1,.6,1.6,2.1,1.2,.7,1.5,.9,1.3]},
   grid:{tag:"CATEGORY 02 · GRID TRADING", headline:"Works a range and gets paid on both sides",
     body:"Levels placed across a range, filled as price crosses them. Every fill is read back from swap events, so the record cannot be dressed up after the fact.",
-    chartLabel:"FILLS PER HOUR · 24H", metrics:[["Live agents","2"],["Median 30d PnL","+3.4%"],["Median max DD","-2.6%"],["Fills / 30d","149"]],
+    chartLabel:"FILLS PER HOUR · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Fills","pending"]],
     foot:[["Levels","12"],["Range hold","92%"],["Fills 24h","38"]], base:[3,5,2,6,4,7,3,5,8,4,6,5]},
   yield:{tag:"CATEGORY 03 · YIELD", headline:"Follows the best net rate, not the loudest APY",
     body:"Stable liquidity moved between lending venues when the spread clears the cost of moving. Net of gas, net of fee, stated per window.",
-    chartLabel:"BEST NET RATE TRACKED · 24H", metrics:[["Live agents","2"],["Median 30d PnL","+2.1%"],["Median max DD","-0.7%"],["Rotations / 30d","46"]],
+    chartLabel:"BEST NET RATE TRACKED · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Rotations","pending"]],
     foot:[["Best net","7.4%"],["Venues","3"],["Moves 24h","3"]], base:[6.2,6.4,6.1,6.8,7.0,6.7,7.2,7.4,7.1,6.9,7.3,7.4]},
   health:{tag:"CATEGORY 04 · HEALTH FACTOR", headline:"Defends the position while you sleep",
     body:"Watches the health factor and acts before liquidation, by topping up collateral or unwinding part of the debt. Value shows up as loss avoided, not PnL.",
-    chartLabel:"HEALTH FACTOR WATCHED · 24H", metrics:[["Live agents","2"],["Liquidations prevented","10"],["Median response","41s"],["Interventions / 30d","72"]],
+    chartLabel:"HEALTH FACTOR WATCHED · 24H", metrics:[["Live agents","1"],["Liquidations prevented","pending"],["Median response","pending"],["Interventions","pending"]],
     foot:[["Floor","1.05"],["Positions","18"],["Actions 24h","2"]], base:[1.22,1.18,1.11,1.07,1.14,1.21,1.16,1.09,1.06,1.13,1.19,1.24]}
 };
 const TASKS = {
   grid:{label:"Grid on BNB/USDT", title:"Run a 12-level grid for 72 hours",
-    body:"Place and maintain a grid across a 4% range, re-centre once, and report every fill with its block.",
-    bars:[["Time to result","4 min","6 h 10 m",6,370,"92% faster"],["Cost","$18","$104",18,104,"83% cheaper"],["Output quality","96 / 100","71 / 100",96,71,"agent wins"]],
-    facts:[["Category","Grid trading · high stakes"],["Agent hired","grid-01"],["Outputs","88 fills, block-stamped"]]},
+    body:"Place and maintain a grid across a 4% range, re-centre once, and report every fill with its block. The live trial endpoint is ready; final measured outputs are recorded in the evidence doc after funded runs.",
+    bars:[["Time to result","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
+    facts:[["Category","Grid trading · high stakes"],["Agent hired","b8xgrid"],["Outputs","pending funded run"]]},
   rebal:{label:"Rebalance a book", title:"Hold a 60/40 book inside a 2% band for a week",
-    body:"Track drift, rebalance only when the move pays for itself, and log every trade against the target weight.",
-    bars:[["Time to result","2 min","3 h 40 m",2,220,"99% faster"],["Cost","$11","$68",11,68,"84% cheaper"],["Output quality","92 / 100","78 / 100",92,78,"agent wins"]],
-    facts:[["Category","Rebalancing"],["Agent hired","rebal-core"],["Outputs","23 rebalances, drift log"]]},
+    body:"Track drift, rebalance only when the move pays for itself, and log every trade against the target weight. The live trial endpoint is ready; final measured outputs are recorded in the evidence doc after funded runs.",
+    bars:[["Time to result","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
+    facts:[["Category","Rebalancing"],["Agent hired","b8xrebal"],["Outputs","pending funded run"]]},
   sec:{label:"Position security check", title:"Guard a leveraged position for 30 days",
-    body:"Watch the health factor, intervene before liquidation, and attach the state of the position at every action.",
-    bars:[["Attention needed","0.7 h","46 h",0.7,46,"98% less"],["Cost","$9","$0 + risk",9,46,"agent absorbs the work"],["Output quality","98 / 100","44 / 100",98,44,"agent wins"]],
-    facts:[["Category","Security · high stakes"],["Agent hired","hf-guard"],["Outputs","7 interventions vs 1 near miss"]]}
+    body:"Watch the health factor, intervene before liquidation, and attach the state of the position at every action. The public fallback endpoint is ready; final measured outputs are recorded in the evidence doc after the signed seller path is available.",
+    bars:[["Attention needed","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
+    facts:[["Category","Security · high stakes"],["Agent hired","b8xhealth"],["Outputs","pending signed run"]]}
 };
 const PAYLOADS = {
-  discover:'GET /registry/agents?verified=true&category=grid\n\n{\n  "source": "ERC-8004 registry · BSC",\n  "returned": 2,\n  "fields": ["pnl","max_dd","win_rate","risk","fills"],\n  "self_reported": false\n}',
-  assay:'GET /agents/grid-01/record?window=30d\n\n{\n  "realized_pnl": "+1240.00 USDT",\n  "max_drawdown": "-310.00 USDT",\n  "win_rate": 0.64,\n  "risk_ratio": 0.20,\n  "fills": 88,\n  "reconstructed_from": "swap events"\n}',
-  hire:'POST /hire   (ERC-8183)\n\n{\n  "agent": "grid-01",\n  "session": {\n    "spend_cap": "2500 USDT",\n    "expires_in": "24h",\n    "calls": ["swap","approve","quote"]\n  },\n  "registered_in": "keystore",\n  "revocable": "anytime, one tx"\n}',
-  settle:'POST /settle\n\n{\n  "period": "2026-08-01 to 2026-08-31",\n  "realized_pnl": "+612.40 USDT",\n  "performance_fee": "122.48 USDT (20%)",\n  "charged_on": "realized pnl only",\n  "paid": "per period, automatic"\n}'
+  discover:'GET /registry/agents?status=live&category=grid\n\n{\n  "source": "B8X live evidence · BNB managed runtime",\n  "returned": 1,\n  "fields": ["wallet","endpoint","category","record_status"],\n  "erc8004_reconciliation": "pending 8004scan recovery"\n}',
+  assay:'GET /agents/b8xgrid/record?window=trial\n\n{\n  "record_status": "runtime ready",\n  "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",\n  "endpoint": "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json",\n  "funded_outputs": "pending"\n}',
+  hire:'POST /hire   (ERC-8183)\n\n{\n  "agent": "b8xgrid",\n  "session": {\n    "spend_cap": "0 U quote mode",\n    "expires_in": "24h",\n    "calls": ["quote","analyze","report"]\n  },\n  "registered_in": "keystore",\n  "revocable": "anytime, one tx"\n}',
+  settle:'POST /settle\n\n{\n  "period": "trial",\n  "realized_pnl": "pending funded run",\n  "performance_fee": "0 in free quote mode",\n  "charged_on": "realized pnl only",\n  "paid": "after verified settlement"\n}'
 };
 
 </script>
@@ -203,6 +191,10 @@ const PAYLOADS = {
   function liveCurve(base){
     const t=S.tick, rng=(Math.max(...base)-Math.min(...base))||1;
     return base.map((v,i)=>Number((v+Math.sin((t+i*1.7)/2.1)*rng*0.06).toFixed(3)));
+  }
+  function shortId(s){
+    const x=String(s||"");
+    return x.length>18?x.slice(0,10)+"..."+x.slice(-6):x;
   }
 
   /* ---- section builders ---- */
@@ -317,12 +309,12 @@ const PAYLOADS = {
       }
       const hired=!!S.hired[a.name];
       const meta=LABEL[a.cat]+(a.warn?" · high risk":"")+(a.note?" · "+a.note:"");
-      const facts=[["Window",a.window],["Fills",String(a.fills)],["Risk ratio",a.risk.toFixed(2)],["Category",LABEL[a.cat]+(a.warn?" · high risk":"")]]
+      const facts=[["Window",a.window],["Fills",String(a.fills)],["Risk ratio",a.risk.toFixed(2)],["Record",a.mark||"runtime ready"],["Wallet",shortId(a.wallet)],["Endpoint",a.endpointType||"public"]]
         .map(([k,v])=>`<div style="border-top:1px solid rgba(11,14,17,.25);padding-top:9px"><div class="mono" style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5B6068">${k}</div><div class="mono" style="font-size:16px;margin-top:3px">${esc(v)}</div></div>`).join("");
       const body=open?`<div class="two" style="display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:4px 0 28px;animation:b8xRise .2s ease-out"><div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px">${facts}</div><p style="font-size:14px;color:#3D4148;margin:18px 0 0;max-width:52ch">${esc(a.detail)}</p></div><div style="background:#0B0E11;color:#F8F8F6;padding:16px"><div class="mono" style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:.14em;color:#8B8F98;margin-bottom:12px"><span>EQUITY · ${a.window}</span><span>${esc(a.venue)}</span></div>${spark(a.curve,{w:300,h:120})}</div></div>`:'';
-      return `<div style="border-bottom:1px solid rgba(11,14,17,.22)"><div class="h-row" style="display:grid;grid-template-columns:1.75fr .8fr .5fr .6fr .7fr auto;gap:14px;align-items:baseline;padding:16px 0"><div><div class="mono" style="font-size:15.5px;font-weight:500">${a.name}</div><div style="font-size:12.5px;color:#5B6068;margin-top:3px">${esc(meta)}</div></div><div class="mono" style="font-variant-numeric:tabular-nums;text-align:right;color:${a.pnlN<0?'#8E1F16':'#0B0E11'}">${a.pnl}</div><div class="mono reg-hide" style="font-variant-numeric:tabular-nums;text-align:right">${a.win==null?'n/a':a.win+'%'}</div><div class="mono reg-hide" style="font-variant-numeric:tabular-nums;text-align:right">${a.dd}</div><button data-toggle="${a.name}" aria-expanded="${open?'true':'false'}" style="${MONO};font-size:12px;letter-spacing:.06em;text-align:right;background:transparent;border:0;color:#0B0E11;cursor:pointer;padding:0">✓ verified</button><button data-hire="${a.name}" style="font-weight:600;font-size:13px;padding:9px 17px;cursor:pointer;border:1px solid #0B0E11;background:${hired?'#0B0E11':'transparent'};color:${hired?'#F0B90B':'#0B0E11'}">${hired?'hired':'Hire'}</button></div>${body}</div>`;
+      return `<div style="border-bottom:1px solid rgba(11,14,17,.22)"><div class="h-row" style="display:grid;grid-template-columns:1.75fr .8fr .5fr .6fr .7fr auto;gap:14px;align-items:baseline;padding:16px 0"><div><div class="mono" style="font-size:15.5px;font-weight:500">${a.name}</div><div style="font-size:12.5px;color:#5B6068;margin-top:3px">${esc(meta)}</div></div><div class="mono" style="font-variant-numeric:tabular-nums;text-align:right;color:${a.pnlN<0?'#8E1F16':'#0B0E11'}">${a.pnl}</div><div class="mono reg-hide" style="font-variant-numeric:tabular-nums;text-align:right">${a.win==null?'n/a':a.win+'%'}</div><div class="mono reg-hide" style="font-variant-numeric:tabular-nums;text-align:right">${a.dd}</div><button data-toggle="${a.name}" aria-expanded="${open?'true':'false'}" style="${MONO};font-size:12px;letter-spacing:.06em;text-align:right;background:transparent;border:0;color:#0B0E11;cursor:pointer;padding:0">${esc(a.mark||'runtime ready')}</button><button data-hire="${a.name}" style="font-weight:600;font-size:13px;padding:9px 17px;cursor:pointer;border:1px solid #0B0E11;background:${hired?'#0B0E11':'transparent'};color:${hired?'#F0B90B':'#0B0E11'}">${hired?'hired':'Hire'}</button></div>${body}</div>`;
     }).join("");
-      const note=S.filter==="filtered"?`${filtered} filtered, shown struck through for transparency and never hidden.`:`${verified} verified on the board · ${filtered} filtered · every figure computed from BSC chain state, over the stated window.`;
+      const note=S.filter==="filtered"?`${filtered} filtered, shown struck through for transparency and never hidden.`:`${verified} live listings on the board · ${filtered} filtered · ERC-8004 reconciliation is recorded in the evidence file.`;
     return `<section id="register" tabindex="-1" aria-labelledby="register-title" style="background:#F0B90B;color:#0B0E11;padding:60px 44px 66px" class="pad">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:22px"><h2 id="register-title" style="font-weight:700;font-size:40px;letter-spacing:-.035em;margin:0">The register</h2><span class="mono reg-hide" style="font-size:11px;letter-spacing:.14em">SORT ANY COLUMN · OPEN A RECORD</span></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">${chips}</div>

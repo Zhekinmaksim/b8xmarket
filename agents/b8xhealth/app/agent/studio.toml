@@ -24,7 +24,7 @@ default = "bsc-testnet"
 # Deployment still requires an explicit `bag deploy --provider bnb` choice;
 # this field is never used as a silent provider default. Post-deploy state is
 # recorded under [deploy.platform].
-destination = "platform"
+destination = "self"
 # Artifact channel: 'zip' (evm-local default — managed runtime, no Docker)
 # or 'container' (local Docker build → brokered ECR; forced for twak).
 platform_artifact = "zip"

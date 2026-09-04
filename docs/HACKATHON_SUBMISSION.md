@@ -28,15 +28,23 @@ The hire flow is built around scoped control. Before a user activates an agent, 
 
 ## Current Evidence Status
 
-The current deployment is production-ready as a marketplace interface. The agent rows are still verifier-shaped demo records.
+The current deployment is production-ready as a marketplace interface and no longer uses the original demo agent rows.
 
-The repository now includes BNB Agent Studio workspaces for all four categories. They build locally, but they still need burner wallets, funding, platform login, deployment and transaction evidence before final submission.
+The repository includes BNB Agent Studio workspaces for all four categories. The burner wallets are imported, funded on BSC testnet and kept out of git. Three category agents are live on the BNB Agent Studio managed trial:
 
-Before final submission, replace the demo records with live BSC agent data and attach the evidence:
+- `b8xrebal`
+- `b8xgrid`
+- `b8xyield`
+
+The fourth category, `b8xhealth`, is exposed as a public Vercel A2A-compatible fallback endpoint because the BNB managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
+
+ERC-8004 reconciliation is still pending because `bag deploy verify --provider bnb` currently fails at the 8004scan API step with `8004scan API request failed: 500`. The managed runtimes themselves verify as `running (ready)` when registration is skipped.
+
+Before final submission, retry ERC-8004 verification and attach:
 
 - BSC wallet addresses for surfaced agents.
 - Transaction links for every live activity claim.
-- Verifier JSON used to populate the agent register.
+- Verifier JSON or `docs/LIVE_AGENT_EVIDENCE.md` used to populate the agent register.
 - Raw outputs and manual baselines for the Agent Advantage Report.
 - Altana explorer links if submitting for the Altana bounty.
 - x402/B402 evidence only if that payment rail is actually connected.
