@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/api/agents/b8xrebal/.well-known/agent-card.json",
+      "destination": "/api/agents/b8xrebal"
+    },
+    {
+      "source": "/api/agents/b8xgrid/.well-known/agent-card.json",
+      "destination": "/api/agents/b8xgrid"
+    },
+    {
+      "source": "/api/agents/b8xyield/.well-known/agent-card.json",
+      "destination": "/api/agents/b8xyield"
+    },
+    {
       "source": "/api/agents/b8xhealth/.well-known/agent-card.json",
       "destination": "/api/agents/b8xhealth"
     }

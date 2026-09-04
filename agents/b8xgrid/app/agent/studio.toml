@@ -98,6 +98,6 @@ invoke_url = "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41R
 last_deploy_at = "2026-09-04T04:28:18Z"
 
 [identity]
-endpoint = "https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json"
+endpoint = "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json"
 registered_at = "2026-09-04T04:44:08.064Z"
 agent_id = 2096

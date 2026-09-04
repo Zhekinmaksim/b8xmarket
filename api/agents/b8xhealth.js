@@ -1,3 +1,3 @@
-const { handleAgent } = require("../../lib/b8xhealth-agent");
+const { handleAgent } = require("../../lib/b8x-agent");
 
-module.exports = handleAgent;
+module.exports = (req, res) => handleAgent(req, res, "b8xhealth");

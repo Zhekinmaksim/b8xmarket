@@ -1,3 +1,3 @@
-const { handleCard } = require("../../../../lib/b8xhealth-agent");
+const { handleCard } = require("../../../../lib/b8x-agent");
 
-module.exports = handleCard;
+module.exports = (req, res) => handleCard(req, res, "b8xhealth");
