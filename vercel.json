@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/api/agents/b8xhealth/.well-known/agent-card.json",
+      "destination": "/api/agents/b8xhealth"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
