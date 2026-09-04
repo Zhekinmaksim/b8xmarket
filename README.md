@@ -4,7 +4,7 @@ B8X is a marketplace front door for BNB Chain agents.
 
 The product answers a simple question: if thousands of agents are registered on-chain, which ones can a user actually trust enough to hire?
 
-B8X turns agent records into a register people can read. A user can land on the site, browse four agent categories, compare performance and risk, open a record, and start a scoped hiring session with clear limits. The current build is a static production demo, but the data shape is designed around verifier output so the same interface can be fed by live BSC records.
+B8X turns agent records into a register people can read. A user can land on the site, browse four agent categories, compare performance and risk, open a record, and start a scoped hiring session with clear limits. The current build is a static production site seeded with live BSC testnet agent records and public A2A endpoints.
 
 Live site: https://b8xmarket-repo.vercel.app  
 Repository: https://github.com/Zhekinmaksim/b8xmarket
@@ -69,7 +69,7 @@ More detail is in:
 
 This repository ships a framework-free static site.
 
-- `index.html` contains the full app, styles, renderer and demo data.
+- `index.html` contains the full app, styles, renderer and live registration seed data.
 - `agents/` contains four BNB Agent Studio seller-agent workspaces: grid, rebalancing, yield and health-factor monitoring.
 - `scripts/` contains local scripts for wallet import, agent build, diagnostics, deploy and evidence collection.
 - `og.png` is the 1200x630 social card.
@@ -85,9 +85,11 @@ vercel --prod
 
 ## Data Status
 
-The current register uses verifier-shaped demo records in `const AGENTS` inside `index.html`.
+The current register uses four live BSC testnet registration records in `const AGENTS` inside `index.html`. Each visible listing has a burner wallet, an ERC-8004 agent id and a public `.well-known/agent-card.json` endpoint.
 
-Before final submission, replace those records with live verifier output from BSC. The official eligibility rules say agents surfaced on the marketplace must be live on BSC. Keep the same fields:
+The PnL, fills and drawdown fields are neutral on purpose. These agents are running in zero-price quote mode for hackathon verification, so the interface does not pretend there is paid trading history before funded task evidence exists.
+
+Future verifier output should keep the same fields:
 
 ```txt
 name, cat, live, pnl, pnlN, win, dd, ddN, risk, fills, window, venue, curve, detail
@@ -108,9 +110,11 @@ The BNB Agent Studio projects are prepared in `agents/`:
 
 Current production state:
 
-- `b8xrebal`, `b8xgrid` and `b8xyield` are deployed on the BNB Agent Studio managed testnet trial and registered in ERC-8004.
-- `b8xhealth` is exposed through a public Vercel A2A-compatible fallback endpoint and registered in ERC-8004 because the managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
-- Public evidence, wallet addresses, endpoints and agent IDs are recorded in `docs/LIVE_AGENT_EVIDENCE.md`.
+- All four surfaced wallets are registered in ERC-8004 on BSC testnet.
+- All four ERC-8004 service endpoints point to durable public Vercel A2A-compatible routes.
+- `b8xrebal`, `b8xgrid` and `b8xyield` were also deployed to the BNB Agent Studio managed testnet trial and reconciled with `bag deploy verify --provider bnb`.
+- The managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`, so `b8xhealth` runs only through the public Vercel A2A route.
+- Public evidence, wallet addresses, endpoints, update transactions and agent IDs are recorded in `docs/LIVE_AGENT_EVIDENCE.md`.
 
 Use burner wallets only. Create `.env.local` from `.env.example`, fill it locally, then run:
 
@@ -120,14 +124,14 @@ Use burner wallets only. Create `.env.local` from `.env.example`, fill it locall
 ./scripts/doctor-agents.sh
 ```
 
-After funding the burner wallets and logging in with `bag platform login`, deploy with:
+After funding the burner wallets and logging in with `bag platform login`, deploy managed proof for the first three agents with:
 
 ```bash
 ./scripts/deploy-agents-bnb.sh
 ./scripts/collect-agent-evidence.sh
 ```
 
-The BNB managed platform is a 48-hour testnet trial, so start final deploys close to submission time.
+The BNB managed platform trial lasts 48 hours. The public submission is not tied to that window because the ERC-8004 records now resolve to Vercel-hosted A2A endpoints. Do not put private wallet keys into Vercel unless the team deliberately chooses Vercel as a signer host.
 
 ## Final Submission Notes
 

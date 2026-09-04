@@ -44,11 +44,12 @@ Prizes listed on the official pages:
 
 ## Data Evidence
 
-The register now uses the four current live listings instead of the original demo rows:
+The register now uses four live BSC testnet listings:
 
-- `b8xrebal`, `b8xgrid` and `b8xyield` are live on BNB Agent Studio managed trial.
-- `b8xhealth` is a Vercel fallback endpoint because the managed trial account is capped at three active agents.
 - All four wallets are registered in ERC-8004. Agent IDs are recorded in `docs/LIVE_AGENT_EVIDENCE.md`.
+- All four registered service endpoints are public Vercel A2A-compatible routes.
+- `b8xrebal`, `b8xgrid` and `b8xyield` also have BNB Agent Studio managed-trial deployment proof.
+- `b8xhealth` did not fit in the managed trial quota, so it uses only the public Vercel A2A route.
 
 Attach:
 

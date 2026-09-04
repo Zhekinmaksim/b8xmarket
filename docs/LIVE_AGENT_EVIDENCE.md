@@ -1,6 +1,6 @@
 # Live Agent Evidence
 
-Generated: 2026-09-04 04:54:22 UTC
+Generated: 2026-09-04 10:33:05 UTC
 
 This file records public wallet, endpoint and reconciliation evidence only. Secrets are excluded.
 
@@ -11,16 +11,24 @@ This file records public wallet, endpoint and reconciliation evidence only. Secr
 | `b8xrebal -> b8xyield`, `0.05 tBNB` | `0xf4d6cc63937e8a74903a0dacb2d78155266da203e727bcdb347b963928242853` |
 | `b8xgrid -> b8xhealth`, `0.05 tBNB` | `0xd881750be5331f7c5376a5e4d9017b563ed54905bf0fdc0760dc16a91abaa23a` |
 
-The BNB managed trial expires at `2026-09-06T04:25:17Z`.
+## ERC-8004 Endpoint Updates
+
+| Agent | Transaction | Registered endpoint |
+| --- | --- | --- |
+| `b8xrebal` | `0x65ad13c43ade32b50cca58dfb147b9b3fd7d7739e0649669151ec0fd13f9c7b8` | `https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/.well-known/agent-card.json` |
+| `b8xgrid` | `0x2ba3737d23ced9b4ec073067fb6931585d755798c1d637fe322b1e4c3771ab98` | `https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json` |
+| `b8xyield` | `0x844b8f87261e265ae001152cfe3c6b5bf732e90cc5c5d9a1481bed7865bd6e37` | `https://b8xmarket-repo.vercel.app/api/agents/b8xyield/.well-known/agent-card.json` |
+
+The public ERC-8004 endpoints are Vercel-hosted so the submission does not depend on the 48-hour BNB managed trial window. The BNB managed trial proof for the first three agents expires at `2026-09-06T04:25:17Z`.
 
 ## Live Endpoints
 
 | Category | Agent | Runtime | Endpoint |
 | --- | --- | --- | --- |
-| Rebalancing | `b8xrebal` | BNB Agent Studio managed trial | `https://bnbagent-api.bnbchain.world/v1/rt/01M1NAJVWYHJ8KK6XR11GA3F8P/.well-known/agent-card.json` |
-| Grid trading | `b8xgrid` | BNB Agent Studio managed trial | `https://bnbagent-api.bnbchain.world/v1/rt/01M1NARJST7D5E5H3DS5N41RRT/.well-known/agent-card.json` |
-| Yield optimisation | `b8xyield` | BNB Agent Studio managed trial | `https://bnbagent-api.bnbchain.world/v1/rt/01M1NAT4RE4N6ZJK862PJ0GJTM/.well-known/agent-card.json` |
-| Health factor monitoring | `b8xhealth` | Vercel API fallback | `https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json` |
+| Rebalancing | `b8xrebal` | Vercel public A2A + BNB managed proof | `https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/.well-known/agent-card.json` |
+| Grid trading | `b8xgrid` | Vercel public A2A + BNB managed proof | `https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json` |
+| Yield optimisation | `b8xyield` | Vercel public A2A + BNB managed proof | `https://b8xmarket-repo.vercel.app/api/agents/b8xyield/.well-known/agent-card.json` |
+| Health factor monitoring | `b8xhealth` | Vercel public A2A | `https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json` |
 
 ## Wallet And Registry Checks
 
@@ -28,15 +36,15 @@ The BNB managed trial expires at `2026-09-06T04:25:17Z`.
 
 ```txt
 address: 0xa2b4fB139150513872c68d51354e9f913A8c87a0
-· free platform trial: ~47h30m left ·
+· free platform trial: ~41h52m left ·
 Wallet:  0xa2b4fB139150513872c68d51354e9f913A8c87a0
 
 Network                          BNB                  U                   
-bsc-testnet                      0.0504979 tBNB       0 U
-· free platform trial: ~47h30m left ·
+bsc-testnet                      0.050384775 tBNB       0 U
+· free platform trial: ~41h52m left ·
 agent_id:  2095
 address:   0xa2b4fB139150513872c68d51354e9f913A8c87a0
-agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTUsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2JuYmFnZW50LWFwaS5ibmJjaGFpbi53b3JsZC92MS9ydC8wMU0xTkFKVldZSEo4S0s2WFIxMUdBM0Y4UC8ud2VsbC1rbm93bi9hZ2VudC1jYXJkLmpzb24iLCJuYW1lIjoiQTJBIiwidmVyc2lvbiI6IjAuMy4wIn1dLCJ0eXBlIjoiaHR0cHM6Ly9laXBzLmV0aGVyZXVtLm9yZy9FSVBTL2VpcC04MDA0I3JlZ2lzdHJhdGlvbi12MSJ9
+agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTUsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2I4eG1hcmtldC1yZXBvLnZlcmNlbC5hcHAvYXBpL2FnZW50cy9iOHhyZWJhbC8ud2VsbC1rbm93bi9hZ2VudC1jYXJkLmpzb24iLCJuYW1lIjoiQTJBIiwidmVyc2lvbiI6IjAuMy4wIn1dLCJ0eXBlIjoiaHR0cHM6Ly9laXBzLmV0aGVyZXVtLm9yZy9FSVBTL2VpcC04MDA0I3JlZ2lzdHJhdGlvbi12MSJ9
 metadata:  {}
 ```
 
@@ -44,15 +52,15 @@ metadata:  {}
 
 ```txt
 address: 0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89
-· free platform trial: ~47h30m left ·
+· free platform trial: ~41h51m left ·
 Wallet:  0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89
 
 Network                          BNB                  U                   
-bsc-testnet                      0.0504979 tBNB       0 U
-· free platform trial: ~47h30m left ·
+bsc-testnet                      0.050384775 tBNB       0 U
+· free platform trial: ~41h51m left ·
 agent_id:  2096
 address:   0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89
-agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTYsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2JuYmFnZW50LWFwaS5ibmJjaGFpbi53b3JsZC92MS9ydC8wMU0xTkFSSlNUN0Q1RTVIM0RTNU40MVJSVC8ud2VsbC1rbm93bi9hZ2VudC1jYXJkLmpzb24iLCJuYW1lIjoiQTJBIiwidmVyc2lvbiI6IjAuMy4wIn1dLCJ0eXBlIjoiaHR0cHM6Ly9laXBzLmV0aGVyZXVtLm9yZy9FSVBTL2VpcC04MDA0I3JlZ2lzdHJhdGlvbi12MSJ9
+agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTYsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2I4eG1hcmtldC1yZXBvLnZlcmNlbC5hcHAvYXBpL2FnZW50cy9iOHhncmlkLy53ZWxsLWtub3duL2FnZW50LWNhcmQuanNvbiIsIm5hbWUiOiJBMkEiLCJ2ZXJzaW9uIjoiMC4zLjAifV0sInR5cGUiOiJodHRwczovL2VpcHMuZXRoZXJldW0ub3JnL0VJUFMvZWlwLTgwMDQjcmVnaXN0cmF0aW9uLXYxIn0=
 metadata:  {}
 ```
 
@@ -60,15 +68,15 @@ metadata:  {}
 
 ```txt
 address: 0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1
-· free platform trial: ~47h30m left ·
+· free platform trial: ~41h51m left ·
 Wallet:  0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1
 
 Network                          BNB                  U                   
-bsc-testnet                      0.0505 tBNB       0 U
-· free platform trial: ~47h30m left ·
+bsc-testnet                      0.050386875 tBNB       0 U
+· free platform trial: ~41h51m left ·
 agent_id:  2098
 address:   0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1
-agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTgsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2JuYmFnZW50LWFwaS5ibmJjaGFpbi53b3JsZC92MS9ydC8wMU0xTkFUNFJFNE42WkpLODYyUEowR0pUTS8ud2VsbC1rbm93bi9hZ2VudC1jYXJkLmpzb24iLCJuYW1lIjoiQTJBIiwidmVyc2lvbiI6IjAuMy4wIn1dLCJ0eXBlIjoiaHR0cHM6Ly9laXBzLmV0aGVyZXVtLm9yZy9FSVBTL2VpcC04MDA0I3JlZ2lzdHJhdGlvbi12MSJ9
+agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ImJuYmFnZW50LXN0dWRpbyBhZ2VudCIsImltYWdlIjoiIiwibmFtZSI6InN0dWRpby1hZ2VudCIsInJlZ2lzdHJhdGlvbnMiOlt7ImFnZW50SWQiOjIwOTgsImFnZW50UmVnaXN0cnkiOiJlaXAxNTU6OTc6MHg4MDA0QTgxOEJGQjkxMjIzM2M0OTE4NzFiM2Q4NGM4OUE0OTRCRDllIn1dLCJzZXJ2aWNlcyI6W3siZW5kcG9pbnQiOiJodHRwczovL2I4eG1hcmtldC1yZXBvLnZlcmNlbC5hcHAvYXBpL2FnZW50cy9iOHh5aWVsZC8ud2VsbC1rbm93bi9hZ2VudC1jYXJkLmpzb24iLCJuYW1lIjoiQTJBIiwidmVyc2lvbiI6IjAuMy4wIn1dLCJ0eXBlIjoiaHR0cHM6Ly9laXBzLmV0aGVyZXVtLm9yZy9FSVBTL2VpcC04MDA0I3JlZ2lzdHJhdGlvbi12MSJ9
 metadata:  {}
 ```
 
@@ -86,7 +94,8 @@ agent_uri: data:application/json;base64,eyJkZXNjcmlwdGlvbiI6IkJTQyBoZWFsdGgtZmFj
 metadata:  {}
 ```
 
-## Known Current Limitation
+## Managed Platform Note
 
-- BNB managed trial rejected the fourth active runtime with `Agent quota reached (max 3)`; `b8xhealth` uses the Vercel fallback endpoint.
-- The health-factor fallback is public and ERC-8004 registered, but it is not a BNB managed runtime and does not store a private signer in Vercel.
+- `b8xrebal`, `b8xgrid` and `b8xyield` were deployed to the BNB Agent Studio managed trial and reconciled with `bag deploy verify --provider bnb`.
+- The managed trial account rejected the fourth active runtime with `Agent quota reached (max 3)`, so all four ERC-8004 service endpoints are kept on durable Vercel public A2A routes.
+- No private wallet key is stored in Vercel. The public routes run in zero-price quote mode; signer-backed seller delivery should move to permanent BNB managed or owned AWS hosting before charging users.

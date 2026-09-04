@@ -1,6 +1,6 @@
 # Live Agents Runbook
 
-This is the operational path for turning the B8X interface from a production demo into a live hackathon submission.
+This is the operational path for maintaining the B8X live hackathon submission.
 
 ## 1. Use Burner Wallets
 
@@ -60,16 +60,18 @@ Complete the device-code flow in your browser.
 ./scripts/deploy-agents-bnb.sh
 ```
 
-The BNB managed platform is a 48-hour testnet trial. Start it only when the submission evidence work is ready.
+The BNB managed platform is a 48-hour testnet trial. Use it as managed-platform proof, but do not make the public submission depend on that temporary endpoint.
 
 Current trial constraint: this account accepted three active BNB managed runtimes and rejected the fourth with `Agent quota reached (max 3)`. The current deployment path is:
 
-- `b8xrebal`, `b8xgrid`, `b8xyield`: BNB Agent Studio managed trial
-- `b8xhealth`: public Vercel API fallback until the BNB quota is raised or the agent is moved to owned AWS/Azure infrastructure
+- `b8xrebal`, `b8xgrid`, `b8xyield`: BNB Agent Studio managed-trial proof plus durable Vercel public A2A endpoint.
+- `b8xhealth`: durable Vercel public A2A endpoint.
 
-Do not put the health-factor burner private key into Vercel unless the team explicitly decides to make Vercel a signer host. The current Vercel fallback intentionally has no private key and does not claim to produce wallet-signed seller quotes.
+All four ERC-8004 service endpoints point at Vercel `.well-known/agent-card.json` URLs so the submission does not expire with the managed trial.
 
-`bag deploy verify --provider bnb` is the required command for ERC-8004 reconciliation on managed-platform projects. Direct `bag erc8004 register --no-paymaster` is blocked by the CLI for `destination = "platform"` projects. For the Vercel fallback, set `deploy.destination = "self"` and register the exact public card URL.
+Do not put burner private keys into Vercel unless the team explicitly decides to make Vercel a signer host. The current Vercel endpoints intentionally have no private keys and do not claim wallet-signed seller quotes.
+
+`bag deploy verify --provider bnb` is the required command for ERC-8004 reconciliation on managed-platform projects. `bag erc8004 update-endpoint --no-paymaster` is used afterward to point the registered service to the durable Vercel endpoint.
 
 ## 6. Collect Evidence
 
@@ -81,7 +83,7 @@ Then update:
 
 - `docs/LIVE_AGENT_EVIDENCE.md`
 - `docs/AGENT_ADVANTAGE_REPORT.md`
-- `index.html`, replacing demo `AGENTS` rows with live verifier output
+- `index.html`, replacing the seed `AGENTS` rows with newer verifier output
 
 Required evidence for the hackathon:
 
@@ -95,4 +97,4 @@ Required evidence for the hackathon:
 
 ## 7. Submission Timing
 
-The deadline is **9 September 2026 at UTC+0**. Do not start the 48-hour managed-platform trial too early unless you are ready to submit evidence.
+The deadline is **9 September 2026 at UTC+0**. Keep the Vercel site and ERC-8004 endpoints alive through judging. Refresh the managed trial only if you want fresh BNB managed runtime evidence on the submission day.

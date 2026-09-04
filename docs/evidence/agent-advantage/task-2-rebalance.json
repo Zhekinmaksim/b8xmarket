@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-09-04T10:35:30.787Z",
+  "evidence_mode": "zero-price quote-mode production endpoint smoke test",
+  "note": "This evidence proves public agent-card and A2A job-response behavior. It does not claim paid trading execution or wallet-signed seller delivery.",
+  "task": {
+    "id": "task-2-rebalance",
+    "title": "Hold a 60/40 portfolio inside a 2% band",
+    "category": "Rebalancing",
+    "agent": "b8xrebal",
+    "task_description": "Prepare a BNB Chain rebalance plan for a 60/40 portfolio with a 2% drift band, including gas/slippage threshold, ordered actions and post-trade drift estimate.",
+    "terms": {
+      "target": "60/40",
+      "drift_band_percent": 2,
+      "spend_cap_u": "0",
+      "mode": "quote"
+    }
+  },
+  "endpoints": {
+    "card": "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/.well-known/agent-card.json",
+    "a2a": "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/a2a"
+  },
+  "card_status": {
+    "http_status": 200,
+    "duration_ms": 679,
+    "name": "b8xrebal-agent"
+  },
+  "agent_path": {
+    "negotiate": {
+      "http_status": 200,
+      "duration_ms": 622,
+      "output_status": "quoted",
+      "price": "0",
+      "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+      "signature_status": "vercel-fallback-unsigned",
+      "quality_score": 84,
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": "task-2-rebalance-negotiate",
+        "result": {
+          "message": {
+            "messageId": "b8xrebal-1788518131976",
+            "role": "agent",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "status": "quoted",
+                  "agent": "b8xrebal-agent",
+                  "category": "Rebalancing",
+                  "wallet": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+                  "erc8004_agent_id": 2095,
+                  "quote": {
+                    "price": "0",
+                    "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+                    "quote_ttl_seconds": 900,
+                    "signature_status": "vercel-fallback-unsigned",
+                    "endpoint_status": "public-vercel-a2a",
+                    "note": "B8X Rebalancing Agent is registered in ERC-8004 and served from a durable public Vercel A2A endpoint for the hackathon submission. No private wallet key is stored in Vercel; the endpoint is zero-price quote mode and public verification evidence is kept in docs/LIVE_AGENT_EVIDENCE.md."
+                  },
+                  "deliverable": {
+                    "task": "Prepare a BNB Chain rebalance plan for a 60/40 portfolio with a 2% drift band, including gas/slippage threshold, ordered actions and post-trade drift estimate.",
+                    "risk_floor": "drift threshold",
+                    "checks": [
+                      "Read target weights, current balances, prices, liquidity depth and gas.",
+                      "Skip trades where the drift is smaller than fees and slippage.",
+                      "Build an ordered swap plan with per-leg limits and fallback actions.",
+                      "Return a block-stamped report with expected drift after execution."
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "notify_funded": {
+      "http_status": 200,
+      "duration_ms": 207,
+      "output_status": "accepted",
+      "job_id": "task-2-rebalance-zero-price-2026-09-04T10-35-29-279Z",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": "task-2-rebalance-notify-funded",
+        "result": {
+          "message": {
+            "messageId": "b8xrebal-1788518132206",
+            "role": "agent",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "status": "accepted",
+                  "agent": "b8xrebal-agent",
+                  "category": "Rebalancing",
+                  "wallet": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+                  "erc8004_agent_id": 2095,
+                  "job_id": "task-2-rebalance-zero-price-2026-09-04T10-35-29-279Z",
+                  "deliverable_outline": [
+                    "portfolio snapshot",
+                    "target-versus-current weight table",
+                    "gas and slippage threshold",
+                    "ordered rebalance plan",
+                    "post-trade drift estimate"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "manual_path": {
+    "baseline": "Manual rebalance check without hiring an agent.",
+    "time_estimate": "15-30 minutes per rebalance decision, plus repeated checks when prices move.",
+    "cost_basis": "No agent fee, but the operator pays gas and has to compute whether the move is worth it.",
+    "steps": [
+      "Read balances and target weights.",
+      "Calculate current drift.",
+      "Fetch prices and liquidity.",
+      "Estimate gas, fees and slippage.",
+      "Decide whether the rebalance clears the cost threshold.",
+      "Record the before/after allocation."
+    ],
+    "quality_score": 64
+  }
+}

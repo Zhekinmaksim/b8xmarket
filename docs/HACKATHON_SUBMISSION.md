@@ -28,19 +28,20 @@ The hire flow is built around scoped control. Before a user activates an agent, 
 
 ## Current Evidence Status
 
-The current deployment is production-ready as a marketplace interface and no longer uses the original demo agent rows.
+The current deployment is production-ready as a marketplace interface and uses live BSC testnet agent records.
 
-The repository includes BNB Agent Studio workspaces for all four categories. The burner wallets are imported, funded on BSC testnet and kept out of git. Three category agents are live on the BNB Agent Studio managed trial:
+The repository includes BNB Agent Studio workspaces for all four categories. The burner wallets are imported, funded on BSC testnet and kept out of git. All four wallets are registered in ERC-8004, and all four service endpoints resolve to public Vercel A2A-compatible routes:
 
 - `b8xrebal`
 - `b8xgrid`
 - `b8xyield`
+- `b8xhealth`
 
-The fourth category, `b8xhealth`, is exposed as a public Vercel A2A-compatible fallback endpoint because the BNB managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`.
+The first three agents were also deployed to the BNB Agent Studio managed trial and reconciled with `bag deploy verify --provider bnb`. The managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`, so the health-factor agent uses the same public Vercel A2A route pattern as the others.
 
-All four surfaced wallets are registered in ERC-8004. The three managed runtimes were reconciled with `bag deploy verify --provider bnb`; the health-factor fallback was registered self-paid after switching its local Agent Studio config to `deploy.destination = "self"`.
+The public Vercel routes run in zero-price quote mode and do not store private wallet keys. Signer-backed seller delivery should move to permanent BNB managed capacity or owned AWS/Azure hosting before charging users.
 
-Before final submission, attach:
+Attach:
 
 - BSC wallet addresses for surfaced agents.
 - Transaction links for every live activity claim.

@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-09-04T10:35:32.286Z",
+  "evidence_mode": "zero-price quote-mode production endpoint smoke test",
+  "note": "This evidence proves public agent-card and A2A job-response behavior. It does not claim paid trading execution or wallet-signed seller delivery.",
+  "task": {
+    "id": "task-3-health",
+    "title": "Guard a leveraged lending position before liquidation",
+    "category": "Health factor monitoring",
+    "agent": "b8xhealth",
+    "task_description": "Prepare a health-factor monitoring plan for a leveraged BNB Chain lending position with a 1.05 floor, including alert, repay, top-up and partial-unwind actions.",
+    "terms": {
+      "health_factor_floor": "1.05",
+      "spend_cap_u": "0",
+      "mode": "quote"
+    }
+  },
+  "endpoints": {
+    "card": "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json",
+    "a2a": "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/a2a"
+  },
+  "card_status": {
+    "http_status": 200,
+    "duration_ms": 663,
+    "name": "b8xhealth-agent"
+  },
+  "agent_path": {
+    "negotiate": {
+      "http_status": 200,
+      "duration_ms": 632,
+      "output_status": "quoted",
+      "price": "0",
+      "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+      "signature_status": "vercel-fallback-unsigned",
+      "quality_score": 86,
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": "task-3-health-negotiate",
+        "result": {
+          "message": {
+            "messageId": "b8xhealth-1788518133493",
+            "role": "agent",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "status": "quoted",
+                  "agent": "b8xhealth-agent",
+                  "category": "Health factor monitoring",
+                  "wallet": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+                  "erc8004_agent_id": 2097,
+                  "quote": {
+                    "price": "0",
+                    "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+                    "quote_ttl_seconds": 900,
+                    "signature_status": "vercel-fallback-unsigned",
+                    "endpoint_status": "public-vercel-a2a",
+                    "note": "B8X Health Factor Agent is registered in ERC-8004 and served from a durable public Vercel A2A endpoint for the hackathon submission. No private wallet key is stored in Vercel; the endpoint is zero-price quote mode and public verification evidence is kept in docs/LIVE_AGENT_EVIDENCE.md."
+                  },
+                  "deliverable": {
+                    "task": "Prepare a health-factor monitoring plan for a leveraged BNB Chain lending position with a 1.05 floor, including alert, repay, top-up and partial-unwind actions.",
+                    "risk_floor": "1.05",
+                    "checks": [
+                      "Read collateral, debt, borrow rate and oracle state.",
+                      "Alert before the health factor crosses the configured floor.",
+                      "Choose top-up, partial repay or partial unwind based on gas and liquidation distance.",
+                      "Return a block-stamped action plan with assumptions and failure modes."
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "notify_funded": {
+      "http_status": 200,
+      "duration_ms": 202,
+      "output_status": "accepted",
+      "job_id": "task-3-health-zero-price-2026-09-04T10-35-30-789Z",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": "task-3-health-notify-funded",
+        "result": {
+          "message": {
+            "messageId": "b8xhealth-1788518133705",
+            "role": "agent",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "status": "accepted",
+                  "agent": "b8xhealth-agent",
+                  "category": "Health factor monitoring",
+                  "wallet": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+                  "erc8004_agent_id": 2097,
+                  "job_id": "task-3-health-zero-price-2026-09-04T10-35-30-789Z",
+                  "deliverable_outline": [
+                    "position snapshot",
+                    "health-factor floor check",
+                    "liquidation distance",
+                    "recommended collateral or debt action",
+                    "revocation and session-control note"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "manual_path": {
+    "baseline": "Manual health-factor monitoring without hiring an agent.",
+    "time_estimate": "Continuous attention during volatile windows, or manual checks every 15-30 minutes.",
+    "cost_basis": "No agent fee, but the operator carries attention cost and liquidation timing risk.",
+    "steps": [
+      "Read collateral, debt and oracle price.",
+      "Compute current health factor.",
+      "Watch borrow-rate and price changes.",
+      "Decide whether to add collateral, repay debt or unwind.",
+      "Act before liquidation distance becomes too small.",
+      "Record before/after health factor."
+    ],
+    "quality_score": 66
+  }
+}

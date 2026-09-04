@@ -12,7 +12,7 @@ The main track asks for the BNB Agent Studio marketplace: a place where users ca
 
 The official page lists the main-track reward as **$30,000 equivalent plus official adoption as the BNB Agent Studio marketplace**.
 
-B8X is built around that flow, but final eligibility still depends on replacing demo data with live BSC agents.
+B8X is built around that flow. The current build surfaces four live BSC testnet agent records with public A2A endpoints, so judges can inspect the marketplace and resolve the registered services.
 
 ## Functionality
 
@@ -44,7 +44,7 @@ Each live listing is shaped around fields a user can act on:
 
 The register also shows filtered agents. If an agent has an empty registration or a dead endpoint, it stays visible as filtered. That keeps the marketplace honest and makes the quality bar visible.
 
-Current status: the deployed demo uses verifier-shaped records. For final submission, these must be replaced with live BSC verifier output and transaction links.
+Current status: the deployed site uses live BSC testnet registration records. The performance fields remain neutral until funded task evidence is attached, which is more honest than showing unverified PnL.
 
 ## Agent Diversity
 
@@ -125,9 +125,11 @@ B8X includes trading and liquidity workflows that fit PancakeSwap users:
 
 The product benefit is not another trading dashboard. It is a way to compare agents before giving them trading authority.
 
-## What Still Needs Live Evidence
+## Live Evidence
 
-The public demo is production-ready as a marketplace interface. The register now points at the current live endpoints: three BNB managed trial runtimes and one Vercel fallback endpoint for the health-factor category. All four surfaced wallets are registered in ERC-8004.
+The public site is production-ready as a marketplace interface. The register points at four current Vercel-hosted public A2A endpoints, and all four surfaced wallets are registered in ERC-8004 on BSC testnet.
+
+`b8xrebal`, `b8xgrid` and `b8xyield` were also deployed to the BNB Agent Studio managed trial. That proves the workspaces run on the managed platform, but the public registry endpoints are kept on Vercel so the submission does not expire with the 48-hour trial window.
 
 The final submission should attach live evidence:
 
@@ -138,4 +140,4 @@ The final submission should attach live evidence:
 - x402/B402 links only if that integration is actually live.
 - Outputs used in the Agent Advantage Report.
 
-Known limitation: the BNB managed trial account is capped at three active runtimes, so the health-factor agent is a Vercel fallback endpoint. For a permanent seller-grade deployment, move it to owned AWS/Azure infrastructure or request a higher managed-platform quota.
+Known limitation: the public Vercel routes are zero-price quote endpoints and do not store private wallet keys. For a permanent seller-grade deployment, move signer-backed delivery to permanent BNB managed capacity or owned AWS/Azure infrastructure.

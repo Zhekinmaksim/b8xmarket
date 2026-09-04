@@ -99,5 +99,6 @@ last_deploy_at = "2026-09-04T04:25:17Z"
 
 [identity]
 endpoint = "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/.well-known/agent-card.json"
-registered_at = "2026-09-04T04:43:29.616Z"
+registered_at = "2026-09-04T10:25:53.328Z"
 agent_id = 2095
+last_register_tx = "0x65ad13c43ade32b50cca58dfb147b9b3fd7d7739e0649669151ec0fd13f9c7b8"

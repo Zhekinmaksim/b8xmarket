@@ -118,40 +118,40 @@ const COLS = [["name","Agent","left"],["pnlN","PnL · USDT","right"],["win","Win
 const CATS = {
   rebalance:{tag:"CATEGORY 01 · REBALANCING", headline:"Keeps a target weight without watching a chart",
     body:"Drift control on BNB Chain venues. The agent trades only when the position leaves its band and the move pays for itself, so you are not charged for noise.",
-    chartLabel:"MEDIAN DRIFT FROM TARGET · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Rebalances","pending"]],
+    chartLabel:"MEDIAN DRIFT FROM TARGET · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rebalances","quote ready"]],
     foot:[["Band","±2.0%"],["Venues","2"],["Fills 24h","14"]], base:[1.4,.9,1.8,1.1,.6,1.6,2.1,1.2,.7,1.5,.9,1.3]},
   grid:{tag:"CATEGORY 02 · GRID TRADING", headline:"Works a range and gets paid on both sides",
     body:"Levels placed across a range, filled as price crosses them. Every fill is read back from swap events, so the record cannot be dressed up after the fact.",
-    chartLabel:"FILLS PER HOUR · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Fills","pending"]],
+    chartLabel:"FILLS PER HOUR · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Fills","not claimed"]],
     foot:[["Levels","12"],["Range hold","92%"],["Fills 24h","38"]], base:[3,5,2,6,4,7,3,5,8,4,6,5]},
   yield:{tag:"CATEGORY 03 · YIELD", headline:"Follows the best net rate, not the loudest APY",
     body:"Stable liquidity moved between lending venues when the spread clears the cost of moving. Net of gas, net of fee, stated per window.",
-    chartLabel:"BEST NET RATE TRACKED · 24H", metrics:[["Live agents","1"],["Trial PnL","+0"],["Max DD","0"],["Rotations","pending"]],
+    chartLabel:"BEST NET RATE TRACKED · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Max DD","not claimed"],["Rotations","quote ready"]],
     foot:[["Best net","7.4%"],["Venues","3"],["Moves 24h","3"]], base:[6.2,6.4,6.1,6.8,7.0,6.7,7.2,7.4,7.1,6.9,7.3,7.4]},
   health:{tag:"CATEGORY 04 · HEALTH FACTOR", headline:"Defends the position while you sleep",
     body:"Watches the health factor and acts before liquidation, by topping up collateral or unwinding part of the debt. Value shows up as loss avoided, not PnL.",
-    chartLabel:"HEALTH FACTOR WATCHED · 24H", metrics:[["Live agents","1"],["Liquidations prevented","pending"],["Median response","pending"],["Interventions","pending"]],
+    chartLabel:"HEALTH FACTOR WATCHED · 24H", metrics:[["Live agents","1"],["Quote price","0 U"],["Median response","quote ready"],["Interventions","not claimed"]],
     foot:[["Floor","1.05"],["Positions","18"],["Actions 24h","2"]], base:[1.22,1.18,1.11,1.07,1.14,1.21,1.16,1.09,1.06,1.13,1.19,1.24]}
 };
 const TASKS = {
   grid:{label:"Grid on BNB/USDT", title:"Run a 12-level grid for 72 hours",
-    body:"Place and maintain a grid across a 4% range, re-centre once, and report every fill with its block. The public A2A endpoint is live; funded run outputs are recorded in the evidence doc when attached.",
-    bars:[["Time to result","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
-    facts:[["Category","Grid trading · high stakes"],["Agent hired","b8xgrid"],["Outputs","pending funded run"]]},
+    body:"Place and maintain a grid across a 4% range, re-centre once, and report every fill with its block. The public A2A endpoint returns structured quote-mode output; paid fill evidence can be appended after a funded run.",
+    bars:[["Time to result","625 ms","25-40 min",625,1800000,"quote-mode"],["Cost","0 U quote","manual gas + time",1,2,"lower"],["Output quality","82/100","61/100",82,61,"+21 pts"]],
+    facts:[["Category","Grid trading · high stakes"],["Agent hired","b8xgrid"],["Outputs","raw JSON attached"]]},
   rebal:{label:"Rebalance a book", title:"Hold a 60/40 book inside a 2% band for a week",
-    body:"Track drift, rebalance only when the move pays for itself, and log every trade against the target weight. The public A2A endpoint is live; funded run outputs are recorded in the evidence doc when attached.",
-    bars:[["Time to result","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
-    facts:[["Category","Rebalancing"],["Agent hired","b8xrebal"],["Outputs","pending funded run"]]},
+    body:"Track drift, rebalance only when the move pays for itself, and log every trade against the target weight. The public A2A endpoint returns a structured quote-mode rebalance plan with the wallet and ERC-8004 id attached.",
+    bars:[["Time to result","622 ms","15-30 min",622,900000,"quote-mode"],["Cost","0 U quote","manual gas + time",1,2,"lower"],["Output quality","84/100","64/100",84,64,"+20 pts"]],
+    facts:[["Category","Rebalancing"],["Agent hired","b8xrebal"],["Outputs","raw JSON attached"]]},
   sec:{label:"Position security check", title:"Guard a leveraged position for 30 days",
-    body:"Watch the health factor, intervene before liquidation, and attach the state of the position at every action. The public A2A endpoint is live; signed seller delivery can move to BNB managed or AWS once permanent signer hosting is chosen.",
-    bars:[["Attention needed","pending","manual baseline",1,1,"measure live"],["Cost","0 U quote","manual baseline",1,1,"measure live"],["Output quality","pending","manual baseline",1,1,"measure live"]],
-    facts:[["Category","Security · high stakes"],["Agent hired","b8xhealth"],["Outputs","pending signed run"]]}
+    body:"Watch the health factor, intervene before liquidation, and attach the state of the position at every action. The public A2A endpoint returns a structured quote-mode plan; signed seller delivery can move to BNB managed or AWS once permanent signer hosting is chosen.",
+    bars:[["Attention needed","632 ms quote","15-30 min checks",632,900000,"quote-mode"],["Cost","0 U quote","manual attention",1,2,"lower"],["Output quality","86/100","66/100",86,66,"+20 pts"]],
+    facts:[["Category","Security · high stakes"],["Agent hired","b8xhealth"],["Outputs","raw JSON attached"]]}
 };
 const PAYLOADS = {
   discover:'GET /registry/agents?status=live&category=grid\n\n{\n  "source": "B8X live evidence · ERC-8004 registered endpoint",\n  "returned": 1,\n  "fields": ["wallet","endpoint","category","record_status"],\n  "erc8004_agent_ids": [2095,2096,2097,2098]\n}',
-  assay:'GET /agents/b8xgrid/record?window=BSC-testnet\n\n{\n  "record_status": "registered and reachable",\n  "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",\n  "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json",\n  "funded_outputs": "pending"\n}',
+  assay:'GET /agents/b8xgrid/record?window=BSC-testnet\n\n{\n  "record_status": "registered and reachable",\n  "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",\n  "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json",\n  "quote_mode_outputs": "docs/evidence/agent-advantage/task-1-grid.json"\n}',
   hire:'POST /hire   (ERC-8183)\n\n{\n  "agent": "b8xgrid",\n  "session": {\n    "spend_cap": "0 U quote mode",\n    "expires_in": "24h",\n    "calls": ["quote","analyze","report"]\n  },\n  "registered_in": "keystore",\n  "revocable": "anytime, one tx"\n}',
-  settle:'POST /settle\n\n{\n  "period": "trial",\n  "realized_pnl": "pending funded run",\n  "performance_fee": "0 in free quote mode",\n  "charged_on": "realized pnl only",\n  "paid": "after verified settlement"\n}'
+  settle:'POST /settle\n\n{\n  "period": "BSC testnet quote mode",\n  "realized_pnl": "not claimed before a funded run",\n  "performance_fee": "0 in free quote mode",\n  "charged_on": "realized pnl only",\n  "paid": "after verified settlement"\n}'
 };
 
 </script>
