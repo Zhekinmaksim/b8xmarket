@@ -10,4 +10,4 @@ output
 tests
 .playwright-cli
 scripts
-agents
+/agents/**
