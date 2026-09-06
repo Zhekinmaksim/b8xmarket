@@ -416,7 +416,7 @@
     saveHistory();
     renderHistory();
   });
-  choose(selected.slug);
+  choose(new URLSearchParams(location.search).get("agent") || selected.slug);
   renderHistory();
   checkCards();
 })();

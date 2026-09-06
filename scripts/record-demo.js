@@ -1,6 +1,6 @@
 async (page) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.goto("https://b8xmarket-repo.vercel.app");
+  await page.goto("https://b8xmarket.xyz/analysis.html");
   await page.getByText(/4 of 4 endpoints reachable/).waitFor();
   await page.evaluate(() => {
     const subtitle = document.createElement("div");

@@ -2,7 +2,7 @@ async (page) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("http://127.0.0.1:4173");
+  await page.goto("http://127.0.0.1:4173/analysis.html");
   await page.getByText(/4 of 4 endpoints reachable/).waitFor();
   const checks = [];
   for (const slug of ["b8xrebal", "b8xgrid", "b8xyield", "b8xhealth"]) {

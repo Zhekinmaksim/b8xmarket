@@ -6,6 +6,7 @@ const snapshot = require("../api/snapshot");
 const root = path.resolve(__dirname, "..");
 const publicFiles = new Set([
   "index.html",
+  "analysis.html",
   "app.css",
   "app.js",
   "catalog.js",
