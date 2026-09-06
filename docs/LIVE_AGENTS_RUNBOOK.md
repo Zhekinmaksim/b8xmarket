@@ -1,5 +1,7 @@
 # Live Agents Runbook
 
+Historical Studio setup guide. The public v2 runtime uses the read-only calculation API documented in README.md. The managed trial below expired on September 6, 2026; it is not a permanent production service. Do not use this guide as evidence of current paid execution.
+
 This is the operational path for maintaining the B8X live hackathon submission.
 
 ## 1. Use Burner Wallets

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-06T07:53:03.268Z",
-  "origin": "http://127.0.0.1:4173",
+  "generatedAt": "2026-09-06T10:01:59.392Z",
+  "origin": "https://b8xmarket-repo.vercel.app",
   "environment": {
     "node": "v20.20.2",
     "platform": "darwin",
@@ -17,36 +17,36 @@
     {
       "agent": "b8xrebal",
       "runs": 5,
-      "p50RoundTripMs": 1.8129169999999988,
-      "maxRoundTripMs": 24.953041999999996,
-      "p50BaselineMs": 0.005915999999999144,
+      "p50RoundTripMs": 344.7992919999999,
+      "maxRoundTripMs": 715.6598329999999,
+      "p50BaselineMs": 0.007250000000112777,
       "checksPassed": 4,
       "checksTotal": 4
     },
     {
       "agent": "b8xgrid",
       "runs": 5,
-      "p50RoundTripMs": 2.070083000000004,
-      "maxRoundTripMs": 3.3455840000000023,
-      "p50BaselineMs": 0.008582999999994456,
+      "p50RoundTripMs": 210.5821249999999,
+      "maxRoundTripMs": 350.41545900000006,
+      "p50BaselineMs": 0.01812500000005457,
       "checksPassed": 4,
       "checksTotal": 4
     },
     {
       "agent": "b8xyield",
       "runs": 5,
-      "p50RoundTripMs": 1.1526659999999964,
-      "maxRoundTripMs": 1.5624579999999995,
-      "p50BaselineMs": 0.006540999999998576,
+      "p50RoundTripMs": 221.75770800000055,
+      "maxRoundTripMs": 237.84687499999973,
+      "p50BaselineMs": 0.024791999999706604,
       "checksPassed": 3,
       "checksTotal": 3
     },
     {
       "agent": "b8xhealth",
       "runs": 5,
-      "p50RoundTripMs": 0.6120420000000024,
-      "maxRoundTripMs": 1.584791999999993,
-      "p50BaselineMs": 0.0028749999999888587,
+      "p50RoundTripMs": 226.28995899999973,
+      "maxRoundTripMs": 237.91904199999954,
+      "p50BaselineMs": 0.008667000000059488,
       "checksPassed": 5,
       "checksTotal": 5
     }

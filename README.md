@@ -2,7 +2,7 @@
 
 B8X is a read-only analysis interface for four BNB Chain agent categories: LP rebalancing, grid trading, yield optimisation and health-factor checks.
 
-[Open B8X](https://b8xmarket-repo.vercel.app/) | [Hackathon brief](https://www.bnbchain.org/en/hackathons/smart-money-era)
+[Open B8X](https://b8xmarket.xyz/) | [Hackathon brief](https://www.bnbchain.org/en/hackathons/smart-money-era)
 
 Choose a category, edit the inputs and run an analysis. The API performs decimal calculations and returns the result, source details, assumptions and formulas. Results can be downloaded as JSON and reopened from browser-local history.
 
