@@ -1,92 +1,26 @@
-# Hackathon Submission Draft
+# B8X Market
 
-Use this as the human-readable project summary for the Smart Money Era submission form and demo script.
+Live application: https://b8xmarket-repo.vercel.app/
 
-## Short Description
+Source: https://github.com/Zhekinmaksim/b8xmarket
 
-B8X is a marketplace register for BNB Chain agents. It helps users compare agents by category, performance and risk, then hire them through scoped sessions instead of handing over broad authority.
+B8X lets a user select an agent category, supply a scenario and inspect a numerical result. Every result includes the inputs, assumptions, formulas and source status. Users can download the JSON and reopen recent results in the same browser.
 
-## Long Description
+The four categories have distinct implementations: LP range review, grid cost checks, net yield comparison and lending stress analysis. The calculations are deterministic. There is no LLM in the public analysis path.
 
-BNB Chain already has a large base of registered on-chain agents. The missing layer is a place where a normal user can decide which agent is worth hiring.
+The optional PancakeSwap integration reads the WBNB/USDT reserve-ratio price from BSC mainnet at a fixed block. The four historical ERC-8004 registration records are on BSC testnet. These are different networks and are labelled separately.
 
-B8X solves that discovery problem as a marketplace interface. It covers the four required Smart Money Era categories: rebalancing, grid trading, yield optimisation and health factor monitoring. Each category has the same treatment: a focused tab, category metrics, records that can be opened, and data points a user can compare without reading docs first.
+## How to try it
 
-The product does not rank agents by vague badges. Each listing shows the record behind the agent: realised PnL, drawdown, win rate, fills, risk ratio, venue and time window. If an agent has a weak record, empty registration or dead endpoint, the interface keeps that visible instead of hiding it. That makes the quality bar clear.
+1. Select Grid trading and run the sample. The configured fees make some intervals uneconomic.
+2. Change the number of levels and rerun. Inspect the per-interval numbers and download the result.
+3. Try LP rebalancing, Yield optimisation and Health factor. Each has editable inputs and an inspectable output.
+4. For LP or grid, select the live PancakeSwap price source. The result records the pool, block and observation time. Range bounds remain your own inputs.
 
-The hire flow is built around scoped control. Before a user activates an agent, they see the allowed calls, spend cap, expiry and revoke state. The intended model is simple: the agent can work, but only inside the permission the user granted.
+## Current limits
 
-## What Works In The Current Build
+This is a read-only analysis beta. It does not hire a paid seller, execute a strategy, monitor continuously, grant session authority or settle a payment. The earlier managed trial is not the current runtime. No Altana or x402 eligibility is claimed.
 
-- Public static site deployed on Vercel.
-- Four BNB Agent Studio seller-agent workspaces prepared in `agents/`.
-- Four first-class categories required by the main track.
-- Agent register with filtering, opened records and visible rejected records.
-- Agent Advantage Report section comparing agent work with manual work.
-- Scoped-session control panel with allowlist, spend cap, expiry and revoke state.
-- SEO, Open Graph image, favicon, security headers, sitemap and accessibility landmarks.
+The benchmark compares actual HTTP calculations against a standalone calculator, not measured human work. The required TermiX human/hiring evidence remains incomplete. See [Agent Advantage evidence status](AGENT_ADVANTAGE_REPORT.md).
 
-## Current Evidence Status
-
-The current deployment is production-ready as a marketplace interface and uses live BSC testnet agent records.
-
-The repository includes BNB Agent Studio workspaces for all four categories. The burner wallets are imported, funded on BSC testnet and kept out of git. All four wallets are registered in ERC-8004, and all four service endpoints resolve to public Vercel A2A-compatible routes:
-
-- `b8xrebal`
-- `b8xgrid`
-- `b8xyield`
-- `b8xhealth`
-
-The first three agents were also deployed to the BNB Agent Studio managed trial and reconciled with `bag deploy verify --provider bnb`. The managed trial account rejected a fourth active runtime with `Agent quota reached (max 3)`, so the health-factor agent uses the same public Vercel A2A route pattern as the others.
-
-The public Vercel routes run in zero-price quote mode and do not store private wallet keys. Signer-backed seller delivery should move to permanent BNB managed capacity or owned AWS/Azure hosting before charging users.
-
-Attach:
-
-- BSC wallet addresses for surfaced agents.
-- Transaction links for every live activity claim.
-- Verifier JSON or `docs/LIVE_AGENT_EVIDENCE.md` used to populate the agent register.
-- Raw outputs and manual baselines for the Agent Advantage Report.
-- Altana explorer links if submitting for the Altana bounty.
-- x402/B402 evidence only if that payment rail is actually connected.
-
-## Main Track Fit
-
-The main track asks for the BNB Agent Studio marketplace: a place where users can find agents, understand what they do and activate them quickly.
-
-B8X follows that path:
-
-1. The user lands on the marketplace.
-2. The user chooses one of the four required categories.
-3. The user compares agents by record, risk and venue.
-4. The user opens a listing to see the evidence behind it.
-5. The user reviews session limits before hiring.
-
-This is built for a user who does not already know Agent Studio. The page explains the agent record through the interface itself instead of sending the user into separate documentation.
-
-## Partner Track Fit
-
-**TermiX:** B8X includes an Agent Advantage Report format with three tasks run both ways: with an agent and manually. The final report must attach the actual outputs, time, cost and quality evidence.
-
-**Altana:** B8X shows the scoped-session control model: wallet authority, allowlist, spend cap, expiry and revocation. For Altana eligibility, the final submission must include live explorer links for sessions and transactions.
-
-**PancakeSwap:** B8X includes trading and liquidity workflows that match PancakeSwap users: grid trading, LP rebalancing, fill reconstruction and risk-aware execution.
-
-## Demo Flow
-
-1. Open the live site.
-2. Show that all four required categories are present.
-3. Filter to grid trading and open an agent record.
-4. Walk through the metrics: PnL, drawdown, win rate, fills, risk and venue.
-5. Open the Agent Advantage Report and compare agent execution with manual work.
-6. Show the scoped-session panel: allowlist, spend cap, expiry and revoke.
-7. End with the live wallet and transaction evidence links.
-
-## Submission Links
-
-- Live site: https://b8xmarket-repo.vercel.app
-- Repository: https://github.com/Zhekinmaksim/b8xmarket
-- Official brief: https://www.bnbchain.org/en/hackathons/smart-money-era
-- Submission form: https://forms.gle/9g9XPNFwnYaHAz9L8
-
-Deadline: **9 September 2026 at UTC+0**.
+Do not describe this submission as a fully operational autonomous trading marketplace. The working contribution is transparent discovery and analysis across four categories; activation into execution remains a gap against the main-track brief.

@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-09-06T07:53:03.268Z",
+  "origin": "http://127.0.0.1:4173",
+  "environment": {
+    "node": "v20.20.2",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "mode": "deterministic scenarios; HTTP analysis versus local standalone non-agent calculator",
+  "limitations": [
+    "Not human timing. Not paid hiring. No autonomous trading was tested.",
+    "Network request time and local calculation time measure different delivery paths. No speed advantage is claimed.",
+    "Correctness compares selected numerical metrics, not all financial risks or output quality.",
+    "Host infrastructure and operator costs are not included."
+  ],
+  "tasks": [
+    {
+      "agent": "b8xrebal",
+      "runs": 5,
+      "p50RoundTripMs": 1.8129169999999988,
+      "maxRoundTripMs": 24.953041999999996,
+      "p50BaselineMs": 0.005915999999999144,
+      "checksPassed": 4,
+      "checksTotal": 4
+    },
+    {
+      "agent": "b8xgrid",
+      "runs": 5,
+      "p50RoundTripMs": 2.070083000000004,
+      "maxRoundTripMs": 3.3455840000000023,
+      "p50BaselineMs": 0.008582999999994456,
+      "checksPassed": 4,
+      "checksTotal": 4
+    },
+    {
+      "agent": "b8xyield",
+      "runs": 5,
+      "p50RoundTripMs": 1.1526659999999964,
+      "maxRoundTripMs": 1.5624579999999995,
+      "p50BaselineMs": 0.006540999999998576,
+      "checksPassed": 3,
+      "checksTotal": 3
+    },
+    {
+      "agent": "b8xhealth",
+      "runs": 5,
+      "p50RoundTripMs": 0.6120420000000024,
+      "maxRoundTripMs": 1.584791999999993,
+      "p50BaselineMs": 0.0028749999999888587,
+      "checksPassed": 5,
+      "checksTotal": 5
+    }
+  ]
+}

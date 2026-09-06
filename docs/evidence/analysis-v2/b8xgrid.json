@@ -1,0 +1,958 @@
+{
+  "agent": "b8xgrid",
+  "input": {
+    "price": 600,
+    "lower": 588,
+    "upper": 612,
+    "levels": 12,
+    "capital": 10000,
+    "feeBps": 25,
+    "slippageBps": 5,
+    "gasPerTrade": 0.05
+  },
+  "samples": [
+    {
+      "sample": 0,
+      "baselineMs": 0.0327920000000006,
+      "roundTripMs": 2.070083000000004,
+      "baselineOutput": {
+        "priceStep": 2.1818181818181817,
+        "budgetPerInterval": 909.0909090909091,
+        "worstCycleNet": -2.305126367522894,
+        "levels": 12
+      },
+      "checks": [
+        {
+          "key": "priceStep",
+          "expected": 2.1818181818181817,
+          "actual": 2.18181818182,
+          "passed": true
+        },
+        {
+          "key": "budgetPerInterval",
+          "expected": 909.0909090909091,
+          "actual": 909.090909091,
+          "passed": true
+        },
+        {
+          "key": "worstCycleNet",
+          "expected": -2.305126367522894,
+          "actual": -2.30512636752,
+          "passed": true
+        },
+        {
+          "key": "levels",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "cc83362d-8634-4c23-a061-109a2f6ed152",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.247Z",
+        "durationMs": 0.272,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 1,
+      "baselineMs": 0.00783299999999798,
+      "roundTripMs": 1.868000000000002,
+      "baselineOutput": {
+        "priceStep": 2.1818181818181817,
+        "budgetPerInterval": 909.0909090909091,
+        "worstCycleNet": -2.305126367522894,
+        "levels": 12
+      },
+      "checks": [
+        {
+          "key": "priceStep",
+          "expected": 2.1818181818181817,
+          "actual": 2.18181818182,
+          "passed": true
+        },
+        {
+          "key": "budgetPerInterval",
+          "expected": 909.0909090909091,
+          "actual": 909.090909091,
+          "passed": true
+        },
+        {
+          "key": "worstCycleNet",
+          "expected": -2.305126367522894,
+          "actual": -2.30512636752,
+          "passed": true
+        },
+        {
+          "key": "levels",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "da07a4bf-8a60-4b6d-9d5b-fad256f16ee9",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.249Z",
+        "durationMs": 0.237,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 2,
+      "baselineMs": 0.008582999999994456,
+      "roundTripMs": 1.5670420000000007,
+      "baselineOutput": {
+        "priceStep": 2.1818181818181817,
+        "budgetPerInterval": 909.0909090909091,
+        "worstCycleNet": -2.305126367522894,
+        "levels": 12
+      },
+      "checks": [
+        {
+          "key": "priceStep",
+          "expected": 2.1818181818181817,
+          "actual": 2.18181818182,
+          "passed": true
+        },
+        {
+          "key": "budgetPerInterval",
+          "expected": 909.0909090909091,
+          "actual": 909.090909091,
+          "passed": true
+        },
+        {
+          "key": "worstCycleNet",
+          "expected": -2.305126367522894,
+          "actual": -2.30512636752,
+          "passed": true
+        },
+        {
+          "key": "levels",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "4f1c094a-dbea-417f-9f54-9b3015b66a2b",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.250Z",
+        "durationMs": 0.203,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 3,
+      "baselineMs": 0.006916999999994289,
+      "roundTripMs": 2.822375000000001,
+      "baselineOutput": {
+        "priceStep": 2.1818181818181817,
+        "budgetPerInterval": 909.0909090909091,
+        "worstCycleNet": -2.305126367522894,
+        "levels": 12
+      },
+      "checks": [
+        {
+          "key": "priceStep",
+          "expected": 2.1818181818181817,
+          "actual": 2.18181818182,
+          "passed": true
+        },
+        {
+          "key": "budgetPerInterval",
+          "expected": 909.0909090909091,
+          "actual": 909.090909091,
+          "passed": true
+        },
+        {
+          "key": "worstCycleNet",
+          "expected": -2.305126367522894,
+          "actual": -2.30512636752,
+          "passed": true
+        },
+        {
+          "key": "levels",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "8966ebfd-fb12-4ab1-96ec-2012cbddf7bc",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.252Z",
+        "durationMs": 0.484,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 4,
+      "baselineMs": 0.025916999999999746,
+      "roundTripMs": 3.3455840000000023,
+      "baselineOutput": {
+        "priceStep": 2.1818181818181817,
+        "budgetPerInterval": 909.0909090909091,
+        "worstCycleNet": -2.305126367522894,
+        "levels": 12
+      },
+      "checks": [
+        {
+          "key": "priceStep",
+          "expected": 2.1818181818181817,
+          "actual": 2.18181818182,
+          "passed": true
+        },
+        {
+          "key": "budgetPerInterval",
+          "expected": 909.0909090909091,
+          "actual": 909.090909091,
+          "passed": true
+        },
+        {
+          "key": "worstCycleNet",
+          "expected": -2.305126367522894,
+          "actual": -2.30512636752,
+          "passed": true
+        },
+        {
+          "key": "levels",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "71b73b08-94fa-4846-a32b-17f69fc8c583",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.256Z",
+        "durationMs": 0.219,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "runs": 5,
+    "p50RoundTripMs": 2.070083000000004,
+    "maxRoundTripMs": 3.3455840000000023,
+    "p50BaselineMs": 0.008582999999994456,
+    "checksPassed": 4,
+    "checksTotal": 4
+  }
+}

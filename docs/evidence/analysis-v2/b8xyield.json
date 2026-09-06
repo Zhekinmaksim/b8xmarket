@@ -1,0 +1,735 @@
+{
+  "agent": "b8xyield",
+  "input": {
+    "capital": 10000,
+    "horizonDays": 30,
+    "routes": [
+      {
+        "name": "Scenario A",
+        "aprPercent": 8,
+        "roundTripCost": 12,
+        "availableLiquidity": 100000,
+        "lockDays": 0
+      },
+      {
+        "name": "Scenario B",
+        "aprPercent": 10,
+        "roundTripCost": 40,
+        "availableLiquidity": 200000,
+        "lockDays": 0
+      },
+      {
+        "name": "Scenario C",
+        "aprPercent": 14,
+        "roundTripCost": 8,
+        "availableLiquidity": 5000,
+        "lockDays": 60
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample": 0,
+      "baselineMs": 0.06974999999999909,
+      "roundTripMs": 1.5624579999999995,
+      "baselineOutput": {
+        "bestRoute": "Scenario A",
+        "bestNetReturn": 53.753424657534254,
+        "horizonDays": 30
+      },
+      "checks": [
+        {
+          "key": "bestRoute",
+          "expected": "Scenario A",
+          "actual": "Scenario A",
+          "passed": true
+        },
+        {
+          "key": "bestNetReturn",
+          "expected": 53.753424657534254,
+          "actual": 53.7534246575,
+          "passed": true
+        },
+        {
+          "key": "horizonDays",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "ed301afa-0311-4490-88a6-73b95041caaf",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.259Z",
+        "durationMs": 0.045,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 1,
+      "baselineMs": 0.006292000000001963,
+      "roundTripMs": 1.396792000000005,
+      "baselineOutput": {
+        "bestRoute": "Scenario A",
+        "bestNetReturn": 53.753424657534254,
+        "horizonDays": 30
+      },
+      "checks": [
+        {
+          "key": "bestRoute",
+          "expected": "Scenario A",
+          "actual": "Scenario A",
+          "passed": true
+        },
+        {
+          "key": "bestNetReturn",
+          "expected": 53.753424657534254,
+          "actual": 53.7534246575,
+          "passed": true
+        },
+        {
+          "key": "horizonDays",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "37c01bc6-e4f5-4874-8605-7736469f3f2f",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.260Z",
+        "durationMs": 0.088,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 2,
+      "baselineMs": 0.004958000000002016,
+      "roundTripMs": 1.1526659999999964,
+      "baselineOutput": {
+        "bestRoute": "Scenario A",
+        "bestNetReturn": 53.753424657534254,
+        "horizonDays": 30
+      },
+      "checks": [
+        {
+          "key": "bestRoute",
+          "expected": "Scenario A",
+          "actual": "Scenario A",
+          "passed": true
+        },
+        {
+          "key": "bestNetReturn",
+          "expected": 53.753424657534254,
+          "actual": 53.7534246575,
+          "passed": true
+        },
+        {
+          "key": "horizonDays",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "a0bdab98-1892-4877-a09d-32738ef2abe6",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.261Z",
+        "durationMs": 0.037,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 3,
+      "baselineMs": 0.006540999999998576,
+      "roundTripMs": 0.9577079999999967,
+      "baselineOutput": {
+        "bestRoute": "Scenario A",
+        "bestNetReturn": 53.753424657534254,
+        "horizonDays": 30
+      },
+      "checks": [
+        {
+          "key": "bestRoute",
+          "expected": "Scenario A",
+          "actual": "Scenario A",
+          "passed": true
+        },
+        {
+          "key": "bestNetReturn",
+          "expected": 53.753424657534254,
+          "actual": 53.7534246575,
+          "passed": true
+        },
+        {
+          "key": "horizonDays",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "e709328d-3e06-4ed7-868b-1304b4bc5062",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.262Z",
+        "durationMs": 0.04,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 4,
+      "baselineMs": 0.006540999999998576,
+      "roundTripMs": 0.8174999999999955,
+      "baselineOutput": {
+        "bestRoute": "Scenario A",
+        "bestNetReturn": 53.753424657534254,
+        "horizonDays": 30
+      },
+      "checks": [
+        {
+          "key": "bestRoute",
+          "expected": "Scenario A",
+          "actual": "Scenario A",
+          "passed": true
+        },
+        {
+          "key": "bestNetReturn",
+          "expected": 53.753424657534254,
+          "actual": 53.7534246575,
+          "passed": true
+        },
+        {
+          "key": "horizonDays",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "cc8f03a9-2e87-42f0-aeab-d442b84d61c3",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.263Z",
+        "durationMs": 0.085,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "runs": 5,
+    "p50RoundTripMs": 1.1526659999999964,
+    "maxRoundTripMs": 1.5624579999999995,
+    "p50BaselineMs": 0.006540999999998576,
+    "checksPassed": 3,
+    "checksTotal": 3
+  }
+}

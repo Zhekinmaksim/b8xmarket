@@ -32,7 +32,6 @@
       "price": "0",
       "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
       "signature_status": "vercel-fallback-unsigned",
-      "quality_score": 84,
       "raw": {
         "jsonrpc": "2.0",
         "id": "task-2-rebalance-negotiate",
@@ -112,17 +111,8 @@
     }
   },
   "manual_path": {
-    "baseline": "Manual rebalance check without hiring an agent.",
-    "time_estimate": "15-30 minutes per rebalance decision, plus repeated checks when prices move.",
-    "cost_basis": "No agent fee, but the operator pays gas and has to compute whether the move is worth it.",
-    "steps": [
-      "Read balances and target weights.",
-      "Calculate current drift.",
-      "Fetch prices and liquidity.",
-      "Estimate gas, fees and slippage.",
-      "Decide whether the rebalance clears the cost threshold.",
-      "Record the before/after allocation."
-    ],
-    "quality_score": 64
-  }
+    "status": "not_measured",
+    "output": null
+  },
+  "status": "historical_quote_smoke_test_not_advantage_evidence"
 }

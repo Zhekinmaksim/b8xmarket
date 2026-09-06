@@ -6,3 +6,8 @@
 **/.studio
 **/node_modules
 **/dist
+output
+tests
+.playwright-cli
+scripts
+agents

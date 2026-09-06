@@ -2,6 +2,7 @@
 .vercel
 .playwright-cli
 node_modules
+output/
 npm-debug.log*
 
 # Local secrets and generated wallet material

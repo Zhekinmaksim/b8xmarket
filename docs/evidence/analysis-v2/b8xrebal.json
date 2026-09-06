@@ -1,0 +1,599 @@
+{
+  "agent": "b8xrebal",
+  "input": {
+    "price": 600,
+    "lower": 610,
+    "upper": 650,
+    "halfWidthPercent": 5,
+    "capital": 10000,
+    "gasCost": 2,
+    "slippageBps": 10,
+    "expectedDailyFees": 5,
+    "horizonDays": 7
+  },
+  "samples": [
+    {
+      "sample": 0,
+      "baselineMs": 0.05583400000000083,
+      "roundTripMs": 24.953041999999996,
+      "baselineOutput": {
+        "inRange": false,
+        "estimatedMoveCost": 12,
+        "scenarioFees": 35,
+        "breakEvenDays": 2.4
+      },
+      "checks": [
+        {
+          "key": "inRange",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "key": "estimatedMoveCost",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "key": "scenarioFees",
+          "expected": 35,
+          "actual": 35,
+          "passed": true
+        },
+        {
+          "key": "breakEvenDays",
+          "expected": 2.4,
+          "actual": 2.4,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "d41414b4-e294-44d2-b6fd-99b55f9b77bd",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.232Z",
+        "durationMs": 0.216,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 1,
+      "baselineMs": 0.007708000000000936,
+      "roundTripMs": 4.7897919999999985,
+      "baselineOutput": {
+        "inRange": false,
+        "estimatedMoveCost": 12,
+        "scenarioFees": 35,
+        "breakEvenDays": 2.4
+      },
+      "checks": [
+        {
+          "key": "inRange",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "key": "estimatedMoveCost",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "key": "scenarioFees",
+          "expected": 35,
+          "actual": 35,
+          "passed": true
+        },
+        {
+          "key": "breakEvenDays",
+          "expected": 2.4,
+          "actual": 2.4,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "244787be-e482-4f81-a03d-ca413cdb54c1",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.239Z",
+        "durationMs": 0.212,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 2,
+      "baselineMs": 0.005915999999999144,
+      "roundTripMs": 1.6744169999999983,
+      "baselineOutput": {
+        "inRange": false,
+        "estimatedMoveCost": 12,
+        "scenarioFees": 35,
+        "breakEvenDays": 2.4
+      },
+      "checks": [
+        {
+          "key": "inRange",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "key": "estimatedMoveCost",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "key": "scenarioFees",
+          "expected": 35,
+          "actual": 35,
+          "passed": true
+        },
+        {
+          "key": "breakEvenDays",
+          "expected": 2.4,
+          "actual": 2.4,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "7b45af93-e9a8-40c6-9b09-511ab0b0c8ba",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.241Z",
+        "durationMs": 0.098,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 3,
+      "baselineMs": 0.0017500000000012506,
+      "roundTripMs": 1.1294579999999996,
+      "baselineOutput": {
+        "inRange": false,
+        "estimatedMoveCost": 12,
+        "scenarioFees": 35,
+        "breakEvenDays": 2.4
+      },
+      "checks": [
+        {
+          "key": "inRange",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "key": "estimatedMoveCost",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "key": "scenarioFees",
+          "expected": 35,
+          "actual": 35,
+          "passed": true
+        },
+        {
+          "key": "breakEvenDays",
+          "expected": 2.4,
+          "actual": 2.4,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "1b9608b0-a713-4975-853e-916cd664de79",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.243Z",
+        "durationMs": 0.107,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    },
+    {
+      "sample": 4,
+      "baselineMs": 0.0015000000000000568,
+      "roundTripMs": 1.8129169999999988,
+      "baselineOutput": {
+        "inRange": false,
+        "estimatedMoveCost": 12,
+        "scenarioFees": 35,
+        "breakEvenDays": 2.4
+      },
+      "checks": [
+        {
+          "key": "inRange",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "key": "estimatedMoveCost",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "key": "scenarioFees",
+          "expected": 35,
+          "actual": 35,
+          "passed": true
+        },
+        {
+          "key": "breakEvenDays",
+          "expected": 2.4,
+          "actual": 2.4,
+          "passed": true
+        }
+      ],
+      "report": {
+        "id": "0268933c-9fb6-4700-a045-05c54057a1fc",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-06T07:53:03.244Z",
+        "durationMs": 0.41,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "runs": 5,
+    "p50RoundTripMs": 1.8129169999999988,
+    "maxRoundTripMs": 24.953041999999996,
+    "p50BaselineMs": 0.005915999999999144,
+    "checksPassed": 4,
+    "checksTotal": 4
+  }
+}

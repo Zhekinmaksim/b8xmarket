@@ -1,5 +1,7 @@
 # Live Agent Evidence
 
+Historical record from 2026-09-04. The BNB managed trial expired on 2026-09-06. Balances, runtime health and quote responses below are observations from that date, not current status. Public endpoints now run the deterministic analysis engine described in README.md. They do not accept funded jobs.
+
 Generated: 2026-09-04 10:33:05 UTC
 
 This file records public wallet, endpoint and reconciliation evidence only. Secrets are excluded.

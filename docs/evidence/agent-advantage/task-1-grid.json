@@ -33,7 +33,6 @@
       "price": "0",
       "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
       "signature_status": "vercel-fallback-unsigned",
-      "quality_score": 82,
       "raw": {
         "jsonrpc": "2.0",
         "id": "task-1-grid-negotiate",
@@ -113,17 +112,8 @@
     }
   },
   "manual_path": {
-    "baseline": "Manual grid setup without hiring an agent.",
-    "time_estimate": "25-40 minutes for setup, then repeated monitoring while the range is live.",
-    "cost_basis": "No agent fee, but the operator still pays gas and carries manual monitoring time.",
-    "steps": [
-      "Choose pair and range.",
-      "Calculate grid spacing and per-level size.",
-      "Check whether spread covers fees, slippage and gas.",
-      "Place or simulate orders.",
-      "Watch for range break.",
-      "Reconstruct fills from swaps or order history."
-    ],
-    "quality_score": 61
-  }
+    "status": "not_measured",
+    "output": null
+  },
+  "status": "historical_quote_smoke_test_not_advantage_evidence"
 }

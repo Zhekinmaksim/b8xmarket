@@ -1,0 +1,12 @@
+{
+  "name": "b8xmarket",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "test": "node --test tests/*.test.js",
+    "benchmark": "node scripts/benchmark.js"
+  },
+  "dependencies": { "decimal.js": "10.6.0", "viem": "2.37.3" },
+  "engines": { "node": ">=20" }
+}

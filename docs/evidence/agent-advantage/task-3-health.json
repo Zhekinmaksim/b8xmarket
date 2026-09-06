@@ -31,7 +31,6 @@
       "price": "0",
       "currency": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
       "signature_status": "vercel-fallback-unsigned",
-      "quality_score": 86,
       "raw": {
         "jsonrpc": "2.0",
         "id": "task-3-health-negotiate",
@@ -111,17 +110,8 @@
     }
   },
   "manual_path": {
-    "baseline": "Manual health-factor monitoring without hiring an agent.",
-    "time_estimate": "Continuous attention during volatile windows, or manual checks every 15-30 minutes.",
-    "cost_basis": "No agent fee, but the operator carries attention cost and liquidation timing risk.",
-    "steps": [
-      "Read collateral, debt and oracle price.",
-      "Compute current health factor.",
-      "Watch borrow-rate and price changes.",
-      "Decide whether to add collateral, repay debt or unwind.",
-      "Act before liquidation distance becomes too small.",
-      "Record before/after health factor."
-    ],
-    "quality_score": 66
-  }
+    "status": "not_measured",
+    "output": null
+  },
+  "status": "historical_quote_smoke_test_not_advantage_evidence"
 }
