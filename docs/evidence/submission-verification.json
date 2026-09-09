@@ -1,0 +1,169 @@
+{
+  "observedAt": "2026-09-09T04:34:49.324Z",
+  "origin": "https://b8xmarket.xyz",
+  "checks": [
+    {
+      "name": "/",
+      "passed": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "/analysis.html",
+      "passed": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "/docs/evidence/demo-capture.json",
+      "passed": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "video metadata",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "contentType": "video/mp4",
+        "bytes": "6714146"
+      }
+    },
+    {
+      "name": "private path /.env.local",
+      "passed": true,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "private path /docs/SUBMISSION-FORM-DRAFT.md",
+      "passed": true,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "private path /video-remotion/README.md",
+      "passed": true,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "b8xrebal public card",
+      "passed": true,
+      "detail": {
+        "name": "b8xrebal",
+        "version": "2.0.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/a2a"
+      }
+    },
+    {
+      "name": "b8xgrid public card",
+      "passed": true,
+      "detail": {
+        "name": "b8xgrid",
+        "version": "2.0.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/a2a"
+      }
+    },
+    {
+      "name": "b8xyield public card",
+      "passed": true,
+      "detail": {
+        "name": "b8xyield",
+        "version": "2.0.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xyield/a2a"
+      }
+    },
+    {
+      "name": "b8xhealth public card",
+      "passed": true,
+      "detail": {
+        "name": "b8xhealth",
+        "version": "2.0.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/a2a"
+      }
+    },
+    {
+      "name": "mainnet pool snapshot",
+      "passed": true,
+      "detail": {
+        "kind": "onchain_pool_snapshot",
+        "chainId": 56,
+        "network": "BSC mainnet (read only)",
+        "venue": "PancakeSwap V2 WBNB/USDT",
+        "blockNumber": "120815141",
+        "blockTime": "2026-09-09T04:34:56.000Z",
+        "fetchedAt": "2026-09-09T04:34:57.330Z",
+        "pool": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+        "explorer": "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+        "price": 751.902194521,
+        "priceUnit": "USDT per WBNB",
+        "baseReserve": "63549213399858603344220",
+        "quoteReserve": "47782793015422842112821286",
+        "decimals": 18,
+        "reserveUpdatedAt": "2026-09-09T04:34:55.000Z",
+        "warning": "Pool reserve ratio, not an oracle or executable quote. All other analysis inputs remain user supplied."
+      }
+    },
+    {
+      "name": "testnet registration reconciliation",
+      "passed": true,
+      "detail": {
+        "blockNumber": "129959947",
+        "count": 4
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "agent": "b8xrebal",
+      "agentId": 2095,
+      "owner": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "chainId": 97,
+      "blockNumber": "129959947",
+      "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/.well-known/agent-card.json",
+      "endpointStatus": 200
+    },
+    {
+      "agent": "b8xgrid",
+      "agentId": 2096,
+      "owner": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "chainId": 97,
+      "blockNumber": "129959947",
+      "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/.well-known/agent-card.json",
+      "endpointStatus": 200
+    },
+    {
+      "agent": "b8xyield",
+      "agentId": 2098,
+      "owner": "0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1",
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "chainId": 97,
+      "blockNumber": "129959947",
+      "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xyield/.well-known/agent-card.json",
+      "endpointStatus": 200
+    },
+    {
+      "agent": "b8xhealth",
+      "agentId": 2097,
+      "owner": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "chainId": 97,
+      "blockNumber": "129959947",
+      "endpoint": "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/.well-known/agent-card.json",
+      "endpointStatus": 200
+    }
+  ],
+  "limitations": [
+    "Read-only checks; no hiring, execution or settlement is tested.",
+    "Registry ownership and service metadata are not a strategy endorsement."
+  ]
+}

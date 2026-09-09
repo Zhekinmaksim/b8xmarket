@@ -19,7 +19,7 @@ Choose a category, edit the inputs and run an analysis. The API performs decimal
 
 The engine is deterministic, not an LLM. Default numbers are sample scenarios. Only the optional pool spot price is fetched on-chain; lending positions, LP holdings, APRs and transaction-cost assumptions are user supplied.
 
-The four agent IDs refer to historical ERC-8004 registrations on BSC testnet. Registration is not a performance endorsement. The earlier BNB managed trial is historical evidence, not the current runtime.
+The four agent IDs are ERC-8004 registrations on BSC testnet. On 2026-09-09, an on-chain read confirmed the expected owners and registered service URLs for IDs 2095-2098, and every URL returned HTTP 200. Registration is not a performance endorsement. The earlier BNB managed trial expired; the current public runtime is the keyless analysis API.
 
 Paid hiring, swaps, continuous monitoring, delegated sessions, Altana and settlement are not implemented in this public runtime. `notify_funded` is rejected. No private key is required to run this version.
 
@@ -43,7 +43,7 @@ node scripts/benchmark.js http://127.0.0.1:4173
 
 This compares five HTTP runs per category against an independent local calculator using the same inputs. It records actual timings and metric agreement. It is not a human comparison and does not establish TermiX eligibility.
 
-See [benchmark status](docs/AGENT_ADVANTAGE_REPORT.md), [manual protocol](docs/MANUAL_BENCHMARK.md) and [registration records](docs/LIVE_AGENT_EVIDENCE.md).
+See [benchmark status](docs/AGENT_ADVANTAGE_REPORT.md), [manual protocol](docs/MANUAL_BENCHMARK.md), [registration records](docs/LIVE_AGENT_EVIDENCE.md) and [submission verification](docs/evidence/submission-verification.json).
 
 ## Deployment
 

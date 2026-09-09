@@ -19,3 +19,7 @@ npm-debug.log*
 docs/SUBMISSION-FORM-DRAFT.md
 video-remotion/
 *.zip
+SSH/
+scripts/ssh-server.exp
+server/
+docs/FORM-COPY.md

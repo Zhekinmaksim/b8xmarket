@@ -1,6 +1,10 @@
 # Live Agent Evidence
 
-Historical record from 2026-09-04. The BNB managed trial expired on 2026-09-06. Balances, runtime health and quote responses below are observations from that date, not current status. Public endpoints now run the deterministic analysis engine described in README.md. They do not accept funded jobs.
+The BNB managed trial expired on 2026-09-06. Balances, managed-runtime health and quote responses below are historical observations from 2026-09-04. The ERC-8004 registrations and public endpoint availability were reconciled again on 2026-09-09. Public endpoints run the deterministic analysis engine described in README.md and do not accept funded jobs.
+
+## Current Registration Reconciliation
+
+At `2026-09-09T04:34:49.324Z`, a read-only check at BSC testnet block `129959947` confirmed that IDs 2095-2098 are owned by the expected wallets, each registered A2A service URL matches the public agent card, and all four URLs returned HTTP 200. The full machine-readable record is [submission-verification.json](evidence/submission-verification.json). No transaction was sent. Registration and reachability do not establish strategy quality, paid hiring or autonomous execution.
 
 Generated: 2026-09-04 10:33:05 UTC
 

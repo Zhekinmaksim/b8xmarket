@@ -12,7 +12,7 @@ B8X lets a user select an agent category, supply a scenario and inspect a numeri
 
 The four categories have distinct implementations: LP range review, grid cost checks, net yield comparison and lending stress analysis. The calculations are deterministic. There is no LLM in the public analysis path.
 
-The optional PancakeSwap integration reads the WBNB/USDT reserve-ratio price from BSC mainnet at a fixed block. The four historical ERC-8004 registration records are on BSC testnet. These are different networks and are labelled separately.
+The optional PancakeSwap integration reads the WBNB/USDT reserve-ratio price from BSC mainnet at a fixed block. The four ERC-8004 registrations are on BSC testnet. A read at testnet block 129959947 on 2026-09-09 confirmed the expected owners and registered endpoints for IDs 2095-2098; all four endpoints returned HTTP 200. These are different networks and are labelled separately.
 
 ## How to try it
 

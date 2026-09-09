@@ -23,9 +23,9 @@ Input is capped at 8192 UTF-8 bytes, has an explicit task type/version, rejects 
 ## Current Blockers and Evidence Limits
 
 - Root operator's current `bag deploy prepare` result: BNB signed in, trial expired, zero active agents. An available hosting provider/trial and authorized deployment are still required. No cloud deployment was attempted here.
-- The initial missing `.studio/wallets` check was superseded: root confirmed original keys, `WALLET_PASSWORD` and the Pieverse key remain in protected root `.env.local` (names inspected only) and is restoring the same encrypted keystores using `scripts/import-agent-wallets.sh`. This is recoverable local preparation, not a request for new keys or identity rotation. Restoration and subsequent readiness checks belong to the root operator; completion is not asserted here.
+- The initial missing `.studio/wallets` check was superseded: the original encrypted keystores were restored locally and their addresses match ERC-8004 IDs 2095-2098. No transaction was sent and no identity was rotated.
 - Runtime secret injection and configured-provider readiness still need verification after restoration. The deterministic grid work itself requires no Pieverse call; this change does not remove or bypass existing deployment configuration checks.
-- Current gas balance, deployed endpoint/authentication, reachable agent card, ERC-8004 identity reconciliation and an ERC-8183 funded-to-submitted job remain unverified here. No wallet funding, registration, settlement or chain write was performed. Do not use historical evidence as proof of current readiness.
+- The current grid gas balance is approximately 0.050385 tBNB. Read-only ERC-8004 reconciliation and public agent-card reachability passed on 2026-09-09. A signer-backed deployed seller and an ERC-8183 funded-to-submitted job remain unverified. No wallet funding, registration, settlement or chain write was performed.
 - Packaging and whole-project verification are owned by the root operator. This task changes only grid seller source/tests and this document; signing, pricing, keystore placement and security/deployment policy are untouched.
 
 ## Local Verification
