@@ -28,7 +28,10 @@ const NEGOTIATE: AgentSkill = {
   description:
     'Send a data part {"skill": "negotiate", "task_description": "...", ' +
     '"terms": {"deliverables": "...", "quality_standards": "..."}} (both ' +
-    "terms keys are REQUIRED) and receive a " +
+    "terms keys are REQUIRED). task_description must encode JSON " +
+    '{"type":"grid_analysis","version":1,"inputs":{"price":600,"lower":500,"upper":700,' +
+    '"levels":5,"capital":1000,"feeBps":10,"slippageBps":5,"gasPerTrade":0.1}}. ' +
+    "Valid tasks receive a " +
     "wallet-signed price quote (price, currency, negotiation_hash, provider_sig). " +
     "Anchor the returned envelope on-chain via createJob + fund, then send the " +
     "`notify_funded` skill with the job_id to request delivery.",

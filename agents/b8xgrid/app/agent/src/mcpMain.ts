@@ -76,7 +76,7 @@ import {
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
-import { generateText, stepCountIs } from "ai";
+import { runGridWork, validateGridQuote, GridInputError } from "./gridWork.js";
 import express from "express";
 import { z } from "zod";
 import {
@@ -194,44 +194,8 @@ function flatQuery(query: Record<string, unknown>): Record<string, string> {
   return out;
 }
 
-// ── LLM work hook (lazy: built on first authorized task) ─────────────────────
-// Deferred construction keeps negotiate and unpaid payment challenge paths from
-// building the model, and keeps this module importable without the provider
-// env until a deliverable is actually produced.
-type RunLlm = (prompt: string) => Promise<string>;
-let cachedRunLlm: RunLlm | null = null;
-
-async function runLlm(prompt: string): Promise<string> {
-  if (cachedRunLlm === null) {
-    const { buildModel } = await import("./model.js");
-    const { LLM_READ_TOOLS } = await import("./tools.js");
-    const model = buildModel(); // managed model w/ budget-gated LLM-credit auto-renew
-    cachedRunLlm = async (p: string) => {
-      const result = await generateText({
-        model,
-        system:
-          "You are a seller agent. The runtime has already authorized this task " +
-          "through its configured commerce rail. Complete the user's task now; " +
-          "do not ask for a job ID or additional payment. " +
-          "Be concrete and concise. Use the read-only chain tools when on-chain " +
-          "context helps. If a paid-data tool such as `buy_with_x402` is " +
-          "available to you, USE IT to fetch the data a task needs — those " +
-          "merchants (e.g. CoinMarketCap) charge via on-chain wallet payment, " +
-          "NOT an API key; never reply that you cannot complete the task for " +
-          "lack of an API key.",
-        prompt: p,
-        // READ-ONLY chain tools; signing is never an LLM tool. To add
-        // PAID x402 fetch tools (bag x402 trust + x402-buyer recipe):
-        //   import { X402_BUYER_TOOLS } from "./x402Buyer.js";
-        //   tools: { ...LLM_READ_TOOLS, ...X402_BUYER_TOOLS },
-        tools: LLM_READ_TOOLS,
-        stopWhen: stepCountIs(8),
-      });
-      return result.text.trim();
-    };
-  }
-  return cachedRunLlm(prompt);
-}
+// One bounded domain implementation shared with A2A and B402 delivery.
+const runWork = (prompt: string) => runGridWork(prompt, { sessionId: "mcp" });
 
 // ── MCP server ────────────────────────────────────────────────────────────────
 
@@ -292,7 +256,9 @@ export function buildMcpServer(
     "negotiate",
     {
       description:
-        "Return a wallet-signed ERC-8183 price quote for a task. " +
+        "Return a wallet-signed ERC-8183 price quote for a grid analysis. " +
+        'task_description must encode JSON {"type":"grid_analysis","version":1,"inputs":{...}} ' +
+        "with price, lower, upper, levels, capital, feeBps, slippageBps, gasPerTrade. " +
         "Rule-based: the FIXED list price from studio.toml, CLAMPED to [min,max] " +
         "BEFORE EIP-191 signing — a hostile request can never sign out of bounds. " +
         "No LLM. Anchor the returned envelope on-chain (createJob + fund), then " +
@@ -313,6 +279,7 @@ export function buildMcpServer(
       try {
         await limitCommerceOperation("negotiate");
         const request = { task_description, terms: terms ?? {} };
+        validateGridQuote(request);
         const clamped = signing.clampPrice(signing.listPrice());
         return toolResult(await signing.signQuote(request, clamped));
       } catch (e) {
@@ -321,6 +288,9 @@ export function buildMcpServer(
             status: "retry",
             reason: "seller rate limit exceeded",
           });
+        }
+        if (e instanceof GridInputError) {
+          return toolResult({ status: "rejected", reason: e.message });
         }
         return protocolFailure("negotiate failed", e);
       }
@@ -399,14 +369,8 @@ export function buildMcpServer(
       let work: string;
       try {
         const spec = await signing.jobSpec(jid);
-        const task =
-          spec !== null
-            ? JSON.stringify({ task: spec.task, terms: spec.terms })
-            : `job ${jid}`;
-        const prompt =
-          "You accepted and were paid for the following job. Produce the deliverable " +
-          `now. Be complete and self-contained.\n\nJOB CONTEXT:\n${task}`;
-        work = await runLlm(prompt);
+        if (spec === null) throw new Error("Funded job has no task specification.");
+        work = await runWork(spec.task);
       } catch (e) {
         return protocolFailure(`delivery preparation for job ${jid} failed`, e);
       }
@@ -630,7 +594,7 @@ async function main(): Promise<void> {
   const port = Number(process.env.AGENT_PORT || "8000");
   const seller = await B402Seller.create({
     cfg,
-    runWork: ({ prompt }) => runLlm(prompt),
+    runWork: ({ prompt }) => runWork(prompt),
     walletAddress: getWallet().address,
     resourceUrl: `${
       process.env.AGENTCORE_RUNTIME_URL ?? `http://localhost:${port}`

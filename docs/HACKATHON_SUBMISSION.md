@@ -1,6 +1,10 @@
 # B8X Market
 
-Live application: https://b8xmarket-repo.vercel.app/
+Live application: https://b8xmarket.xyz/analysis.html
+
+Demo source data: https://b8xmarket.xyz/docs/evidence/demo-capture.json
+
+Video: https://b8xmarket.xyz/media/b8x-demo.mp4
 
 Source: https://github.com/Zhekinmaksim/b8xmarket
 

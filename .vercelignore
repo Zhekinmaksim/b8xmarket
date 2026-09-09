@@ -11,3 +11,6 @@ tests
 .playwright-cli
 scripts
 /agents/**
+video-remotion
+*.zip
+docs/SUBMISSION-FORM-DRAFT.md

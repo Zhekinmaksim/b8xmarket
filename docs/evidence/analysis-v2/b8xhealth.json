@@ -10,8 +10,8 @@
   "samples": [
     {
       "sample": 0,
-      "baselineMs": 0.06070799999997689,
-      "roundTripMs": 229.92633399999977,
+      "baselineMs": 0.017582999998921878,
+      "roundTripMs": 1777.8510000000006,
       "baselineOutput": {
         "healthFactor": 1.3333333333333333,
         "stressedHealthFactor": 1.0666666666666667,
@@ -52,13 +52,13 @@
         }
       ],
       "report": {
-        "id": "94bc06f9-a5e3-45f1-abe8-e279cff1239d",
+        "id": "60345cee-3d6a-4563-b228-3530136ce1b6",
         "status": "completed",
         "agent": "b8xhealth",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:00.437Z",
-        "durationMs": 0.268,
+        "completedAt": "2026-09-08T16:06:28.581Z",
+        "durationMs": 0.329,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -124,8 +124,8 @@
     },
     {
       "sample": 1,
-      "baselineMs": 0.008667000000059488,
-      "roundTripMs": 218.90491699999984,
+      "baselineMs": 0.01300000000082946,
+      "roundTripMs": 283.10449999999946,
       "baselineOutput": {
         "healthFactor": 1.3333333333333333,
         "stressedHealthFactor": 1.0666666666666667,
@@ -166,13 +166,13 @@
         }
       ],
       "report": {
-        "id": "2679bf7c-1f65-4ed3-9ea2-625846b37850",
+        "id": "09f9f7d3-86ce-4294-b244-a2c407096f8d",
         "status": "completed",
         "agent": "b8xhealth",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:00.658Z",
-        "durationMs": 0.129,
+        "completedAt": "2026-09-08T16:06:29.370Z",
+        "durationMs": 0.137,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -238,8 +238,8 @@
     },
     {
       "sample": 2,
-      "baselineMs": 0.008667000000059488,
-      "roundTripMs": 237.91904199999954,
+      "baselineMs": 0.011833000000478933,
+      "roundTripMs": 281.1035000000011,
       "baselineOutput": {
         "healthFactor": 1.3333333333333333,
         "stressedHealthFactor": 1.0666666666666667,
@@ -280,13 +280,13 @@
         }
       ],
       "report": {
-        "id": "d388c0e5-5805-46ac-a47e-d1fe0879f115",
+        "id": "789ad2aa-e424-4596-8f6e-887b9f5fb2f9",
         "status": "completed",
         "agent": "b8xhealth",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:00.891Z",
-        "durationMs": 0.113,
+        "completedAt": "2026-09-08T16:06:29.659Z",
+        "durationMs": 0.13,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -352,8 +352,8 @@
     },
     {
       "sample": 3,
-      "baselineMs": 0.00800000000072032,
-      "roundTripMs": 218.70408300000054,
+      "baselineMs": 0.007292000000234111,
+      "roundTripMs": 260.630083,
       "baselineOutput": {
         "healthFactor": 1.3333333333333333,
         "stressedHealthFactor": 1.0666666666666667,
@@ -394,13 +394,13 @@
         }
       ],
       "report": {
-        "id": "482ce54b-d52a-49a1-92de-220f2cdf78cc",
+        "id": "11158fbc-47ae-4e2d-a7c9-61662e8dd4f5",
         "status": "completed",
         "agent": "b8xhealth",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:01.120Z",
-        "durationMs": 0.181,
+        "completedAt": "2026-09-08T16:06:29.924Z",
+        "durationMs": 0.137,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -466,8 +466,8 @@
     },
     {
       "sample": 4,
-      "baselineMs": 0.010874999999941792,
-      "roundTripMs": 226.28995899999973,
+      "baselineMs": 0.007499999999708962,
+      "roundTripMs": 267.2496250000004,
       "baselineOutput": {
         "healthFactor": 1.3333333333333333,
         "stressedHealthFactor": 1.0666666666666667,
@@ -508,13 +508,13 @@
         }
       ],
       "report": {
-        "id": "5be6e318-2d1c-4c0c-a49c-b7a2174e0e64",
+        "id": "e8694e9e-b255-4287-bc6f-031b5ea3e370",
         "status": "completed",
         "agent": "b8xhealth",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:01.322Z",
-        "durationMs": 0.143,
+        "completedAt": "2026-09-08T16:06:30.191Z",
+        "durationMs": 0.163,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -581,9 +581,9 @@
   ],
   "summary": {
     "runs": 5,
-    "p50RoundTripMs": 226.28995899999973,
-    "maxRoundTripMs": 237.91904199999954,
-    "p50BaselineMs": 0.008667000000059488,
+    "p50RoundTripMs": 281.1035000000011,
+    "maxRoundTripMs": 1777.8510000000006,
+    "p50BaselineMs": 0.011833000000478933,
     "checksPassed": 5,
     "checksTotal": 5
   }

@@ -13,8 +13,8 @@
   "samples": [
     {
       "sample": 0,
-      "baselineMs": 0.21458399999983158,
-      "roundTripMs": 350.41545900000006,
+      "baselineMs": 0.11383299999988594,
+      "roundTripMs": 1250.5834579999996,
       "baselineOutput": {
         "priceStep": 2.1818181818181817,
         "budgetPerInterval": 909.0909090909091,
@@ -48,13 +48,13 @@
         }
       ],
       "report": {
-        "id": "941f8388-0763-44f9-83e1-f3a82a892d44",
+        "id": "a8dcaf8f-0d42-46d0-b407-42d7bda65274",
         "status": "completed",
         "agent": "b8xgrid",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:58.284Z",
-        "durationMs": 1.402,
+        "completedAt": "2026-09-08T16:06:23.540Z",
+        "durationMs": 1.484,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -200,8 +200,8 @@
     },
     {
       "sample": 1,
-      "baselineMs": 0.01812500000005457,
-      "roundTripMs": 213.48266700000022,
+      "baselineMs": 0.025666999999884865,
+      "roundTripMs": 284.5581250000005,
       "baselineOutput": {
         "priceStep": 2.1818181818181817,
         "budgetPerInterval": 909.0909090909091,
@@ -235,13 +235,13 @@
         }
       ],
       "report": {
-        "id": "1b6523dd-59ef-4dc2-8a9d-2638cba08e7b",
+        "id": "90afb600-92fd-4301-abb5-d5ba515c2ae2",
         "status": "completed",
         "agent": "b8xgrid",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:58.499Z",
-        "durationMs": 0.995,
+        "completedAt": "2026-09-08T16:06:23.822Z",
+        "durationMs": 0.68,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -387,8 +387,8 @@
     },
     {
       "sample": 2,
-      "baselineMs": 0.016084000000319065,
-      "roundTripMs": 197.4654999999998,
+      "baselineMs": 0.011292000000139524,
+      "roundTripMs": 259.92304200000035,
       "baselineOutput": {
         "priceStep": 2.1818181818181817,
         "budgetPerInterval": 909.0909090909091,
@@ -422,13 +422,13 @@
         }
       ],
       "report": {
-        "id": "9c0c57c4-f8f4-469d-aed0-e4ef44f047f3",
+        "id": "aa9ebf5d-7411-4ef7-a9a2-1e8fab15dd81",
         "status": "completed",
         "agent": "b8xgrid",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:58.701Z",
-        "durationMs": 0.536,
+        "completedAt": "2026-09-08T16:06:24.098Z",
+        "durationMs": 0.488,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -574,8 +574,8 @@
     },
     {
       "sample": 3,
-      "baselineMs": 0.0215410000000702,
-      "roundTripMs": 199.45316600000024,
+      "baselineMs": 0.019583999999667867,
+      "roundTripMs": 841.4749170000005,
       "baselineOutput": {
         "priceStep": 2.1818181818181817,
         "budgetPerInterval": 909.0909090909091,
@@ -609,13 +609,13 @@
         }
       ],
       "report": {
-        "id": "1eba752d-18fd-421d-b7ee-344f7c0ea34b",
+        "id": "9a073a54-7171-4dd8-b3db-8b8c3ec80c59",
         "status": "completed",
         "agent": "b8xgrid",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:58.897Z",
-        "durationMs": 0.455,
+        "completedAt": "2026-09-08T16:06:24.355Z",
+        "durationMs": 0.466,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -761,8 +761,8 @@
     },
     {
       "sample": 4,
-      "baselineMs": 0.017749999999978172,
-      "roundTripMs": 210.5821249999999,
+      "baselineMs": 0.01604200000019773,
+      "roundTripMs": 243.22912499999984,
       "baselineOutput": {
         "priceStep": 2.1818181818181817,
         "budgetPerInterval": 909.0909090909091,
@@ -796,13 +796,13 @@
         }
       ],
       "report": {
-        "id": "5569b5fc-bec9-44ed-8824-649f0042f2c6",
+        "id": "f41bc84e-076b-4272-9cc6-6e97f8f5497e",
         "status": "completed",
         "agent": "b8xgrid",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:59.111Z",
-        "durationMs": 0.411,
+        "completedAt": "2026-09-08T16:06:25.193Z",
+        "durationMs": 0.416,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -949,9 +949,9 @@
   ],
   "summary": {
     "runs": 5,
-    "p50RoundTripMs": 210.5821249999999,
-    "maxRoundTripMs": 350.41545900000006,
-    "p50BaselineMs": 0.01812500000005457,
+    "p50RoundTripMs": 284.5581250000005,
+    "maxRoundTripMs": 1250.5834579999996,
+    "p50BaselineMs": 0.019583999999667867,
     "checksPassed": 4,
     "checksTotal": 4
   }

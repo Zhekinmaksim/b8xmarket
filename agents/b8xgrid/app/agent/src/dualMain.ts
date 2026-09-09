@@ -72,17 +72,15 @@ import {
   type B402RunWork,
   B402Seller,
 } from "@bnbagent/studio-runtime/b402";
-import { generateText, stepCountIs } from "ai";
 import express from "express";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
 import { buildAgentCard } from "./agentCard.js";
 import { SellerAgentExecutor } from "./executor.js";
 import { buildMcpServer } from "./mcpMain.js";
-import { buildModel } from "./model.js";
+import { runGridWork } from "./gridWork.js";
 import { requestLimitContext } from "./requestLimits.js";
 import type { RunWork } from "./sellerCore.js";
-import { LLM_READ_TOOLS } from "./tools.js";
 
 const APP_NAME = "agent";
 
@@ -153,60 +151,9 @@ function defaultNetwork(): string {
   }
 }
 
-// ── One-shot LLM helper (the executor's delivery work hook) ──────────────────
-// LLM credit auto-renew (Pieverse path): `buildModel()` (in model.ts) returns
-// a model wrapped with a middleware that auto-tops up the active Pieverse key
-// before each generate call when [llm.auto_renew] is enabled. That top-up is
-// the ONLY automatic signing path outside signing.ts — it is budget-gated and
-// is NOT an LLM tool. It rides transparently into the delivery step.
-//
-// The LLM runs only in an authorized value step: verified ERC-8183 delivery
-// or x402 work after its payment/free gate. `negotiate` is rule-based and
-// never touches the LLM. The read-only chain tools are
-// attached so the work can read on-chain context if it needs to — drop them
-// from `tools.ts` if your work doesn't read chain. Signing / settle are NEVER
-// tools — they are fixed code in signing.ts, triggered by the A2A skills,
-// never callable by the LLM. (The one deliberate exception: the x402-buyer
-// recipe's PAID fetch tools — see the `tools:` note below — the LLM picks the
-// URL, but who gets paid and the per-call/daily caps stay locked in
-// studio.toml.)
+// Shared deterministic work hook for both paid transport faces.
 export function buildRunWork(): RunWork {
-  // The model is resolved LAZILY on first delivery, not at boot: a seller
-  // with no provider key yet must still serve negotiate (which never calls
-  // the LLM) — missing-key errors surface at notify_funded delivery time.
-  let model: ReturnType<typeof buildModel> | undefined;
-  return async (prompt, { abortSignal }) => {
-    model ??= buildModel(); // managed model with the auto-renew hook (delivery only)
-    const result = await generateText({
-      model,
-      system:
-        "You are b8xgrid, a B8X Market grid-trading analysis agent for BNB Chain. " +
-        "The runtime has already authorized this task through ERC-8183. Complete " +
-        "the user's task now; do not ask for a job ID or more payment. Produce a " +
-        "verifiable deliverable for a BNB/USDT-style grid: objective, market window, " +
-        "grid bounds, level count, order sizing, risk limits, reconstructed fills " +
-        "or a fill-verification checklist, expected failure modes, and final action. " +
-        "Use read-only chain tools when on-chain context helps. Never claim a live " +
-        "trade, fill, PnL, or payment unless the evidence is present in the prompt " +
-        "or read from chain tools. Keep the output concrete, concise, and suitable " +
-        "for the B8X Agent Advantage Report.",
-      prompt,
-      // LLM_READ_TOOLS = read-only chain tools (wallet, balances,
-      // ERC-8004/8183 queries). Edit `tools.ts` to add/remove. These are
-      // READ-ONLY — the agent never signs via a tool; all signing is in
-      // signing.ts (fixed code).
-      // To let the agent BUY paid data at work time (e.g. CMC market data
-      // after `bag x402 trust cmc` + `bag recipe code x402-buyer`), spread
-      // the emitted tool set — payee + per-call/daily caps stay locked in
-      // studio.toml:
-      //   import { X402_BUYER_TOOLS } from "./x402Buyer.js";
-      //   tools: { ...LLM_READ_TOOLS, ...X402_BUYER_TOOLS },
-      tools: LLM_READ_TOOLS,
-      stopWhen: stepCountIs(8), // bounded tool-call loop, then final text
-      abortSignal,
-    });
-    return result.text.trim();
-  };
+  return runGridWork;
 }
 
 function hasErc8183Rail(cfg: TomlTable): boolean {

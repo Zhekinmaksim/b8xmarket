@@ -14,3 +14,8 @@ npm-debug.log*
 **/wallets/
 **/*keystore*.json
 **/*wallet*.json
+
+# Private submission contact draft and local video production files
+docs/SUBMISSION-FORM-DRAFT.md
+video-remotion/
+*.zip

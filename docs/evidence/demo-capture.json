@@ -1,0 +1,1495 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://b8xmarket.xyz",
+  "startedAt": "2026-09-08T10:56:40.252Z",
+  "capturedAt": "2026-09-08T10:56:46.575Z",
+  "mode": "Public production API; deterministic read-only scenarios with priceSource=user",
+  "limitations": [
+    "Scenario outputs are not realized returns, hiring results, or executed transactions.",
+    "Registration metadata is preserved as returned by the card; no independent on-chain verification is performed.",
+    "Report identifiers, timestamps and processing duration may vary between captures."
+  ],
+  "cards": [
+    {
+      "agent": "b8xrebal",
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xrebal",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xrebal",
+      "requestedAt": "2026-09-08T10:56:40.253Z",
+      "capturedAt": "2026-09-08T10:56:41.014Z",
+      "httpStatus": 200,
+      "registration": {
+        "chainId": 97,
+        "agentId": 2095,
+        "wallet": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      "card": {
+        "name": "b8xrebal",
+        "description": "Check a concentrated-liquidity range and estimate whether a range move clears your cost scenario.",
+        "version": "2.0.0",
+        "protocolVersion": "0.3.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xrebal/a2a",
+        "preferredTransport": "JSONRPC",
+        "capabilities": {
+          "streaming": false
+        },
+        "defaultInputModes": [
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "analyze",
+            "name": "LP rebalancing",
+            "description": "Read-only deterministic calculation. Send skill=analyze and input matching the field schema in metadata. Returns completed calculations, inputs, formulas and assumptions.",
+            "tags": [
+              "bsc",
+              "analysis",
+              "read-only"
+            ]
+          }
+        ],
+        "metadata": {
+          "registry": {
+            "chainId": 97,
+            "agentId": 2095,
+            "wallet": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+            "status": "historical_registration_record",
+            "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+          },
+          "fields": [
+            {
+              "key": "price",
+              "label": "Spot price (quote / base)",
+              "value": 600,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "lower",
+              "label": "Current lower price",
+              "value": 610,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "upper",
+              "label": "Current upper price",
+              "value": 650,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "halfWidthPercent",
+              "label": "New range half-width (%)",
+              "value": 5,
+              "min": 0.1,
+              "max": 90,
+              "step": "any"
+            },
+            {
+              "key": "capital",
+              "label": "Position value (quote)",
+              "value": 10000,
+              "min": 1,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "gasCost",
+              "label": "Move gas cost (quote)",
+              "value": 2,
+              "min": 0,
+              "max": 100000,
+              "step": "any"
+            },
+            {
+              "key": "slippageBps",
+              "label": "Move slippage (bps)",
+              "value": 10,
+              "min": 0,
+              "max": 1000,
+              "step": "any"
+            },
+            {
+              "key": "expectedDailyFees",
+              "label": "Assumed daily fees (quote)",
+              "value": 5,
+              "min": 0,
+              "max": 1000000,
+              "step": "any"
+            },
+            {
+              "key": "horizonDays",
+              "label": "Fee scenario horizon (days)",
+              "value": 7,
+              "min": 1,
+              "max": 365,
+              "step": 1
+            }
+          ],
+          "engine": "deterministic-analysis",
+          "paidHiring": false,
+          "transactionExecution": false,
+          "continuousMonitoring": false,
+          "checkedAt": "2026-09-08T10:56:43.473Z"
+        }
+      }
+    },
+    {
+      "agent": "b8xgrid",
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xgrid",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xgrid",
+      "requestedAt": "2026-09-08T10:56:42.242Z",
+      "capturedAt": "2026-09-08T10:56:42.456Z",
+      "httpStatus": 200,
+      "registration": {
+        "chainId": 97,
+        "agentId": 2096,
+        "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      "card": {
+        "name": "b8xgrid",
+        "description": "Calculate an arithmetic grid and check every buy/sell interval after fees, slippage and gas.",
+        "version": "2.0.0",
+        "protocolVersion": "0.3.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xgrid/a2a",
+        "preferredTransport": "JSONRPC",
+        "capabilities": {
+          "streaming": false
+        },
+        "defaultInputModes": [
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "analyze",
+            "name": "Grid trading",
+            "description": "Read-only deterministic calculation. Send skill=analyze and input matching the field schema in metadata. Returns completed calculations, inputs, formulas and assumptions.",
+            "tags": [
+              "bsc",
+              "analysis",
+              "read-only"
+            ]
+          }
+        ],
+        "metadata": {
+          "registry": {
+            "chainId": 97,
+            "agentId": 2096,
+            "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",
+            "status": "historical_registration_record",
+            "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+          },
+          "fields": [
+            {
+              "key": "price",
+              "label": "Spot price (quote / base)",
+              "value": 600,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "lower",
+              "label": "Lower grid price",
+              "value": 588,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "upper",
+              "label": "Upper grid price",
+              "value": 612,
+              "min": 0.000001,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "levels",
+              "label": "Price levels",
+              "value": 12,
+              "min": 2,
+              "max": 100,
+              "step": 1
+            },
+            {
+              "key": "capital",
+              "label": "Capital (quote)",
+              "value": 10000,
+              "min": 1,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "feeBps",
+              "label": "Fee per trade (bps)",
+              "value": 25,
+              "min": 0,
+              "max": 1000,
+              "step": "any"
+            },
+            {
+              "key": "slippageBps",
+              "label": "Slippage per trade (bps)",
+              "value": 5,
+              "min": 0,
+              "max": 1000,
+              "step": "any"
+            },
+            {
+              "key": "gasPerTrade",
+              "label": "Gas per trade (quote)",
+              "value": 0.05,
+              "min": 0,
+              "max": 100000,
+              "step": "any"
+            }
+          ],
+          "engine": "deterministic-analysis",
+          "paidHiring": false,
+          "transactionExecution": false,
+          "continuousMonitoring": false,
+          "checkedAt": "2026-09-08T10:56:44.925Z"
+        }
+      }
+    },
+    {
+      "agent": "b8xyield",
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xyield",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xyield",
+      "requestedAt": "2026-09-08T10:56:43.635Z",
+      "capturedAt": "2026-09-08T10:56:43.878Z",
+      "httpStatus": 200,
+      "registration": {
+        "chainId": 97,
+        "agentId": 2098,
+        "wallet": "0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      "card": {
+        "name": "b8xyield",
+        "description": "Compare supplied APRs after entry and exit costs, lock duration and available liquidity.",
+        "version": "2.0.0",
+        "protocolVersion": "0.3.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xyield/a2a",
+        "preferredTransport": "JSONRPC",
+        "capabilities": {
+          "streaming": false
+        },
+        "defaultInputModes": [
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "analyze",
+            "name": "Yield optimisation",
+            "description": "Read-only deterministic calculation. Send skill=analyze and input matching the field schema in metadata. Returns completed calculations, inputs, formulas and assumptions.",
+            "tags": [
+              "bsc",
+              "analysis",
+              "read-only"
+            ]
+          }
+        ],
+        "metadata": {
+          "registry": {
+            "chainId": 97,
+            "agentId": 2098,
+            "wallet": "0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1",
+            "status": "historical_registration_record",
+            "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+          },
+          "fields": [
+            {
+              "key": "capital",
+              "label": "Capital (quote)",
+              "value": 10000,
+              "min": 1,
+              "max": 1000000000,
+              "step": "any"
+            },
+            {
+              "key": "horizonDays",
+              "label": "Holding horizon (days)",
+              "value": 30,
+              "min": 1,
+              "max": 365,
+              "step": 1
+            }
+          ],
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ],
+          "engine": "deterministic-analysis",
+          "paidHiring": false,
+          "transactionExecution": false,
+          "continuousMonitoring": false,
+          "checkedAt": "2026-09-08T10:56:46.365Z"
+        }
+      }
+    },
+    {
+      "agent": "b8xhealth",
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xhealth",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xhealth",
+      "requestedAt": "2026-09-08T10:56:44.897Z",
+      "capturedAt": "2026-09-08T10:56:45.090Z",
+      "httpStatus": 200,
+      "registration": {
+        "chainId": 97,
+        "agentId": 2097,
+        "wallet": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      "card": {
+        "name": "b8xhealth",
+        "description": "Stress a supplied lending position and calculate the repay or top-up needed to restore a target.",
+        "version": "2.0.0",
+        "protocolVersion": "0.3.0",
+        "url": "https://b8xmarket-repo.vercel.app/api/agents/b8xhealth/a2a",
+        "preferredTransport": "JSONRPC",
+        "capabilities": {
+          "streaming": false
+        },
+        "defaultInputModes": [
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "analyze",
+            "name": "Health factor",
+            "description": "Read-only deterministic calculation. Send skill=analyze and input matching the field schema in metadata. Returns completed calculations, inputs, formulas and assumptions.",
+            "tags": [
+              "bsc",
+              "analysis",
+              "read-only"
+            ]
+          }
+        ],
+        "metadata": {
+          "registry": {
+            "chainId": 97,
+            "agentId": 2097,
+            "wallet": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+            "status": "historical_registration_record",
+            "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+          },
+          "fields": [
+            {
+              "key": "collateralValue",
+              "label": "Collateral value (quote)",
+              "value": 10000,
+              "min": 0.01,
+              "max": 1000000000000,
+              "step": "any"
+            },
+            {
+              "key": "debtValue",
+              "label": "Debt value (quote)",
+              "value": 6000,
+              "min": 0,
+              "max": 1000000000000,
+              "step": "any"
+            },
+            {
+              "key": "liquidationThresholdPercent",
+              "label": "Liquidation threshold (%)",
+              "value": 80,
+              "min": 1,
+              "max": 100,
+              "step": "any"
+            },
+            {
+              "key": "targetHealth",
+              "label": "Target health factor",
+              "value": 1.3,
+              "min": 1.01,
+              "max": 5,
+              "step": "any"
+            },
+            {
+              "key": "priceDropPercent",
+              "label": "Collateral price shock (%)",
+              "value": 20,
+              "min": 0,
+              "max": 99,
+              "step": "any"
+            }
+          ],
+          "engine": "deterministic-analysis",
+          "paidHiring": false,
+          "transactionExecution": false,
+          "continuousMonitoring": false,
+          "checkedAt": "2026-09-08T10:56:47.577Z"
+        }
+      }
+    }
+  ],
+  "analyses": [
+    {
+      "agent": "b8xrebal",
+      "scenario": "default",
+      "priceSource": "user",
+      "input": {
+        "price": 600,
+        "lower": 610,
+        "upper": 650,
+        "halfWidthPercent": 5,
+        "capital": 10000,
+        "gasCost": 2,
+        "slippageBps": 10,
+        "expectedDailyFees": 5,
+        "horizonDays": 7
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xrebal-default",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xrebal-default",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "price": 600,
+                    "lower": 610,
+                    "upper": 650,
+                    "halfWidthPercent": 5,
+                    "capital": 10000,
+                    "gasCost": 2,
+                    "slippageBps": 10,
+                    "expectedDailyFees": 5,
+                    "horizonDays": 7
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xrebal/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xrebal/a2a",
+      "requestedAt": "2026-09-08T10:56:41.015Z",
+      "capturedAt": "2026-09-08T10:56:42.240Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "36dd1a6e-61e0-4a2a-96a6-cc4304e3896c",
+        "status": "completed",
+        "agent": "b8xrebal",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:44.712Z",
+        "durationMs": 0.504,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 610,
+          "upper": 650,
+          "halfWidthPercent": 5,
+          "capital": 10000,
+          "gasCost": 2,
+          "slippageBps": 10,
+          "expectedDailyFees": 5,
+          "horizonDays": 7
+        },
+        "inputSha256": "09fd83c276a08382f52fdfd164e023b7c39ecb5dc9bc9c00551820b988319de6",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "LP range review",
+          "decision": "REVIEW_RECENTER",
+          "summary": "The range is inactive; the supplied fee scenario exceeds the estimated move cost.",
+          "metrics": {
+            "inRange": false,
+            "estimatedMoveCost": 12,
+            "scenarioFees": 35,
+            "breakEvenDays": 2.4
+          },
+          "columns": [
+            "range",
+            "lower",
+            "upper",
+            "baseAmount",
+            "quoteAmount"
+          ],
+          "rows": [
+            {
+              "range": "Current",
+              "lower": 610,
+              "upper": 650,
+              "baseAmount": null,
+              "quoteAmount": null
+            },
+            {
+              "range": "Candidate",
+              "lower": 570,
+              "upper": 630,
+              "baseAmount": 8.12750804303,
+              "quoteAmount": 5123.49517418
+            }
+          ],
+          "assumptions": [
+            "Concentrated-liquidity range analysis, not a 60/40 portfolio rebalance.",
+            "Price is quote per base token. Candidate amounts follow concentrated-liquidity square-root formulas.",
+            "Bounds are theoretical: no token-decimal conversion, tick-spacing alignment or mint transaction.",
+            "Daily fees are a user scenario, not measured fees or a forecast. Move cost conservatively applies slippage to the whole capital.",
+            "No NFT position is read or changed; current holdings and impermanent loss are not estimated."
+          ],
+          "formulas": [
+            "candidate bounds = spot * (1 +/- halfWidthPercent / 100)",
+            "amount0 / L = 1 / sqrt(spot) - 1 / sqrt(upper)",
+            "amount1 / L = sqrt(spot) - sqrt(lower)",
+            "move cost = gas + capital * slippage; break-even days = cost / daily fees"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "b8xgrid",
+      "scenario": "default",
+      "priceSource": "user",
+      "input": {
+        "price": 600,
+        "lower": 588,
+        "upper": 612,
+        "levels": 12,
+        "capital": 10000,
+        "feeBps": 25,
+        "slippageBps": 5,
+        "gasPerTrade": 0.05
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xgrid-default",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xgrid-default",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "price": 600,
+                    "lower": 588,
+                    "upper": 612,
+                    "levels": 12,
+                    "capital": 10000,
+                    "feeBps": 25,
+                    "slippageBps": 5,
+                    "gasPerTrade": 0.05
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xgrid/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xgrid/a2a",
+      "requestedAt": "2026-09-08T10:56:42.456Z",
+      "capturedAt": "2026-09-08T10:56:43.634Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "8abc8350-8a7e-46de-b8b5-00b5b8506fcb",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:46.084Z",
+        "durationMs": 1.231,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 12,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e4a4371d70d56fa8b1f43daca887e84530a3e2bb4bc922129828c2df47850e59",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "COSTS_EXCEED_SPREAD",
+          "summary": "At least one interval loses money after the configured costs.",
+          "metrics": {
+            "priceStep": 2.18181818182,
+            "budgetPerInterval": 909.090909091,
+            "worstCycleNet": -2.30512636752,
+            "levels": 12
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 590.181818182,
+              "baseQuantity": 1.54144862876,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.18515959963
+            },
+            {
+              "interval": 2,
+              "buy": 590.181818182,
+              "sell": 592.363636364,
+              "baseQuantity": 1.53575011257,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.19755542648
+            },
+            {
+              "interval": 3,
+              "buy": 592.363636364,
+              "sell": 594.545454545,
+              "baseQuantity": 1.5300935744,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.20985993969
+            },
+            {
+              "interval": 4,
+              "buy": 594.545454545,
+              "sell": 596.727272727,
+              "baseQuantity": 1.52447855211,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.22207414454
+            },
+            {
+              "interval": 5,
+              "buy": 596.727272727,
+              "sell": 598.909090909,
+              "baseQuantity": 1.51890459031,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.23419903162
+            },
+            {
+              "interval": 6,
+              "buy": 598.909090909,
+              "sell": 601.090909091,
+              "baseQuantity": 1.51337124026,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.24623557709
+            },
+            {
+              "interval": 7,
+              "buy": 601.090909091,
+              "sell": 603.272727273,
+              "baseQuantity": 1.50787805971,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.25818474292
+            },
+            {
+              "interval": 8,
+              "buy": 603.272727273,
+              "sell": 605.454545455,
+              "baseQuantity": 1.50242461284,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.27004747716
+            },
+            {
+              "interval": 9,
+              "buy": 605.454545455,
+              "sell": 607.636363636,
+              "baseQuantity": 1.49701047009,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.28182471423
+            },
+            {
+              "interval": 10,
+              "buy": 607.636363636,
+              "sell": 609.818181818,
+              "baseQuantity": 1.49163520808,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.29351737508
+            },
+            {
+              "interval": 11,
+              "buy": 609.818181818,
+              "sell": 612,
+              "baseQuantity": 1.48629840948,
+              "allocatedQuote": 909.090909091,
+              "netPerCycle": -2.30512636752
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "b8xyield",
+      "scenario": "default",
+      "priceSource": "user",
+      "input": {
+        "capital": 10000,
+        "horizonDays": 30,
+        "routes": [
+          {
+            "name": "Scenario A",
+            "aprPercent": 8,
+            "roundTripCost": 12,
+            "availableLiquidity": 100000,
+            "lockDays": 0
+          },
+          {
+            "name": "Scenario B",
+            "aprPercent": 10,
+            "roundTripCost": 40,
+            "availableLiquidity": 200000,
+            "lockDays": 0
+          },
+          {
+            "name": "Scenario C",
+            "aprPercent": 14,
+            "roundTripCost": 8,
+            "availableLiquidity": 5000,
+            "lockDays": 60
+          }
+        ]
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xyield-default",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xyield-default",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "capital": 10000,
+                    "horizonDays": 30,
+                    "routes": [
+                      {
+                        "name": "Scenario A",
+                        "aprPercent": 8,
+                        "roundTripCost": 12,
+                        "availableLiquidity": 100000,
+                        "lockDays": 0
+                      },
+                      {
+                        "name": "Scenario B",
+                        "aprPercent": 10,
+                        "roundTripCost": 40,
+                        "availableLiquidity": 200000,
+                        "lockDays": 0
+                      },
+                      {
+                        "name": "Scenario C",
+                        "aprPercent": 14,
+                        "roundTripCost": 8,
+                        "availableLiquidity": 5000,
+                        "lockDays": 60
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xyield/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xyield/a2a",
+      "requestedAt": "2026-09-08T10:56:43.880Z",
+      "capturedAt": "2026-09-08T10:56:44.897Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "26f09e6a-7e31-4a9b-9abf-c30c9110a913",
+        "status": "completed",
+        "agent": "b8xyield",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:47.380Z",
+        "durationMs": 0.316,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "capital": 10000,
+          "horizonDays": 30,
+          "routes": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "roundTripCost": 12,
+              "availableLiquidity": 100000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "roundTripCost": 40,
+              "availableLiquidity": 200000,
+              "lockDays": 0
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "roundTripCost": 8,
+              "availableLiquidity": 5000,
+              "lockDays": 60
+            }
+          ]
+        },
+        "inputSha256": "594ef365f2a6b9022e6d4bfea77de66e0cc63b18a987ac846c5dba87cacef91e",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Yield route comparison",
+          "decision": "REVIEW_ROUTE",
+          "summary": "Scenario A has the largest positive net return among eligible supplied routes.",
+          "metrics": {
+            "bestRoute": "Scenario A",
+            "bestNetReturn": 53.7534246575,
+            "horizonDays": 30
+          },
+          "columns": [
+            "name",
+            "aprPercent",
+            "grossReturn",
+            "roundTripCost",
+            "netReturn",
+            "eligible",
+            "exclusion"
+          ],
+          "rows": [
+            {
+              "name": "Scenario A",
+              "aprPercent": 8,
+              "grossReturn": 65.7534246575,
+              "roundTripCost": 12,
+              "netReturn": 53.7534246575,
+              "netAnnualizedPercent": 6.54,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario B",
+              "aprPercent": 10,
+              "grossReturn": 82.1917808219,
+              "roundTripCost": 40,
+              "netReturn": 42.1917808219,
+              "netAnnualizedPercent": 5.13333333333,
+              "eligible": true,
+              "exclusion": null
+            },
+            {
+              "name": "Scenario C",
+              "aprPercent": 14,
+              "grossReturn": 115.068493151,
+              "roundTripCost": 8,
+              "netReturn": 107.068493151,
+              "netAnnualizedPercent": 13.0266666667,
+              "eligible": false,
+              "exclusion": "Insufficient exit liquidity"
+            }
+          ],
+          "assumptions": [
+            "User-supplied route data, not verified protocol yields or safety ratings.",
+            "Simple APR, no compounding or token-price change; all values use one quote currency.",
+            "Full capital is evaluated separately in each route; this is not a simultaneous allocation.",
+            "Liquidity and lock duration are mechanical filters; contract, oracle and depeg risk remain unpriced."
+          ],
+          "formulas": [
+            "gross = capital * APR / 100 * days / 365",
+            "net = gross - roundTripCost",
+            "eligible = availableLiquidity >= capital AND lockDays <= horizonDays"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "b8xhealth",
+      "scenario": "default",
+      "priceSource": "user",
+      "input": {
+        "collateralValue": 10000,
+        "debtValue": 6000,
+        "liquidationThresholdPercent": 80,
+        "targetHealth": 1.3,
+        "priceDropPercent": 20
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xhealth-default",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xhealth-default",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "collateralValue": 10000,
+                    "debtValue": 6000,
+                    "liquidationThresholdPercent": 80,
+                    "targetHealth": 1.3,
+                    "priceDropPercent": 20
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xhealth/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xhealth/a2a",
+      "requestedAt": "2026-09-08T10:56:45.090Z",
+      "capturedAt": "2026-09-08T10:56:46.167Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "5e360886-da17-4814-aa98-fd7370eaf15f",
+        "status": "completed",
+        "agent": "b8xhealth",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:48.646Z",
+        "durationMs": 0.319,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "collateralValue": 10000,
+          "debtValue": 6000,
+          "liquidationThresholdPercent": 80,
+          "targetHealth": 1.3,
+          "priceDropPercent": 20
+        },
+        "inputSha256": "cec7363492e6d360356ae5b3ac901e87bc5ef9bbf8700211bee8a410ad43fa29",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Liquidation stress check",
+          "decision": "BELOW_TARGET_UNDER_STRESS",
+          "summary": "The table shows current and stressed collateral coverage, with two alternative ways to reach the target after the shock.",
+          "metrics": {
+            "healthFactor": 1.33333333333,
+            "stressedHealthFactor": 1.06666666667,
+            "priceDropToLiquidationPercent": 25,
+            "repayAfterShock": 1076.92307692,
+            "topUpAfterShock": 1750
+          },
+          "columns": [
+            "scenario",
+            "collateralValue",
+            "debtValue",
+            "healthFactor"
+          ],
+          "rows": [
+            {
+              "scenario": "Current",
+              "collateralValue": 10000,
+              "debtValue": 6000,
+              "healthFactor": 1.33333333333
+            },
+            {
+              "scenario": "After price shock",
+              "collateralValue": 8000,
+              "debtValue": 6000,
+              "healthFactor": 1.06666666667
+            }
+          ],
+          "assumptions": [
+            "User-supplied single collateral basket, one effective liquidation threshold and constant quote-denominated debt.",
+            "Generic health-factor model, not a verified Venus account or protocol-specific liquidation prediction.",
+            "Repay and top-up are alternatives, valued after the shock. Interest, gas, oracle delay and liquidation penalties are excluded.",
+            "A completed check does not start continuous monitoring or protect a position."
+          ],
+          "formulas": [
+            "HF = collateral value * liquidation threshold / debt",
+            "repay = max(0, debt - stressed adjusted collateral / target HF)",
+            "top-up = max(0, (target HF * debt - stressed adjusted collateral) / threshold)"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "b8xgrid",
+      "scenario": "levels-5",
+      "priceSource": "user",
+      "input": {
+        "price": 600,
+        "lower": 588,
+        "upper": 612,
+        "levels": 5,
+        "capital": 10000,
+        "feeBps": 25,
+        "slippageBps": 5,
+        "gasPerTrade": 0.05
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xgrid-levels-5",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xgrid-levels-5",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "price": 600,
+                    "lower": 588,
+                    "upper": 612,
+                    "levels": 5,
+                    "capital": 10000,
+                    "feeBps": 25,
+                    "slippageBps": 5,
+                    "gasPerTrade": 0.05
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xgrid/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xgrid/a2a",
+      "requestedAt": "2026-09-08T10:56:46.167Z",
+      "capturedAt": "2026-09-08T10:56:46.371Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "1ba67a31-79f8-4c6f-bd14-56b7a791b96e",
+        "status": "completed",
+        "agent": "b8xgrid",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:48.847Z",
+        "durationMs": 1.112,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "price": 600,
+          "lower": 588,
+          "upper": 612,
+          "levels": 5,
+          "capital": 10000,
+          "feeBps": 25,
+          "slippageBps": 5,
+          "gasPerTrade": 0.05
+        },
+        "inputSha256": "e23a65c282b985ddc9bf9e53c06f142a34735c33acb3e0d2ead84177cbcb2f92",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Grid feasibility",
+          "decision": "FEASIBLE_UNDER_ASSUMPTIONS",
+          "summary": "All intervals clear the configured round-trip costs. Fills are not guaranteed.",
+          "metrics": {
+            "priceStep": 6,
+            "budgetPerInterval": 2500,
+            "worstCycleNet": 9.54927001175,
+            "levels": 5
+          },
+          "columns": [
+            "interval",
+            "buy",
+            "sell",
+            "baseQuantity",
+            "allocatedQuote",
+            "netPerCycle"
+          ],
+          "rows": [
+            {
+              "interval": 1,
+              "buy": 588,
+              "sell": 594,
+              "baseQuantity": 4.23898372908,
+              "allocatedQuote": 2500,
+              "netPerCycle": 10.3024660712
+            },
+            {
+              "interval": 2,
+              "buy": 594,
+              "sell": 600,
+              "baseQuantity": 4.19616571162,
+              "allocatedQuote": 2500,
+              "netPerCycle": 10.0463286907
+            },
+            {
+              "interval": 3,
+              "buy": 600,
+              "sell": 606,
+              "baseQuantity": 4.1542040545,
+              "allocatedQuote": 2500,
+              "netPerCycle": 9.79531405783
+            },
+            {
+              "interval": 4,
+              "buy": 606,
+              "sell": 612,
+              "baseQuantity": 4.11307332129,
+              "allocatedQuote": 2500,
+              "netPerCycle": 9.54927001175
+            }
+          ],
+          "assumptions": [
+            "Arithmetic grid; quote currency units throughout.",
+            "Each interval is an independent buy-then-sell cycle; all capital starts in quote currency.",
+            "Fees and slippage charged on each leg; gas charged twice per cycle.",
+            "No order execution, inventory simulation, fill probability or realized PnL."
+          ],
+          "formulas": [
+            "step = (upper - lower) / (levels - 1)",
+            "quantity = budget / (buy * (1 + fee + slippage))",
+            "net = quantity * sell * (1 - fee - slippage) - budget - 2 * gas"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "b8xhealth",
+      "scenario": "shock-40",
+      "priceSource": "user",
+      "input": {
+        "collateralValue": 10000,
+        "debtValue": 6000,
+        "liquidationThresholdPercent": 80,
+        "targetHealth": 1.3,
+        "priceDropPercent": 40
+      },
+      "request": {
+        "jsonrpc": "2.0",
+        "id": "b8xhealth-shock-40",
+        "method": "message/send",
+        "params": {
+          "message": {
+            "role": "user",
+            "messageId": "promo-evidence-b8xhealth-shock-40",
+            "parts": [
+              {
+                "kind": "data",
+                "data": {
+                  "skill": "analyze",
+                  "priceSource": "user",
+                  "input": {
+                    "collateralValue": 10000,
+                    "debtValue": 6000,
+                    "liquidationThresholdPercent": 80,
+                    "targetHealth": 1.3,
+                    "priceDropPercent": 40
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sourceUrl": "https://b8xmarket.xyz/api/agents/b8xhealth/a2a",
+      "responseUrl": "https://b8xmarket.xyz/api/agents/b8xhealth/a2a",
+      "requestedAt": "2026-09-08T10:56:46.371Z",
+      "capturedAt": "2026-09-08T10:56:46.574Z",
+      "httpStatus": 200,
+      "report": {
+        "id": "1a211516-d9a2-401d-ab70-2ed6bcde7b19",
+        "status": "completed",
+        "agent": "b8xhealth",
+        "engine": "deterministic-analysis",
+        "engineVersion": "2.0.0",
+        "completedAt": "2026-09-08T10:56:49.058Z",
+        "durationMs": 0.235,
+        "fee": {
+          "amount": "0",
+          "unit": "USD",
+          "gasPaid": "0"
+        },
+        "execution": "read_only_analysis",
+        "input": {
+          "collateralValue": 10000,
+          "debtValue": 6000,
+          "liquidationThresholdPercent": 80,
+          "targetHealth": 1.3,
+          "priceDropPercent": 40
+        },
+        "inputSha256": "e9b8a7422e26830e05efe0fc0272f86b19c9db99d07273cb50d8b3bbf1bf8110",
+        "source": {
+          "kind": "user_input",
+          "description": "All values supplied by the user; not independently verified."
+        },
+        "result": {
+          "title": "Liquidation stress check",
+          "decision": "STRESS_BREACH",
+          "summary": "The table shows current and stressed collateral coverage, with two alternative ways to reach the target after the shock.",
+          "metrics": {
+            "healthFactor": 1.33333333333,
+            "stressedHealthFactor": 0.8,
+            "priceDropToLiquidationPercent": 25,
+            "repayAfterShock": 2307.69230769,
+            "topUpAfterShock": 3750
+          },
+          "columns": [
+            "scenario",
+            "collateralValue",
+            "debtValue",
+            "healthFactor"
+          ],
+          "rows": [
+            {
+              "scenario": "Current",
+              "collateralValue": 10000,
+              "debtValue": 6000,
+              "healthFactor": 1.33333333333
+            },
+            {
+              "scenario": "After price shock",
+              "collateralValue": 6000,
+              "debtValue": 6000,
+              "healthFactor": 0.8
+            }
+          ],
+          "assumptions": [
+            "User-supplied single collateral basket, one effective liquidation threshold and constant quote-denominated debt.",
+            "Generic health-factor model, not a verified Venus account or protocol-specific liquidation prediction.",
+            "Repay and top-up are alternatives, valued after the shock. Interest, gas, oracle delay and liquidation penalties are excluded.",
+            "A completed check does not start continuous monitoring or protect a position."
+          ],
+          "formulas": [
+            "HF = collateral value * liquidation threshold / debt",
+            "repay = max(0, debt - stressed adjusted collateral / target HF)",
+            "top-up = max(0, (target HF * debt - stressed adjusted collateral) / threshold)"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "defaultReportsCompleted": 4,
+    "totalReportsCompleted": 6,
+    "registrations": [
+      {
+        "agent": "b8xrebal",
+        "chainId": 97,
+        "agentId": 2095,
+        "wallet": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      {
+        "agent": "b8xgrid",
+        "chainId": 97,
+        "agentId": 2096,
+        "wallet": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      {
+        "agent": "b8xyield",
+        "chainId": 97,
+        "agentId": 2098,
+        "wallet": "0x9a27Cea90d0AcA683F4cAFc0C7ead0a57d7367c1",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      },
+      {
+        "agent": "b8xhealth",
+        "chainId": 97,
+        "agentId": 2097,
+        "wallet": "0x00CCc45a862eaCEa3d421AAf4521FBc4978C3499",
+        "status": "historical_registration_record",
+        "evidence": "https://b8xmarket-repo.vercel.app/docs/LIVE_AGENT_EVIDENCE.md"
+      }
+    ],
+    "grid12": {
+      "decision": "COSTS_EXCEED_SPREAD",
+      "priceStep": 2.18181818182,
+      "budgetPerInterval": 909.090909091,
+      "worstCycleNet": -2.30512636752,
+      "levels": 12
+    },
+    "grid5": {
+      "decision": "FEASIBLE_UNDER_ASSUMPTIONS",
+      "priceStep": 6,
+      "budgetPerInterval": 2500,
+      "worstCycleNet": 9.54927001175,
+      "levels": 5
+    },
+    "health20": {
+      "decision": "BELOW_TARGET_UNDER_STRESS",
+      "healthFactor": 1.33333333333,
+      "stressedHealthFactor": 1.06666666667,
+      "priceDropToLiquidationPercent": 25,
+      "repayAfterShock": 1076.92307692,
+      "topUpAfterShock": 1750
+    },
+    "health40": {
+      "decision": "STRESS_BREACH",
+      "healthFactor": 1.33333333333,
+      "stressedHealthFactor": 0.8,
+      "priceDropToLiquidationPercent": 25,
+      "repayAfterShock": 2307.69230769,
+      "topUpAfterShock": 3750
+    },
+    "lp": {
+      "decision": "REVIEW_RECENTER",
+      "inRange": false,
+      "estimatedMoveCost": 12,
+      "scenarioFees": 35,
+      "breakEvenDays": 2.4,
+      "ranges": [
+        {
+          "range": "Current",
+          "lower": 610,
+          "upper": 650,
+          "baseAmount": null,
+          "quoteAmount": null
+        },
+        {
+          "range": "Candidate",
+          "lower": 570,
+          "upper": 630,
+          "baseAmount": 8.12750804303,
+          "quoteAmount": 5123.49517418
+        }
+      ]
+    },
+    "yield": {
+      "decision": "REVIEW_ROUTE",
+      "bestRoute": "Scenario A",
+      "bestNetReturn": 53.7534246575,
+      "horizonDays": 30,
+      "routes": [
+        {
+          "name": "Scenario A",
+          "aprPercent": 8,
+          "grossReturn": 65.7534246575,
+          "roundTripCost": 12,
+          "netReturn": 53.7534246575,
+          "netAnnualizedPercent": 6.54,
+          "eligible": true,
+          "exclusion": null
+        },
+        {
+          "name": "Scenario B",
+          "aprPercent": 10,
+          "grossReturn": 82.1917808219,
+          "roundTripCost": 40,
+          "netReturn": 42.1917808219,
+          "netAnnualizedPercent": 5.13333333333,
+          "eligible": true,
+          "exclusion": null
+        },
+        {
+          "name": "Scenario C",
+          "aprPercent": 14,
+          "grossReturn": 115.068493151,
+          "roundTripCost": 8,
+          "netReturn": 107.068493151,
+          "netAnnualizedPercent": 13.0266666667,
+          "eligible": false,
+          "exclusion": "Insufficient exit liquidity"
+        }
+      ]
+    }
+  }
+}

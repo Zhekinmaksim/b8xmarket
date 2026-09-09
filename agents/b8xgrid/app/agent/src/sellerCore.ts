@@ -42,6 +42,7 @@ import { SubmitPermanentlyUnsupportedError } from "@bnbagent/studio-runtime/erc8
 import { getWallet } from "@bnbagent/studio-runtime/wallet";
 import { limitCommerceOperation } from "./requestLimits.js";
 import * as defaultSigning from "./signing.js";
+import { validateGridQuote, GridInputError } from "./gridWork.js";
 
 const log = {
   info: (msg: string) => console.log(`[seller-agent.core] ${msg}`),
@@ -237,6 +238,12 @@ export class SellerCore {
       }
       request = picked;
     }
+    try {
+      validateGridQuote(request as Record<string, unknown>);
+    } catch (e) {
+      if (e instanceof GridInputError) return { status: "rejected", reason: e.message };
+      throw e;
+    }
     const clamped = this.signing.clampPrice(this.signing.listPrice());
     return this.signing.signQuote(request as Record<string, unknown>, clamped);
   }
@@ -419,15 +426,8 @@ export class SellerCore {
     abortSignal?: AbortSignal,
   ): Promise<Record<string, unknown>> {
     const spec = await this.signing.jobSpec(jobId);
-    const task =
-      spec !== null
-        ? JSON.stringify({ task: spec.task, terms: spec.terms })
-        : `job ${jobId}`;
-    const prompt =
-      "You accepted and were paid for the following job. Produce the " +
-      "deliverable now. Be complete and self-contained.\n\n" +
-      `JOB CONTEXT:\n${task}`;
-    const work = await this.runWork(prompt, {
+    if (spec === null) throw new Error("Funded job has no task specification.");
+    const work = await this.runWork(spec.task, {
       sessionId: String(jobId),
       abortSignal,
     });

@@ -30,8 +30,8 @@
   "samples": [
     {
       "sample": 0,
-      "baselineMs": 0.15916599999991377,
-      "roundTripMs": 237.84687499999973,
+      "baselineMs": 0.14066700000057608,
+      "roundTripMs": 1130.7678339999993,
       "baselineOutput": {
         "bestRoute": "Scenario A",
         "bestNetReturn": 53.753424657534254,
@@ -58,13 +58,13 @@
         }
       ],
       "report": {
-        "id": "60a2cf13-62c1-4f2a-8e63-1f6df0eb2266",
+        "id": "c7ad11db-ab52-4ea6-95ad-cb18d3a35bb0",
         "status": "completed",
         "agent": "b8xyield",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:59.338Z",
-        "durationMs": 0.268,
+        "completedAt": "2026-09-08T16:06:26.292Z",
+        "durationMs": 0.205,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -169,8 +169,8 @@
     },
     {
       "sample": 1,
-      "baselineMs": 0.011207999999896856,
-      "roundTripMs": 237.08241700000008,
+      "baselineMs": 0.02191599999969185,
+      "roundTripMs": 272.6994160000004,
       "baselineOutput": {
         "bestRoute": "Scenario A",
         "bestNetReturn": 53.753424657534254,
@@ -197,13 +197,13 @@
         }
       ],
       "report": {
-        "id": "ebb356bd-2c1b-4873-b80c-feb35641bbc7",
+        "id": "17fda1ea-3775-40ae-967c-d117667591d1",
         "status": "completed",
         "agent": "b8xyield",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:59.585Z",
-        "durationMs": 0.208,
+        "completedAt": "2026-09-08T16:06:26.572Z",
+        "durationMs": 0.132,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -308,8 +308,8 @@
     },
     {
       "sample": 2,
-      "baselineMs": 0.024791999999706604,
-      "roundTripMs": 193.26804200000015,
+      "baselineMs": 0.013915999999881024,
+      "roundTripMs": 244.35799999999927,
       "baselineOutput": {
         "bestRoute": "Scenario A",
         "bestNetReturn": 53.753424657534254,
@@ -336,13 +336,13 @@
         }
       ],
       "report": {
-        "id": "e999d8fc-4fb7-4e74-9dad-9ec0571c7f6b",
+        "id": "efd799b2-1be1-428e-a994-5532d7136256",
         "status": "completed",
         "agent": "b8xyield",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:59.785Z",
-        "durationMs": 0.339,
+        "completedAt": "2026-09-08T16:06:26.844Z",
+        "durationMs": 0.184,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -447,8 +447,8 @@
     },
     {
       "sample": 3,
-      "baselineMs": 0.019833000000289758,
-      "roundTripMs": 212.20024999999987,
+      "baselineMs": 0.018541999999797554,
+      "roundTripMs": 246.7630419999996,
       "baselineOutput": {
         "bestRoute": "Scenario A",
         "bestNetReturn": 53.753424657534254,
@@ -475,13 +475,13 @@
         }
       ],
       "report": {
-        "id": "0019e067-53f2-454c-a65f-bcfa3b56ad1e",
+        "id": "ca0e5c82-f4b5-4502-aacf-89394bb39f32",
         "status": "completed",
         "agent": "b8xyield",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:01:59.980Z",
-        "durationMs": 0.246,
+        "completedAt": "2026-09-08T16:06:27.085Z",
+        "durationMs": 0.107,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -586,8 +586,8 @@
     },
     {
       "sample": 4,
-      "baselineMs": 0.1734160000000884,
-      "roundTripMs": 221.75770800000055,
+      "baselineMs": 0.021458000000166066,
+      "roundTripMs": 256.5072909999999,
       "baselineOutput": {
         "bestRoute": "Scenario A",
         "bestNetReturn": 53.753424657534254,
@@ -614,13 +614,13 @@
         }
       ],
       "report": {
-        "id": "29013a16-9eb2-4e4f-a185-fa3742dc2e8c",
+        "id": "24e12667-8f3e-482e-9eea-579be0a4fc90",
         "status": "completed",
         "agent": "b8xyield",
         "engine": "deterministic-analysis",
         "engineVersion": "2.0.0",
-        "completedAt": "2026-09-06T10:02:00.207Z",
-        "durationMs": 0.174,
+        "completedAt": "2026-09-08T16:06:27.341Z",
+        "durationMs": 0.142,
         "fee": {
           "amount": "0",
           "unit": "USD",
@@ -726,9 +726,9 @@
   ],
   "summary": {
     "runs": 5,
-    "p50RoundTripMs": 221.75770800000055,
-    "maxRoundTripMs": 237.84687499999973,
-    "p50BaselineMs": 0.024791999999706604,
+    "p50RoundTripMs": 256.5072909999999,
+    "maxRoundTripMs": 1130.7678339999993,
+    "p50BaselineMs": 0.021458000000166066,
     "checksPassed": 3,
     "checksTotal": 3
   }

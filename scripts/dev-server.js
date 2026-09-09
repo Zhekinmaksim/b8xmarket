@@ -7,6 +7,7 @@ const root = path.resolve(__dirname, "..");
 const publicFiles = new Set([
   "index.html",
   "analysis.html",
+  "media/b8x-demo.mp4",
   "app.css",
   "app.js",
   "catalog.js",
@@ -26,6 +27,7 @@ const mime = {
   ".svg": "image/svg+xml",
   ".png": "image/png",
   ".md": "text/plain",
+  ".mp4": "video/mp4",
 };
 http
   .createServer(async (req, res) => {
@@ -50,6 +52,10 @@ http
       if (url.pathname === "/api/snapshot") return await snapshot(req, res);
       const relative =
         url.pathname === "/" ? "index.html" : url.pathname.slice(1);
+      if (relative === "docs/SUBMISSION-FORM-DRAFT.md") {
+        res.writeHead(404);
+        return res.end("Not found");
+      }
       if (
         !publicFiles.has(relative) &&
         !/^docs\/[a-zA-Z0-9_./-]+\.(md|json)$/.test(relative)
