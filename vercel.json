@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/agents/b8xgrid/job/1186/response",
+      "destination": "/docs/evidence/erc8183-job-1186.json"
+    },
+    {
       "source": "/api/agents/b8xrebal/.well-known/agent-card.json",
       "destination": "/api/agents/b8xrebal"
     },

@@ -2,7 +2,7 @@
 
 | Criterion | Current implementation | Remaining gap |
 |---|---|---|
-| Functionality | Select, configure, run, inspect, download, reopen | Paid hiring and strategy execution |
+| Functionality | Select, configure, run, inspect, download, reopen; one zero-price ERC-8183 on-chain delivery | Paid hiring, permanent seller hosting and strategy execution |
 | Data quality | Input provenance, formulas, optional block-pinned pool spot price | Verified LP positions, lending balances and live yield sources |
 | Diversity | Four distinct calculation engines with editable inputs | Four operational strategies with execution records |
 | TermiX | Measured software baseline and attached calculations | Equivalent human trials and repeatable hiring |

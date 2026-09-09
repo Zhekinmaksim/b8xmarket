@@ -14,6 +14,8 @@ The four categories have distinct implementations: LP range review, grid cost ch
 
 The optional PancakeSwap integration reads the WBNB/USDT reserve-ratio price from BSC mainnet at a fixed block. The four ERC-8004 registrations are on BSC testnet. A read at testnet block 129959947 on 2026-09-09 confirmed the expected owners and registered endpoints for IDs 2095-2098; all four endpoints returned HTTP 200. These are different networks and are labelled separately.
 
+On 2026-09-09, B8X completed one real zero-price ERC-8183 grid-analysis lifecycle on BSC testnet. Job `1186` was created by `b8xrebal`, assigned to `b8xgrid`, registered with the canonical policy, funded at `0 U`, and submitted by the seller with an on-chain deliverable hash. The five successful transaction receipts and exact manifest are recorded in [ERC8183_JOB_1186.md](ERC8183_JOB_1186.md). This establishes one analysis-delivery activation, not a paid hire or a trade.
+
 ## How to try it
 
 1. Select Grid trading and run the sample. The configured fees make some intervals uneconomic.
@@ -23,7 +25,7 @@ The optional PancakeSwap integration reads the WBNB/USDT reserve-ratio price fro
 
 ## Current limits
 
-This is a read-only analysis beta. It does not hire a paid seller, execute a strategy, monitor continuously, grant session authority or settle a payment. The earlier managed trial is not the current runtime. No Altana or x402 eligibility is claimed.
+This is a read-only analysis beta with one bounded zero-price testnet delivery proof. It does not hire a paid seller, execute a strategy, monitor continuously, grant session authority or settle a payment. The earlier managed trial is not the current runtime. No Altana or x402 eligibility is claimed.
 
 The benchmark compares actual HTTP calculations against a standalone calculator, not measured human work. The required TermiX human/hiring evidence remains incomplete. See [Agent Advantage evidence status](AGENT_ADVANTAGE_REPORT.md).
 

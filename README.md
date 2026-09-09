@@ -14,6 +14,7 @@ Choose a category, edit the inputs and run an analysis. The API performs decimal
 - Health-factor stress: collateral shock, liquidation distance and alternative repay/top-up amounts.
 - Optional live PancakeSwap V2 WBNB/USDT reserve-ratio price from BSC mainnet, pinned to a block. It is not an oracle or executable quote.
 - Public agent cards and JSON-RPC `message/send` analysis endpoints for all four categories.
+- A real zero-price ERC-8183 grid-analysis job on BSC testnet: job `1186` progressed through create, policy registration, zero budget, funding and seller submission. [Inspect the evidence](docs/ERC8183_JOB_1186.md).
 
 ## Scope
 
@@ -21,7 +22,7 @@ The engine is deterministic, not an LLM. Default numbers are sample scenarios. O
 
 The four agent IDs are ERC-8004 registrations on BSC testnet. On 2026-09-09, an on-chain read confirmed the expected owners and registered service URLs for IDs 2095-2098, and every URL returned HTTP 200. Registration is not a performance endorsement. The earlier BNB managed trial expired; the current public runtime is the keyless analysis API.
 
-Paid hiring, swaps, continuous monitoring, delegated sessions, Altana and settlement are not implemented in this public runtime. `notify_funded` is rejected. No private key is required to run this version.
+Paid hiring, swaps, continuous monitoring, delegated sessions, Altana and settlement are not implemented in this public runtime. The public API rejects `notify_funded`; job 1186 was a bounded local seller smoke test whose result and transaction receipts are public. No private key is required to run the public version.
 
 ## Run locally
 

@@ -1,0 +1,23 @@
+{
+  "observedAt": "2026-09-09T11:02:08.000Z",
+  "chainId": 97,
+  "jobId": 1186,
+  "status": "SUBMITTED",
+  "budgetU": "0",
+  "buyer": "0xa2b4fB139150513872c68d51354e9f913A8c87a0",
+  "provider": "0x85aeD81F6d6e00dab442F1dd77aaE03c9cA11D89",
+  "deliverableHash": "0x5e6dae5f0e82fdb4c5656a3c0bdb3d1aff32434ddb741c6185d1595662a5d8e3",
+  "deliverableUrl": "https://b8xmarket.xyz/agents/b8xgrid/job/1186/response",
+  "transactions": [
+    { "step": "create", "hash": "0x6ecd7d93b8f2a69affc030937f820c5f042a7d5d360cce7b88e5bf33c16302a7", "blockNumber": "130011346", "status": "success" },
+    { "step": "register", "hash": "0x3ebcd2e689c28715ad95925a81957dbc359fe3ae01e383c3263f9d52f09e201c", "blockNumber": "130011352", "status": "success" },
+    { "step": "setBudget", "hash": "0xc0bdc26b7a575cb6e5ff51d2500a012102c09f1e759ac4d8dcc446686da83dd0", "blockNumber": "130011359", "status": "success", "budget": "0" },
+    { "step": "fund", "hash": "0x0d297182679d8c710525cb26fba0573c1b76de32d718407c8a6e6f6444671c3c", "blockNumber": "130011365", "status": "success", "budget": "0" },
+    { "step": "submit", "hash": "0x6b2979f8e073dd3c9f0b18085cc1740463e52f7bd08ace62bd982b33b92b703e", "blockNumber": "130011569", "status": "success" }
+  ],
+  "limitations": [
+    "The deliverable is deterministic read-only analysis, not a trade.",
+    "The job is zero-price and does not establish paid hiring.",
+    "Settlement is time-gated by the 24-hour dispute window and was not attempted."
+  ]
+}

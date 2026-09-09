@@ -161,5 +161,7 @@ test("card uses trusted origin even with forged forwarded host", () => {
   assert.equal(new URL(card.url).host, "b8xmarket-repo.vercel.app");
   assert.equal(card.metadata.registry.status, "registered_endpoint_verified_2026-09-09");
   assert.equal(card.metadata.registry.verificationBlock, "129959947");
+  assert.equal(card.metadata.activationEvidence.jobId, 1186);
+  assert.equal(card.metadata.activationEvidence.status, "SUBMITTED");
   assert.equal(card.metadata.paidHiring, false);
 });
